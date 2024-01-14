@@ -20,27 +20,26 @@ let chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats
 let groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats && !chat.metadata?.read_only && !chat.metadata?.announce).map(v => v[0])
 
 
-let texto = `*🚀 Velocidad*
+let texto = `*🚀 السرعه*
 • ${latensi.toFixed(4)}
 
-*⏰ Actividad*
+*⏰ النشاط*
 • ${muptime}
 
-*💌 Chats*
-• ${chats.length} *Chats privados*
-• ${groups.length} *Grupos*
+*💌 الشاتات*
+• ${chats.length} *البرايفت*
+• ${groups.length} *الجروبات*
 
-*💻 Servidor*
-• *Ram:* ${format(totalmem() - freemem())} / ${format(totalmem())}`.trim()
+*💻 الخادم*
+• *كبش:* ${format(totalmem() - freemem())} / ${format(totalmem())}`.trim()
 
-conn.sendMessage(m.chat, { text: texto, contextInfo: { externalAdReply: { title: '', body: 'CURIOSITY - BOT - MD', thumbnailUrl: 'https://telegra.ph/file/6cbf9148b572711e9b000.jpg', sourceUrl: '', mediaType: 1, renderLargerThumbnail: true }}})
+conn.sendMessage(m.chat, { text: texto, contextInfo: { externalAdReply: { title: '', body: 'mego - BOT - MD', thumbnailUrl: 'https://telegra.ph/file/6cbf9148b572711e9b000.jpg', sourceUrl: '', mediaType: 1, renderLargerThumbnail: true }}})
 
 }
 handler.help = ['ping']
 handler.tags = ['bot']
 handler.command = ['ping', 'speed']
 
-handler.register = true
 
 export default handler
 
