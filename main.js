@@ -105,7 +105,7 @@ global.chatgpt.chain = lodash.chain(global.chatgpt.data)
 }
 loadChatgptDB()
 
-global.authFile = `sessions`
+global.authFile = `mego md`
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
 const msgRetryCounterMap = (MessageRetryMap) => { };
 const msgRetryCounterCache = new NodeCache()
