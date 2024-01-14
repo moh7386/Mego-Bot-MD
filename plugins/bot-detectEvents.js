@@ -17,16 +17,16 @@ const links = linkSity.getRandom()
 
 if (chat.detect2 && m.messageStubType == 29) {
 let txt1 = `🚩 *لقد اصبح مشرف*\n\n`
-txt1 += `الرقم: @${m.messageStubParameters[0].split`@`[0]}\n`
-txt1 += `اللي ضافك مشرف: @${m.sender.split`@`[0]}`
+txt1 += `اللي ضافك مشرف: @${m.messageStubParameters[0].split`@`[0]}\n`
+txt1 += `اصبحت مشرف: @${m.sender.split`@`[0]}`
 
 await conn.sendMessage(m.chat, {text: txt1, mentions: [...txt1.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: { mentionedJid: [...txt1.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.wm, "containsAutoReply": true, "mediaType": 1, "thumbnail": img, "mediaUrl": links, "sourceUrl": links}}})
 }
 
 if (chat.detect2 && m.messageStubType == 30) {
 let txt2 = `🚩 *لم يعد مشرف بعد الان*\n\n`
-txt2 += `الرقم: @${m.messageStubParameters[0].split`@`[0]}\n`
-txt2 += `الخنزير اللي شالك: @${m.sender.split`@`[0]}`
+txt2 += `الخنزير اللي شالك 🚯: @${m.messageStubParameters[0].split`@`[0]}\n`
+txt2 += `لم تعد مشرف 🗿: @${m.sender.split`@`[0]}`
 
 await conn.sendMessage(m.chat, {text: txt2, mentions: [...txt2.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: { mentionedJid: [...txt2.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.wm, "containsAutoReply": true, "mediaType": 1, "thumbnail": img, "mediaUrl": links, "sourceUrl": links}}})
 }}
