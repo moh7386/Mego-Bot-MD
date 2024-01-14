@@ -27,7 +27,7 @@ break
 if (filesDeleted === 0) {
 await conn.reply(m.chat, '🚩 *لم يتم العثور على ملف يتضمن معرف الدردشة*', m, fake, )
 } else {
-await conn.reply(m.chat, `🎌 *Se eliminaron ${filesDeleted} archivos de sesión*`, m, fake, )
+await conn.reply(m.chat, `🎌 *تم حذف ${filesDeleted} ملف الجلسه*`, m, fake, )
 conn.reply(m.chat, `🌩️ *¡مرحب يخوي هل تراني*`, m, fake, )
 }
 } catch (err) {
