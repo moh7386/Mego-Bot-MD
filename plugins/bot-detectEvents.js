@@ -1,36 +1,32 @@
-import { WAMessageStubType } from '@adiwajshing/baileys'
+import {WAMessageStubType} from '@whiskeysockets/baileys'
+import fetch from 'node-fetch'
 
-export async function before(m, { conn }) {
-  if (!m.messageStubType || !m.isGroup) return
-  let usuario = `@${m.sender.split`@`[0]}`
-  let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-  //let pp = gataMenu.getRandom()
- //   let apii = await this.getFile(pp)
-  if (m.messageStubType == 21) {
-    await this.sendMessage(m.chat, { text: `${usuario} اسم جديد للجروب:\n\n*${m.messageStubParameters[0]}*`, mentions: [m.sender] }, { quoted: fkontak }) 
-  } else if (m.messageStubType == 22) {
-    await this.sendMessage(m.chat, { text: `${usuario} صورة جديده للجروب`, mentions: [m.sender] }, { quoted: fkontak }) 
-  } else if (m.messageStubType == 24) {
-    await this.sendMessage(m.chat, { text: `${usuario} وصف جيد للجروب:\n\n${m.messageStubParameters[0]}`, mentions: [m.sender] }, { quoted: fkontak })
-  } else if (m.messageStubType == 25) {
-    await this.sendMessage(m.chat, { text: `🔒 حاليا *${m.messageStubParameters[0] == 'on' ? 'الادمن بس' : 'الجميع'}* يمكنكم تعديل معلومات المجموعة.`, mentions: [m.sender] }, { quoted: fkontak })
-  } else if (m.messageStubType == 26) {
-    await this.sendMessage(m.chat, { text: `الجروب *${m.messageStubParameters[0] == 'on' ? 'مغلق 🔒' : 'مفتوح 🔓'}*\n ${m.messageStubParameters[0] == 'on' ? 'الادمن بس' : 'يلا'} انتشرو.`, mentions: [m.sender] }, { quoted: fkontak })
-  /* } else if (m.messageStubType == 28) {
-   conn.sendMessage(m.chat, { text: `${usuario} ELIMINO A @${m.messageStubParameters[0].split`@`[0]} 🫵`, mentions: [m.sender]}, { quoted: fkontak })  */
-  } else if (m.messageStubType == 29) {
-    await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} *لقد اصبحت زعيما*\n\n*ال ضافك ادمن*: ${usuario}`, mentions: [`${m.sender}`,`${m.messageStubParameters[0]}`] }, { quoted: fkontak })
-  } else if (m.messageStubType == 30) {
-    await this.sendMessage(m.chat, { text: `@${m.messageStubParameters[0].split`@`[0]} *لم تعد زعيما*\n\n*ال شالك م الادمن*: ${usuario}`, mentions: [`${m.sender}`,`${m.messageStubParameters[0]}`] }, { quoted: fkontak })
-  } else if (m.messageStubType == 72) {
-    await this.sendMessage(m.chat, { text: `${usuario} لقد غيرت مدة الرسائل المؤقتة إلى*@${m.messageStubParameters[0]}*`, mentions: [m.sender] }, { quoted: fkontak })
-  } else if (m.messageStubType == 123) {
-    await this.sendMessage(m.chat, { text: `${usuario} تعطيل  *الرسائل* المؤقتة..`, mentions: [m.sender] }, { quoted: fkontak })
-  } else {
-    console.log({
-      messageStubType: m.messageStubType,
-      messageStubParameters: m.messageStubParameters,
-      type: WAMessageStubType[m.messageStubType], 
-    });
-  }
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+export async function before(m, {conn, participants, groupMetadata}) {
+
+if (!m.messageStubType || !m.isGroup) return !0
+const groupName = (await conn.groupMetadata(m.chat)).subject
+const groupAdmins = participants.filter((p) => p.admin)
+const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || './src/avatar_contact.png'
+const img = await (await fetch(pp)).buffer()
+const chat = global.db.data.chats[m.chat]
+const mentionsString = [m.sender, m.messageStubParameters[0], ...groupAdmins.map((v) => v.id)]
+const mentionsContentM = [m.sender, m.messageStubParameters[0]]
+const links = linkSity.getRandom()
+
+if (chat.detect2 && m.messageStubType == 29) {
+let txt1 = `🚩 *لقد اصبح مشرف*\n\n`
+txt1 += `الرقم: @${m.messageStubParameters[0].split`@`[0]}\n`
+txt1 += `اللي ضافك مشرف: @${m.sender.split`@`[0]}`
+
+await conn.sendMessage(m.chat, {text: txt1, mentions: [...txt1.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: { mentionedJid: [...txt1.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.wm, "containsAutoReply": true, "mediaType": 1, "thumbnail": img, "mediaUrl": links, "sourceUrl": links}}})
 }
+
+if (chat.detect2 && m.messageStubType == 30) {
+let txt2 = `🚩 *لم يعد مشرف بعد الان*\n\n`
+txt2 += `الرقم: @${m.messageStubParameters[0].split`@`[0]}\n`
+txt2 += `الخنزير اللي شالك: @${m.sender.split`@`[0]}`
+
+await conn.sendMessage(m.chat, {text: txt2, mentions: [...txt2.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: { mentionedJid: [...txt2.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.wm, "containsAutoReply": true, "mediaType": 1, "thumbnail": img, "mediaUrl": links, "sourceUrl": links}}})
+}}
