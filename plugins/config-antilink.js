@@ -10,18 +10,18 @@ let bang = m.key.id
 let bot = global.db.data.settings[this.user.jid] || {}
 const isGroupLink = linkRegex.exec(m.text)
 const grupo = `https://chat.whatsapp.com`
-if (isAdmin && chat.antiLink && m.text.includes(grupo)) return conn.reply(m.chat, `🎌 *Hey!! el anti link esta activo pero eres admin, ¡salvado!*`, m, fake, )
+if (isAdmin && chat.antiLink && m.text.includes(grupo)) return conn.reply(m.chat, `🎌 *مرحبا!! انت ادمن عادي مش هحذفه!*`, m, fake, )
 if (chat.antiLink && isGroupLink && !isAdmin) {
 if (isBotAdmin) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
 if (m.text.includes(linkThisGroup)) return !0
 }
-await conn.reply(m.chat, `🚩 *¡Enlace detectado!*\n\n*${await this.getName(m.sender)} mandaste un enlace prohibido por lo cual seras eliminado*`, m, fake, )
-if (!isBotAdmin) return conn.reply(m.chat, `🚩 *No soy admin, no puedo eliminar intrusos*`, m, fake, )
+await conn.reply(m.chat, `🚩 *¡تم اكتشاف الرابط!*\n\n*${await this.getName(m.sender)} لقد قمت بإرسال رابط محظور وسيتم حذفك بسببه*`, m, fake, )
+if (!isBotAdmin) return conn.reply(m.chat, `🚩 *انا مش ادمن عشان اعرف اطردك*`, m, fake, )
 if (isBotAdmin) {
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-} else if (!bot.restrict) return conn.reply(m.chat, `*¡Esta característica esta desactivada!*`, m, fake, )
+} else if (!bot.restrict) return conn.reply(m.chat, `*¡تم تعطيل هذه الميذه من قبل المطور!*`, m, fake, )
 }
 return !0
 
