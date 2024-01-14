@@ -15,12 +15,12 @@ let json = await (await fetch(`https://aemt.me/bardimg?url=${media}&text=${text}
 
 conn.sendMessage(m.chat, { text: json.result }, { quoted: m })
 
-} else return conn.reply(m.chat, `*🎌 Manda una imagen con el comando y el texto a buscar*\n\nEjemplo, !bardimg dame información sobre lo que aparece en la imagen`, m, fake, )
+} else return conn.reply(m.chat, `*🎌 إرسال صورة مع الأمر والنص للبحث*\n\nمثال, .باردصوره أعطني معلومات حول ما يظهر في الصورة`, m, fake, )
 
 }
 handler.help = ['bardimg']
 handler.tags = ['ai']
-handler.command = /^(bardimg|bardimage)$/i
+handler.command = /^(باردصوره|bardimage)$/i
 
 handler.limit = true
 
