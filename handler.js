@@ -517,9 +517,9 @@ if (!id) continue
 let chats = global.db.data.chats[id], text = ''
 if (!chats?.detect) continue
 if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'تم تغيير الوصف إلى \n@desc').replace('@desc', groupUpdate.desc)
-if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'تم تغيير اسم المجموعة إلى\n@group').replace('@subject', groupUpdate.subject)
-if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'El icono del grupo cambió a').replace('@icon', groupUpdate.icon)
-if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'تغييرات رابط المجموعة a\n@revoke').replace('@revoke', groupUpdate.revoke)
+if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'تم تغير اسم الجروب الي \n@group').replace('@subject', groupUpdate.subject)
+if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'تم تغير صوره الجروب').replace('@icon', groupUpdate.icon)
+if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'رابط الجروب تم تغيره\n@revoke').replace('@revoke', groupUpdate.revoke)
 if (!text) continue
 await this.sendMessage(id, { text, mentions: this.parseMention(text) })
 }}
@@ -531,9 +531,9 @@ if (!isAnticall) return
 for (let cs of callUpdate) {
 if (cs.isGroup == false) {
 if (cs.status == "offer") {
-let callmsg = await this.reply(nk.from, `Hola *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'مكالمات فيديو' : 'المكالمات'} محظور، سيتم حظرك`, false, { mentions: [cs.from] })
-let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;mego 👑;;;\nFN:Azami\nORG:mego 👑\nTITLE:\nitem1.TEL;waid=201012531172:+598 9999\nitem1.X-ABLabel:mego 👑\nX-WA-BIZ-DESCRIPTION:مجرد أشياء بوت.\nX-WA-BIZ-NAME:mego 👑\nEND:VCARD`
-await this.sendMessage(cs.from, { contacts: { displayName: 'mego 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
+let callmsg = await this.reply(nk.from, `Hola *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'videollamadas' : 'llamadas'} están prohibidas, seras bloqueado`, false, { mentions: [cs.from] })
+let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;mego 👑;;;\nFN:mego\nORG:mego 👑\nTITLE:\nitem1.TEL;waid=201012531172:+598 9999\nitem1.X-ABLabel:mego 👑\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:mego 👑\nEND:VCARD`
+await this.sendMessage(cs.from, { contacts: { displayName: 'Azami 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
 await this.updateBlockStatus(cs.from, 'block')
 }}}
 }
@@ -550,7 +550,7 @@ return
 let chat = global.db.data.chats[msg.chat] || {}
 if (chat.delete)
 return
-await this.reply(msg.chat, `🔎 لقد تم حذف الرساله
+await this.reply(msg.chat, `🔎 تم حذف رساله
 🧃 *الرقم:* @${participant.split`@`[0]} 
 `.trim(), msg, {
 mentions: [participant]
