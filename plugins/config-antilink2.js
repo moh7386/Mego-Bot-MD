@@ -17,11 +17,11 @@ if (m.text.includes(linkThisGroup)) return !0
 if (m.text.includes(linkThisGroup2)) return !0
 if (m.text.includes(linkThisGroup3)) return !0
 }
-await conn.reply(m.chat, `🚩 *¡Enlace detectado!*\n\n*${await this.getName(m.sender)} rompiste las reglas, seras eliminado*`, m, fake, )
-if (!isBotAdmin) return conn.reply(m.chat, `🚩 *No soy admin, no puedo eliminar intrusos*`, m, fake, )
+await conn.reply(m.chat, `🚩 *¡تم اكتشاف الرابط!*\n\n*${await this.getName(m.sender)} لقد خالفت القواعد، سيتم القضاء عليك*`, m, fake, )
+if (!isBotAdmin) return conn.reply(m.chat, `🚩 *انا لست ادمن حتي اطردك*`, m, fake, )
 if (isBotAdmin && bot.restrict) {
 await conn.groupParticipantsUpdate(m.chat, [m.sender],'remove')
-} else if (!bot.restrict) return conn.reply(m.chat, `*¡Esta característica esta desactivada!*`, m, fake, )
+} else if (!bot.restrict) return conn.reply(m.chat, `*¡تم تعطيل هذه الميزة من قبل المطور !*`, m, fake, )
 }
 return !0
 
