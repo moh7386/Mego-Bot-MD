@@ -166,17 +166,17 @@ let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
 if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.bold.redBright("Configure el archivo 'config.js' porque su número de WhatsApp no comienza con el código de país, Ejemplo: +593xxxx")))
+console.log(chalk.bgBlack(chalk.bold.redBright("Configure el archivo 'config.js' porque su número de WhatsApp no comienza con el código de país, Ejemplo: +20xxxx")))
 process.exit(0)
 }} else {
 while (true) {
-addNumber = await question(chalk.bgBlack(chalk.bold.yellowBright('Escriba su número de WhatsApp.\nEjemplo: +593xxx\n')))
+addNumber = await question(chalk.bgBlack(chalk.bold.yellowBright('اكتب رقم الواتساب الخاص بك.\nEjemplo: +593xxx\n')))
 addNumber = addNumber.replace(/[^0-9]/g, '')
 
 if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 break 
 } else {
-console.log(chalk.bgBlack(chalk.bold.redBright("Asegúrese de agregar el código de país.")))
+console.log(chalk.bgBlack(chalk.bold.redBright("تأكد من إضافة الرمز.")))
 }}
 //rl.close()
 }
@@ -216,13 +216,13 @@ return false
 
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("./sessions")
+let directorio = readdirSync("./mego md")
 let filesFolderPreKeys = directorio.filter(file => {
 return file.startsWith('pre-key-')
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
-unlinkSync(`./sessions/${files}`)
+unlinkSync(`./mego md/${files}`)
 })
 }
 
@@ -241,11 +241,11 @@ unlinkSync(`./jadibts/${directorio}/${fileInDir}`)
 }) }})
 if (SBprekey.length === 0) return
 } catch (err) {
-console.log(chalk.bold.red(`⚠️ Algo salio mal durante la eliminación, archivos no eliminados`))
+console.log(chalk.bold.red(`⚠️ حدث خطأ ما أثناء الحذف، ولم يتم حذف الملفات`))
 }}
 
 function purgeOldFiles() {
-const directories = ['./sessions/', './jadibts/']
+const directories = ['./mego md/', './jadibts/']
 const oneHourAgo = Date.now() - (60 * 60 * 1000)
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
@@ -338,14 +338,14 @@ conn.ev.off('connection.update', conn.connectionUpdate);
 conn.ev.off('creds.update', conn.credsUpdate)
 }
 
-conn.welcome = '*• Hola, Gracias por unirte!!*\n*━━━━━━━━━━━━━━━━━━━*\n\n🍧 *• Nombre:* @user\n🗓️ *• Fecha:* @date\n⏰ *• Hora:* @time\n\n*⚠️  Recuerda leer la descripción*\n@readMore\n@desc'
-conn.bye = '*• Gracias por haber sido parte del grupo*\n*━━━━━━━━━━━━━━━━━━━━━━━━━*\n\n🍧 *• Nombre:* @user\n🗓️ *• Fecha:* @date\n⏰ *• Hora:* @time'
-conn.spromote = '*@user* ¡Se suma al grupo de admins¡'
-conn.sdemote = '*@user* ¡Abandona el grupo!'
-conn.sDesc = '¡Se ha modificado la descripción!\n\n*Nueva descripción:* @desc'
-conn.sSubject = '¡Se ha modificado el título del grupo!'
-conn.sIcon = '¡Se ha cambiado la foto del grupo!'
-conn.sRevoke = '¡Se ha actualizado el enlace del grupo!*\n*Nuevo enlace:* @revoke'
+conn.welcome = '*•نورت الجروب يحب 👾!*\n*━━━━━━━━━━━━━━━━━━━*\n\n🍧 *•الرقم:* @user\n🗓️ *•البايو:* @date\n⏰ *•موعد انضمامك الينا:* @time\n\n*⚠️ شوف الوصف يحب*\n@readMore\n@desc'
+conn.bye = '*• المركب اللي تودي مترجعش 🚯*\n*━━━━━━━━━━━━━━━━━━━━━━━━━*\n\n🍧 *• الرقم:* @user\n🗓️ *•البايو:* @date\n⏰ *• موعد خروجه من جروبنا:* @time'
+conn.spromote = '*@user* ¡انضم إللي جروب الاداره¡'
+conn.sdemote = '*@user* ¡اترك المجموعة!'
+conn.sDesc = '¡تم تغيير الوصف!\n\n*الوصف الجديد:* @desc'
+conn.sSubject = '¡تم تغيير العنوان!'
+conn.sIcon = '¡تم تغيير الصورة الجماعية!'
+conn.sRevoke = '¡تم تحديث الرابط!*\n*الرابط الجديد:* @revoke'
         
 
 conn.handler = handler.handler.bind(global.conn)
