@@ -13,7 +13,7 @@ let buffer = Buffer.from([])
 for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])}
 if (/video/.test(type)) {
-return this.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption}\n\n🚩 *Aqui no se permite ocultar ningún video*`, m)
+return this.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption}\n\n🚩 *إخفاء أي فيديو غير مسموح به هنا.*`, m)
 } else if (/image/.test(type)) {
-return this.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption}\n\n🚩 *Aqui no se permite ocultar ningúna imágen*`, m)
+return this.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption}\n\n🚩 *إخفاء أي صوره غير مسموح به هنا.*`, m)
 }}}
