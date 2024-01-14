@@ -33,12 +33,12 @@ let texto = `*🚀 السرعه*
 *💻 الخادم*
 • *كبش:* ${format(totalmem() - freemem())} / ${format(totalmem())}`.trim()
 
-conn.sendMessage(m.chat, { text: texto, contextInfo: { externalAdReply: { title: '', body: 'mego - BOT - MD', thumbnailUrl: 'https://telegra.ph/file/6cbf9148b572711e9b000.jpg', sourceUrl: '', mediaType: 1, renderLargerThumbnail: true }}})
+conn.sendMessage(m.chat, { text: texto, contextInfo: { externalAdReply: { title: '', body: 'mego - BOT - MD', thumbnailUrl: 'https://telegra.ph/file/921f25be8cfbe7623bbda.jpg', sourceUrl: '', mediaType: 1, renderLargerThumbnail: true }}})
 
 }
 handler.help = ['ping']
 handler.tags = ['bot']
-handler.command = ['ping', 'speed']
+handler.command = ['بينغ', 'speed']
 
 
 export default handler
