@@ -18,7 +18,7 @@ await conn.sendMessage(m.chat, {text: `${waitttt}`, edit: key})
 
 try {
 let p = await fg.tiktok(args[0])
-let te = `*Nombre:* ${p.nickname}
+let te = `*الاسم:* ${p.nickname}
 *المستخدم:* ${p.unique_id}
 *الوقت:* ${p.duration}
 *الوصف:* ${p.description}`
