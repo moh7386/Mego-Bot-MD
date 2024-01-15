@@ -1,6 +1,6 @@
 var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
 
-let isEnable = /true|enable|(افتح)?on|1/i.test(command)
+let isEnable = /افتح|اقفل|1/i.test(command)
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[conn.user.jid] || {}
@@ -295,7 +295,7 @@ _${usedPrefix + command} *autoread*_
 _${usedPrefix + command} *modejadibot*_`, m, fake, )
 throw false
 }
-conn.reply(m.chat, `*${isEnable ? '❕' : '❗'} La función ${type} se a ${isEnable ? 'activado' : 'desactivado'} en ${isAll ? 'bot' : isUser ? '' : 'este chat.'}*`, m, fake, )
+conn.reply(m.chat, `*${isEnable ? '❕' : '❗'} الوظيفه ${type} se a ${isEnable ? 'مفعل' : 'غير مفعل'} en ${isAll ? 'بوت' : isUser ? '' : 'إنها دردشة.'}*`, m, fake, )
 
 }
 handler.help = ['en', 'dis'].map(v => v + 'able')
