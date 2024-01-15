@@ -13,9 +13,9 @@ try {
 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'اغنيه') {
+if (command === 'play') {
 additionalText = 'audio'
-} else if (command === 'فيديو) {
+} else if (command === 'play2') {
 additionalText = 'video'}
 
 let texto1 = `*∘العنوان*
@@ -24,7 +24,7 @@ ${yt_play[0].title}
 *∘الوقت* 
 ${secondString(yt_play[0].duration.seconds)}
 
-*∘مؤلف*
+*∘ المؤلف*
 ${yt_play[0].author.name}
 
 *∘القناه*
@@ -33,7 +33,7 @@ ${yt_play[0].author.url}
 *∘الرابط*
 ${yt_play[0].url}
 
-*انتظر ${additionalText}*
+*ارسال ${additionalText}*
 ⏰ *الرجاء الانتظار حين يتم تلبيه طلبك صلي علي نبينا محمد*`.trim()
 await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: { title: yt_play[0].title, body: dev, thumbnailUrl: yt_play[0].thumbnail, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 
@@ -118,14 +118,13 @@ m.react(error)
 await conn.reply(m.chat, '🚩 *حدث فشل*', m, fake, ) }}}    
 }} catch {
 m.react(error)
-return conn.reply(m.chat, '🚩 *حاول ثانية*', m, fake, )}
+return conn.reply(m.chat, '🚩 *حاول ثانيه*', m, fake, )}
 
 }
 handler.help = ['اغنيه', 'فيديو']
 handler.tags = ['descargas']
 handler.command = /^play2?$/i
 
-handler.register = true
 handler.limit = true
 
 export default handler
