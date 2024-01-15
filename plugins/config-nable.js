@@ -1,13 +1,13 @@
 var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
 
-let isEnable = /true|enable|(turn)?on|1/i.test(command)
+let isEnable = /true|enable|(افتح)?on|1/i.test(command)
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[conn.user.jid] || {}
 let type = (args[0] || '').toLowerCase()
 let isAll = false, isUser = false
 switch (type) {
-case 'welcome':
+case 'ترحيب':
 if (!m.isGroup) {
 if (!isOwner) {
 global.dfail('group', m, conn)
@@ -19,13 +19,13 @@ throw false
 }
 chat.welcome = isEnable
 break
-case 'autolevelup':
+case 'مستوي':
 case 'levelup':
 isUser = true
 user.autolevelup = isEnable
 break
-case 'simsimi':
-case 'simi':
+case 'يسمسمي':
+case 'سمسمي':
 case 'chatbot':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
@@ -34,7 +34,7 @@ throw false
 }}
 chat.simi = isEnable
 break
-case 'detect':
+case 'كشف':
 if (!m.isGroup) {
 if (!isOwner) {
 global.dfail('group', m, conn)
@@ -46,7 +46,7 @@ throw false
 }
 chat.detect = isEnable
 break
-case 'detect2':
+case 'كشف2':
 if (!m.isGroup) {
 if (!isOwner) {
 global.dfail('group', m, conn)
@@ -270,16 +270,16 @@ break
 default:
 if (!/[01]/.test(command)) return await conn.reply(m.chat, `*🧃 OPCIONES PARA GRUPO*
 
-_${usedPrefix + command} *welcome*_
+_${usedPrefix + command} *ترحيب*_
 _${usedPrefix + command} *antilink*_
 _${usedPrefix + command} *antilink2*_
 _${usedPrefix + command} *antifake*_
 _${usedPrefix + command} *antitraba*_
 _${usedPrefix + command} *antitoxic*_
-_${usedPrefix + command} *autolevelup*_
+_${usedPrefix + command} *مستوي*_
 _${usedPrefix + command} *nsfw*_
-_${usedPrefix + command} *simi*_
-_${usedPrefix + command} *detect*_
+_${usedPrefix + command} *سمسمي*_
+_${usedPrefix + command} *كشف*_
 _${usedPrefix + command} *modoadmin*_
 _${usedPrefix + command} *antisticker*_
 _${usedPrefix + command} *autosticker*_
@@ -300,6 +300,6 @@ conn.reply(m.chat, `*${isEnable ? '❕' : '❗'} La función ${type} se a ${isEn
 }
 handler.help = ['en', 'dis'].map(v => v + 'able')
 handler.tags = ['nable', 'owner']
-handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
+handler.command = /^(افتح|اقفل)$/i
 
 export default handler
