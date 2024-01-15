@@ -34,6 +34,5 @@ handler.tags = ['descargas']
 handler.command = ['mediafire', 'ميديافاير']
 
 handler.diamond = true
-handler.register = true
 
 export default handler
