@@ -1,52 +1,29 @@
-import fg from 'api-dylux'
-import { tiktokdl } from '@bochilteam/scraper'
-
-var handler = async (m, { conn, text, args, usedPrefix, command}) => {
-
-if (!args[0]) return conn.reply(m.chat, `🎌 *أدخل رابط التيك توك*\n\nمثال, !${command} https://vm.tiktok.com/ZMYG92bUh/`, m, fake, )
-if (!args[0].match(/tiktok/gi)) return conn.reply(m.chat, `🚩 *التحقق من صحة الرابط*`, m, fake, )
-
-m.react(rwait)
-
-const { key } = await conn.sendMessage(m.chat, {text: `${wait}`}, {quoted: m})
-await delay(1000 * 1)
-await conn.sendMessage(m.chat, {text: `${waitt}`, edit: key})
-await delay(1000 * 1)
-await conn.sendMessage(m.chat, {text: `${waittt}`, edit: key})
-await delay(1000 * 1)
-await conn.sendMessage(m.chat, {text: `${waitttt}`, edit: key})
-
-try {
-let p = await fg.tiktok(args[0])
-let te = `*الاسم:* ${p.nickname}
-*المستخدم:* ${p.unique_id}
-*الوقت:* ${p.duration}
-*الوصف:* ${p.description}`
-conn.sendFile(m.chat, p.play, 'tiktok.mp4', te, m)
-m.react(done)
-} catch {
-
+import fetch from 'node-fetch'
+import { tiktokdl, tiktokdlv2, tiktokdlv3 } from '@bochilteam/scraper'
+let handler = async (m, { conn, text, usedPrefix, command, args }) => {
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+if (!text) return conn.reply(m.chat, `*عايز تحمل ايه*\n*ابعت رابط الفيديو الي عايزه*\n*مثال:*\n*${usedPrefix + command} https://vm.tiktok.com/ZM29j1NYq*`, fkontak,  m)
+if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) return conn.reply(m.chat, `*❐┃خطئ رابط غير صحيح┃❌ ❯*`, fkontak,  m)  
 try {
 
+  const { key } = await conn.sendMessage(m.chat, {text: `${wait}`}, {quoted: m})
+  await delay(1000 * 1)
+  await conn.sendMessage(m.chat, {text: `${waitt}`, edit: key})
+  await delay(1000 * 1)
+  await conn.sendMessage(m.chat, {text: `${waittt}`, edit: key})
+  await delay(1000 * 1)
+  await conn.sendMessage(m.chat, {text: `${waitttt}`, edit: key})
+  
 const { author: { nickname }, video, description } = await tiktokdl(args[0])
+.catch(async _ => await tiktokdlv2(args[0]))
+.catch(async _ => await tiktokdlv3(args[0]))
 const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd
-
-m.react(error)
-if (!url) return conn.reply(m.chat, `🚩 *حدث فشل*`, m, fake, )
-conn.sendFile(m.chat, url, 'fb.mp4', `*Nombre:* ${nickname}\n*Descripción:* ${description}`, m)
-m.react(done)
+if (!url) return conn.reply(m.chat, `*اوووف, خطأ أثناء محاولة تنزيل الفيديو ، يرجى المحاولة مرة أخرى*`, fkontak,  m)
+conn.sendFile(m.chat, url, 'tiktok.mp4', `*❐┃تـم تـنـفـيـذ الامـر┃✅ ❯* `.trim(), m)
 } catch {
-m.react(error)
-conn.reply(m.chat, `🚩 *حدث فشل*`, m, fake, )
 }}
-    
-}
 handler.help = ['tiktok']
-handler.tags = ['descargas']
-handler.command = /^(تيك|ttdl|تيك توك|tiktoknowm)$/i
-
-handler.limit = true
-
+handler.tags = ['dl']
+handler.command = /^(tt|tiktok)(dl|nowm)|تيك|تيكتوك|تيك-توك$/i
+handler.limit = false
 export default handler
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
