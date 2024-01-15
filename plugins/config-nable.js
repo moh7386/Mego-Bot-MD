@@ -275,7 +275,7 @@ throw false
 }
 bot.antiCall = isEnable
 default:
-if (!/[01]/.test(command)) return await conn.reply(m.chat, `*🧃 OPCIONES PARA GRUPO*
+if (!/[01]/.test(command)) return await conn.reply(m.chat, `*🚨 خيارات الجروبات*
 
 ${usedPrefix + command} *ترحيب*
 ${usedPrefix + command} *مضادلينكات*
@@ -293,7 +293,7 @@ ${usedPrefix + command} *مضاداستيكر*
 ${usedPrefix + command} *استيكرتلقائي*
 ${usedPrefix + command} *مضادحذف*
 
-*🍧 المطور فقط*
+*👑 المطور فقط*
 
 ${usedPrefix + command} *تقييد*
 ${usedPrefix + command} *عام*
