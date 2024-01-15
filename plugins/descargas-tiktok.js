@@ -18,9 +18,9 @@ await conn.sendMessage(m.chat, {text: `${waitttt}`, edit: key})
 
 try {
 let p = await fg.tiktok(args[0])
-let te = `*الاسم:* ${p.nickname}
+let te = `*Nombre:* ${p.nickname}
 *المستخدم:* ${p.unique_id}
-*المده:* ${p.duration}
+*الوقت:* ${p.duration}
 *الوصف:* ${p.description}`
 conn.sendFile(m.chat, p.play, 'tiktok.mp4', te, m)
 m.react(done)
@@ -33,7 +33,7 @@ const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + 
 
 m.react(error)
 if (!url) return conn.reply(m.chat, `🚩 *حدث فشل*`, m, fake, )
-conn.sendFile(m.chat, url, 'fb.mp4', `*الاسم:* ${nickname}\n*الوصف:* ${description}`, m)
+conn.sendFile(m.chat, url, 'fb.mp4', `*Nombre:* ${nickname}\n*Descripción:* ${description}`, m)
 m.react(done)
 } catch {
 m.react(error)
@@ -43,7 +43,7 @@ conn.reply(m.chat, `🚩 *حدث فشل*`, m, fake, )
 }
 handler.help = ['tiktok']
 handler.tags = ['descargas']
-handler.command = /^(tiktok|ttdl|تيك|تيك توك)$/i
+handler.command = /^(تيك|ttdl|تيك توك|tiktoknowm)$/i
 
 handler.limit = true
 
