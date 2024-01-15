@@ -1,29 +1,19 @@
-export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, command, usedPrefix }) {
-    if (m.isBaileys && m.fromMe) return !0
-    if (m.isGroup) return !1
-    if (!m.message) return !0
+export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
 
-    // إذا احتوت الرسالة على أحد الكلمات المحظورة
-    if (m.text.includes('المطور') || m.text.includes('الدعم') || m.text.includes('سورس') || m.text.includes('مطور') || m.text.includes('owner') || m.text.includes('https://chat')) return !0
-    // التحقق من إعدادات البوت المحلية
-    let chat = global.db.data.chats[m.chat]
-    let user = global.db.data.users[m.sender]
-    let bot = global.db.data.settings[this.user.jid] || {}
-    // إذا كانت ميزة "antiPrivate" مفعلة وليس المستخدم مالك البوت أو مالكه الرئيسي
-    if (bot.gconly && !isOwner) {
-        await m.reply(`*~⚠️ ❗إخـطــــار❗⚠️~*\n*⌊ @${m.sender.split`@`[0]} ⌉*
+if (m.isBaileys && m.fromMe) return !0
+if (m.isGroup) return !1
+if (!m.message) return !0
+if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') || m.text.includes('estado') || m.text.includes('verificar') || m.text.includes('creadora') || m.text.includes('bottemporal') || m.text.includes('grupos') || m.text.includes('instalarbot') || m.text.includes('términos') || m.text.includes('bots') || m.text.includes('deletebot') || m.text.includes('eliminarsesion') || m.text.includes('serbot') || m.text.includes('verify') || m.text.includes('register') || m.text.includes('registrar') || m.text.includes('reg') || m.text.includes('reg1') || m.text.includes('nombre') || m.text.includes('name') || m.text.includes('nombre2') || m.text.includes('name2') || m.text.includes('edad') || m.text.includes('age') || m.text.includes('edad2') || m.text.includes('age2') || m.text.includes('genero') || m.text.includes('género') || m.text.includes('gender') || m.text.includes('identidad') || m.text.includes('pasatiempo') || m.text.includes('hobby') || m.text.includes('identify') || m.text.includes('finalizar') || m.text.includes('pas2') || m.text.includes('pas3') || m.text.includes('pas4') || m.text.includes('pas5') || m.text.includes('registroC') || m.text.includes('deletesesion') || m.text.includes('registroR') || m.text.includes('jadibot')) return !0
 
-من فضلك لا ترسل رسالة إلى البوت بشكل خاص ، قد يؤدي هذا في حظر رقم البوت ، فقط *مالك البوت* یمکنه استخدام البوت في دردشه الخاصه.
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let chat = global.db.data.chats[m.chat]
+let user = global.db.data.users[m.sender]
+let bot = global.db.data.settings[this.user.jid] || {}
 
-لايمكنك استخدام البوت الا في المجموعات واذا لديك مجموعة تكلم مع مالك
-البوت وقل له، واذا لم يكن لديك، ادخل المجموعة التي في الاسفل
+if (bot.antiPrivate && !isOwner && !isROwner) {
+await m.reply(`🎌 *Hola* @${who.replace(/@.+/, '')}, *لا يمكن استخدام البوت برايفت الا المطور*\n\n*انضم اللي المجموعه الخاصه بالبوت لمتابعه الجديد من ميجو بوت*
+*https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J*\n${nn}`, false, { mentions: [who] })
+await conn.groupParticipantsUpdate(m.chat, [m.sender], 'banchat')
 
-*🔹مــالــــك البــوت :*
-• WhatsApp : wa.me/+201012531172
-•
-*🔹رابــط الـجــروب :*
-• group : https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J`, false, { mentions: [m.sender] })
-        await conn.groupParticipantsUpdate(m.chat, [m.sender], 'banchat)
-        return !1
-    }
-}
+return !1
+}}
