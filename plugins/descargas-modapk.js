@@ -8,7 +8,7 @@ try {
  
 let searchA = await search(text)
 let data5 = await download(searchA[0].id)
-let response = `💌 *Nombre:* ${data5.name}\n📦 *الاسم:* ${data5.package}\n🕒 *تاريخ:* ${data5.lastup}\n📥 *الحجم:* ${data5.size}`
+let response = `💌 *الاسم:* ${data5.name}\n📦 *الحزمه:* ${data5.package}\n🕒 *تاريخ تحديث:* ${data5.lastup}\n📥 *الحجم:* ${data5.size}`
 await conn.sendMessage(m.chat, { text: response, contextInfo: { externalAdReply: { title: data5.name, body: wm, sourceUrl: md, thumbnailUrl: data5.icon, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })   
 
  if (data5.size.includes('GB') || data5.size.replace(' MB', '') > 999) {
