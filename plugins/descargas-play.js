@@ -123,7 +123,7 @@ return conn.reply(m.chat, '🚩 *حاول ثانيه*', m, fake, )}
 }
 handler.help = ['اغنيه', 'فيديو']
 handler.tags = ['descargas']
-handler.command = /^فيديو?$/i
+handler.command = /^اغنيه|فيديو?$/i
 
 handler.limit = true
 
