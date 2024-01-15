@@ -7,7 +7,7 @@ let bot = global.db.data.settings[conn.user.jid] || {}
 let type = (args[0] || '').toLowerCase()
 let isAll = false, isUser = false
 switch (type) {
-case 'welcome':
+case 'ترحيب':
 if (!m.isGroup) {
 if (!isOwner) {
 global.dfail('group', m, conn)
@@ -19,13 +19,13 @@ throw false
 }
 chat.welcome = isEnable
 break
-case 'autolevelup':
+case 'مستوي':
 case 'levelup':
 isUser = true
 user.autolevelup = isEnable
 break
 case 'simsimi':
-case 'simi':
+case 'سمسمي':
 case 'chatbot':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
@@ -34,7 +34,7 @@ throw false
 }}
 chat.simi = isEnable
 break
-case 'detect':
+case 'كشف':
 if (!m.isGroup) {
 if (!isOwner) {
 global.dfail('group', m, conn)
@@ -46,7 +46,7 @@ throw false
 }
 chat.detect = isEnable
 break
-case 'detect2':
+case 'كشف2':
 if (!m.isGroup) {
 if (!isOwner) {
 global.dfail('group', m, conn)
@@ -57,7 +57,7 @@ throw false
 }
 chat.detect2 = isEnable
 break
-case 'delete':
+case 'حذف':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -65,7 +65,7 @@ throw false
 }}
 chat.delete = isEnable
 break
-case 'antibule':
+case 'مضاد':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -73,7 +73,7 @@ throw false
 }}
 chat.antibule = !isEnable
 break
-case 'antidelete':
+case 'مضادحذف':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -81,7 +81,7 @@ throw false
 }}
 chat.delete = !isEnable
 break
-case 'antiviewonce':
+case 'صوراخفاء':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -89,7 +89,7 @@ throw false
 }}
 chat.viewonce = isEnable
 break
-case 'public':
+case 'عام':
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
@@ -97,7 +97,7 @@ throw false
 }
 global.opts['self'] = !isEnable
 break
-case 'antilink':
+case 'مضادلينكات':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -105,7 +105,7 @@ throw false
 }}
 chat.antiLink = isEnable
 break
-case 'antilink2':
+case 'مضادلينكات2':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -121,7 +121,7 @@ throw false
 }}
 chat.antitraba = isEnable
 break
-case 'antitoxic':
+case 'مضادشتايم':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -137,7 +137,7 @@ throw false
 }}
 chat.modohorny = isEnable
 break
-case 'autosticker':
+case 'استيكرتلقائي':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -145,7 +145,7 @@ throw false
 }}
 chat.autosticker = isEnable
 break
-case 'audios':
+case 'اصوات':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -153,7 +153,7 @@ throw false
 }}
 chat.audios = isEnable
 break
-case 'autobio':
+case 'بايو':
 isAll = true
 if (!(isOwner)) {
 global.dfail('rowner', m, conn)
@@ -161,7 +161,7 @@ throw false
 }
 bot.autoBio = isEnable
 break
-case 'restrict':
+case 'تقييد':
 isAll = true
 if (!isOwner) {
 global.dfail('owner', m, conn)
@@ -169,7 +169,7 @@ throw false
 }
 bot.restrict = isEnable
 break
-case 'modejadibot':
+case 'البوت_الفرعي':
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
@@ -185,7 +185,7 @@ throw false
 }
 global.opts['nyimak'] = isEnable
 break
-case 'autoread':
+case 'الصحين':
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
@@ -198,7 +198,7 @@ case 'sololatino':
 case 'onlylatinos':
 case 'onlylat':
 case 'antiarabe':
-case 'antifake':
+case 'مضادالفيك':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -206,7 +206,7 @@ throw false
 }}
 chat.onlyLatinos = isEnable
 break
-case 'modoadmin':
+case 'ادمن_فقط':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -215,7 +215,7 @@ throw false
 chat.modoadmin = isEnable
 break
 case 'antistickers':
-case 'antisticker':
+case 'مضاداستيكر':
 case 'antipegatina':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
@@ -223,8 +223,8 @@ throw false
 }}
 chat.antiSticker = isEnable
 break
-case 'pconly':
-case 'privateonly':
+case 'برايفت':
+case 'برايفتت':
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
@@ -232,8 +232,8 @@ throw false
 }
 global.opts['pconly'] = isEnable
 break
-case 'gconly':
-case 'grouponly':
+case 'جروبات':
+case 'جروباتت':
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
@@ -250,7 +250,7 @@ throw false
 }}
 chat.nsfw = isEnable
 break
-case 'antiprivado':
+case 'مضادبرايفت':
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
@@ -267,32 +267,42 @@ throw false
 }
 global.opts['swonly'] = isEnable
 break
+case 'مضادمكالمات':
+isAll = true
+if (!isROwner) {
+global.dfail('rowner', m, conn)
+throw false
+}
+bot.antiCall = isEnable
 default:
 if (!/[01]/.test(command)) return await conn.reply(m.chat, `*🧃 OPCIONES PARA GRUPO*
 
-_${usedPrefix + command} *welcome*_
-_${usedPrefix + command} *antilink*_
-_${usedPrefix + command} *antilink2*_
-_${usedPrefix + command} *antifake*_
-_${usedPrefix + command} *antitraba*_
-_${usedPrefix + command} *antitoxic*_
-_${usedPrefix + command} *autolevelup*_
-_${usedPrefix + command} *nsfw*_
-_${usedPrefix + command} *simi*_
-_${usedPrefix + command} *detect*_
-_${usedPrefix + command} *modoadmin*_
-_${usedPrefix + command} *antisticker*_
-_${usedPrefix + command} *autosticker*_
-_${usedPrefix + command} *antibule*_
+${usedPrefix + command} *ترحيب*
+${usedPrefix + command} *مضادلينكات*
+${usedPrefix + command} *مضادلينكات2*
+${usedPrefix + command} *مضادالفيك*
+${usedPrefix + command} *صوراخفاء*
+${usedPrefix + command} *مضادشتايم*
+${usedPrefix + command} *مستوي*
+${usedPrefix + command} *+18*
+${usedPrefix + command} *سمسمي*
+${usedPrefix + command} *كشف*
+${usedPrefix + command} *مضاد*
+${usedPrefix + command} *ادمن_فقط*
+${usedPrefix + command} *مضاداستيكر*
+${usedPrefix + command} *استيكرتلقائي*
+${usedPrefix + command} *مضادحذف*
 
-*🍧 OPCIONES DE PROPIETARIO*
+*🍧 المطور فقط*
 
-_${usedPrefix + command} *restrict*_
-_${usedPrefix + command} *public*_
-_${usedPrefix + command} *pconly*_
-_${usedPrefix + command} *gconly*_
-_${usedPrefix + command} *autoread*_
-_${usedPrefix + command} *modejadibot*_`, m, fake, )
+${usedPrefix + command} *تقييد*
+${usedPrefix + command} *عام*
+${usedPrefix + command} *برايفت*
+${usedPrefix + command} *جروبات*
+${usedPrefix + command} *الصحين*
+${usedPrefix + command} *مضادبرايفت*
+${usedPrefix + command} *مضادمكالمات*
+${usedPrefix + command} *البوت_الفرعي*`, m, fake, )
 throw false
 }
 conn.reply(m.chat, `*${isEnable ? '🔓' : '🔒'} الخيار ${type}  ${isEnable ? 'شغال' : 'قافل'} ل ${isAll ? 'هذا البوت' : isUser ? '' : 'هذا الدردشه.'}*`, m, fake, )
