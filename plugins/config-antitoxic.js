@@ -1,4 +1,4 @@
-const toxicRegex = /puto|puta|rata|estupido|imbecil|rctmre|mrd|verga|vrga|maricon/i
+const toxicRegex = /كسمك|خول|عرص|متنام|امك|احا|mrd|يمتناك|اختك|maricon/i
 
 export async function before(m, {isAdmin, isOwner}) {
 if (m.isBaileys && m.fromMe) return !0
@@ -10,7 +10,7 @@ const isToxic = toxicRegex.exec(m.text)
 if (isToxic && chat.antiToxic && !isOwner && !isAdmin) {
 user.warn += 1
 if (!(user.warn >= 4))
-await m.reply(`${user.warn == 1 ? `NOO 😠 *@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`}, قل الكلمة (${isToxic}) يحظر *${user.warn}/6* تحذير (تحذيرات)`, false, {mentions: [m.sender]})
+await m.reply(`${user.warn == 1 ? `لا 😠 *@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`}, قل الكلمة (${isToxic}) يحظر *${user.warn}/6* تحذير (تحذيرات)`, false, {mentions: [m.sender]})
 }
 
 if (user.warn >= 4) {
