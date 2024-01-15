@@ -20,34 +20,34 @@ global.rosas = fs.readFileSync('./storage/imagenes/rosas.jpg')
 global.refran = fs.readFileSync('./storage/imagenes/refran.jpg')
 global.linksjpg = fs.readFileSync('./storage/imagenes/Links.jpg')
 
-var img = 'https://telegra.ph/file/139a1dd3560cd4a6bffe9.jpg'; var img1 = 'https://telegra.ph/file/8b89a9bc901b84006d948.jpg'; var img3 = 'https://telegra.ph/file/13aa381988656db8ba059.jpg'; var img4 = 'https://telegra.ph/file/c48531dbfe2fe17093e4d.jpg'; var img5 = 'https://telegra.ph/file/d64e69dc4321125f1c42c.jpg'
-var img6 = 'https://telegra.ph/file/85c5071f1c2a3763ca278.jpg'
+var img = 'https://telegra.ph/file/e59f3edc315f507402cd2.jpg'; var img1 = 'https://telegra.ph/file/8779a165cc3d43a1d99f4.jpg'; var img3 = 'https://telegra.ph/file/066e5c8832970e93ff312.jpg'; var img4 = 'https://telegra.ph/file/562e70316f30a9437ab16.jpg'; var img5 = 'https://telegra.ph/file/923496bc59defa3f0542c.jpg'
+var img6 = 'https://telegra.ph/file/be4508ee551860ecc202d.jpg'
 //Navideñas
-var img2 = 'https://telegra.ph/file/b9b4821c3f78b7ce6d3aa.jpg'
+var img2 = 'https://telegra.ph/file/066e5c8832970e93ff312.jpg'
 
 global.sityImg = [img, img1, img2, img3, img4, img5, img6]
 
 //Enlaces
-global.yt = 'https://www.youtube.com/@Azami_YT'
-global.ig = 'https://instagram.com/azami_dev'
-global.md = 'https://github.com/AzamiJs/CuriosityBot-MD'
-global.paypal = 'https://paypal.me/Azami19'
+global.yt = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J'
+global.ig = 'https://instagram.com/mego51_51?igshid=NTc4MTIwNjQ2YQ=='
+global.md = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J'
+global.paypal = 'https://instagram.com/mego51_51?igshid=NTc4MTIwNjQ2YQ=='
 global.git = 'https://github.com/AzamiJs'
-global.nn = 'https://chat.whatsapp.com/LCAUbkf5kUz7jSxO6FADMU' //Grupo ofc
-global.nnn = 'https://chat.whatsapp.com/J1R402WH1N0Hdl3S0NDEYu' //Curiosity global
-global.nnnn = 'https://chat.whatsapp.com/KLpYFsitkgzJ15YQxZrBqO' //colaboración multi bots
-global.nnnnn = 'https://chat.whatsapp.com/E9qJfvlLjENKAxnhII9rao' //Colaboración CuriosityBot - NovaBot 
-global.nnnnnn = 'https://chat.whatsapp.com/KlRcEfl8snBEEOA0JXzw5A' //enlace curiosity
-global.channel = 'https://whatsapp.com/channel/0029VaB4w2ZFHWpwgyEe3w2k'
-global.email = 'thecuriositybot@gmail.com'
-global.channel2 = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A'
+global.nn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //Grupo ofc
+global.nnn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //Curiosity global
+global.nnnn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //colaboración multi bots
+global.nnnnn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //Colaboración CuriosityBot - NovaBot 
+global.nnnnnn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //enlace curiosity
+global.channel = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J'
+global.email = 'aztmego@gmail.com'
+global.channel2 = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J'
 global.linkSity = [yt, ig, md, paypal, git, channel, channel2]
 
 //Raíz
 global.raiz = './'
-global.aniD = 'sessions/'
+global.aniD = 'mego md/'
 global.dirP = raiz//+aniD
-global.authFile = join(__dirname, `sessions/`)
+global.authFile = join(__dirname, `mego md/`)
 global.authFileRespald = join(__dirname, `sesionRespaldo/`)
 global.temp = join(__dirname, 'tmp')
 global.media = raiz+'media/'
