@@ -295,11 +295,11 @@ _${usedPrefix + command} *autoread*_
 _${usedPrefix + command} *modejadibot*_`, m, fake, )
 throw false
 }
-conn.reply(m.chat, `*${isEnable ? '❕' : '❗'} La función ${type} se a ${isEnable ? 'activado' : 'desactivado'} en ${isAll ? 'bot' : isUser ? '' : 'este chat.'}*`, m, fake, )
+conn.reply(m.chat, {text: `👾 الخيار: ${type}\n🖇️ ولايه: ${isEnable ? 'شغال' : 'قافل'}\n📣 ل: ${isAll ? 'هذا البوت' : isUser ? '' : 'هذا الدردشه.'}*`, m, fake, )
 
 }
 handler.help = ['en', 'dis'].map(v => v + 'able')
 handler.tags = ['nable', 'owner']
-handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
+handler.command = /^((en|dis)able|ا(فتح|قفل)|(turn)?[01])$/i
 
 export default handler
