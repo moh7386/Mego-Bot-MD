@@ -295,7 +295,7 @@ _${usedPrefix + command} *autoread*_
 _${usedPrefix + command} *modejadibot*_`, m, fake, )
 throw false
 }
-conn.reply(m.chat, `*${isEnable ? '❕' : '❗'} الخيار ${type} ولايه ${isEnable ? 'شغال' : 'قافل'}/n ل ${isAll ? 'هذا البوت' : isUser ? '' : 'هذا الدردشه.'}*`, m, fake, )
+conn.reply(m.chat, `*${isEnable ? '🔓' : '🔒'} الخيار ${type}  ${isEnable ? 'شغال' : 'قافل'} ل ${isAll ? 'هذا البوت' : isUser ? '' : 'هذا الدردشه.'}*`, m, fake, )
 
 }
 handler.help = ['en', 'dis'].map(v => v + 'able')
