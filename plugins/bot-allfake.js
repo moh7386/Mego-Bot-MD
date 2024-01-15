@@ -100,16 +100,16 @@ global.fakemek = {key: {participant: "0@s.whatsapp.net",remoteJid: "0@s.whatsapp
 var credit = 'X8KpIFJlcXVlc3RlZCBieSBDdXJpb3NpdHlCb3Rf'
 global.cred = Buffer.from(credit, 'base64')
 
-var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = 'انرت يعسل'; break; case 1: hour = 'نورت يبلحه'; break; case 2: hour = 'نورت يلفته'; break; case 3: hour = 'نورت يفله'; break; case 4: hour = 'نورت يمسكر'; break; case 5: hour = 'نورت يعسل'; break; case 6: hour = 'نورت يسكر'; break; case 7: hour = 'نورت يقمر'; break; case 8: hour = 'نورت يحبيي'; break; case 9: hour = 'مساءك اشطا'; break; case 10: hour = 'مساءك عسل'; break; case 11: hour = 'مرحبا بك'; break; case 12: hour = 'انرت البوت'; break; case 13: hour = 'انت قمر اي القمر دا'; break; case 14: hour = 'اي العسل دا نورت'; break; case 15: hour = 'نورت ينوحي'; break; case 16: hour = 'نورت يجلبي'; break; case 17: hour = 'نورت يحبي'; break; case 18: hour = 'نورت البوت يعسل; break; case 19: hour = 'نورت البوت يسكر'; break; case 20: hour = 'نورت البوت يقمر'; break; case 21: hour = 'نورت البوت يعسل'; break; case 22: hour = 'نورت البوت يجميل'; break; case 23: hour = 'نورت البوت يحب'; break;}
-global.saludo = '☠️' + hour;
+var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = 'Linda noche'; break; case 1: hour = 'Linda noche'; break; case 2: hour = 'Linda noche'; break; case 3: hour = 'Linda mañana'; break; case 4: hour = 'Linda mañana'; break; case 5: hour = 'Linda mañana'; break; case 6: hour = 'Linda mañana'; break; case 7: hour = 'Linda mañana'; break; case 8: hour = 'Linda mañana'; break; case 9: hour = 'Linda mañana'; break; case 10: hour = 'Buen dia'; break; case 11: hour = 'Buen dia'; break; case 12: hour = 'Buen dia'; break; case 13: hour = 'Buen dia'; break; case 14: hour = 'Bonita tarde'; break; case 15: hour = 'Bonita tarde'; break; case 16: hour = 'Bonita tarde'; break; case 17: hour = 'Bonito anochecer'; break; case 18: hour = 'Linda noche'; break; case 19: hour = 'Linda noche'; break; case 20: hour = 'Linda noche'; break; case 21: hour = 'Linda noche'; break; case 22: hour = 'Linda noche'; break; case 23: hour = 'Linda noche'; break;}
+global.saludo = '👾' + hour;
 
 global.d = new Date(new Date + 3600000)
-global.locale = 'es'
+global.locale = 'ar'
 global.dia = d.toLocaleDateString(locale, {weekday: 'long'})
-global.fecha = d.toLocaleDateString('es', {day: 'numeric', month: 'numeric', year: 'numeric'})
-global.mes = d.toLocaleDateString('es', {month: 'long'})
-global.año = d.toLocaleDateString('es', {year: 'numeric'})
-global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true})
+global.fecha = d.toLocaleDateString('ar', {day: 'numeric', month: 'numeric', year: 'numeric'})
+global.mes = d.toLocaleDateString('ar', {month: 'long'})
+global.año = d.toLocaleDateString('ar', {year: 'numeric'})
+global.tiempo = d.toLocaleString('ar-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true})
 
 global.nombre = conn.getName(m.sender)
 global.taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
