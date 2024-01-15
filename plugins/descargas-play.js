@@ -6,35 +6,35 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 
 var handler = async (m, { conn, command, args, text, usedPrefix }) => {
 
-if (!text) return conn.reply(m.chat, `🎌 *Ingrese el nombre de un video de YouTube*\n\nEjemplo, !${command} Banners - Someone To You`,  m, fake, )
+if (!text) return conn.reply(m.chat, `🎌 *أدخل اسم فيديو يوتيوب*\n\nمثال, !${command} Banners - Someone To You`,  m, fake, )
 m.react(rwait)
 
 try {
 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play') {
+if (command === 'اغنيه') {
 additionalText = 'audio'
-} else if (command === 'play2') {
+} else if (command === 'فيديو) {
 additionalText = 'video'}
 
-let texto1 = `*∘ Título*
+let texto1 = `*∘العنوان*
 ${yt_play[0].title}
 
-*∘ Duración* 
+*∘الوقت* 
 ${secondString(yt_play[0].duration.seconds)}
 
-*∘ Autor*
+*∘مؤلف*
 ${yt_play[0].author.name}
 
-*∘ Canal*
+*∘القناه*
 ${yt_play[0].author.url}
 
-*∘ Enlace*
+*∘الرابط*
 ${yt_play[0].url}
 
-*Enviando ${additionalText}*
-⏰ Espere un momento`.trim()
+*انتظر ${additionalText}*
+⏰ *الرجاء الانتظار حين يتم تلبيه طلبك صلي علي نبينا محمد*`.trim()
 await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: { title: yt_play[0].title, body: dev, thumbnailUrl: yt_play[0].thumbnail, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 
 if (command == 'play') {	
@@ -115,13 +115,13 @@ let n4 = lolh.result.thumbnail
 await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `*Titulo:* ${n}\n*Peso:* ${n3}`, thumbnail: await fetch(n4) }, { quoted: m })
 } catch {
 m.react(error)
-await conn.reply(m.chat, '🚩 *Ocurrió un fallo*', m, fake, ) }}}    
+await conn.reply(m.chat, '🚩 *حدث فشل*', m, fake, ) }}}    
 }} catch {
 m.react(error)
-return conn.reply(m.chat, '🚩 *Inténtelo de nuevo*', m, fake, )}
+return conn.reply(m.chat, '🚩 *حاول ثانية*', m, fake, )}
 
 }
-handler.help = ['play', 'play2']
+handler.help = ['اغنيه', 'فيديو']
 handler.tags = ['descargas']
 handler.command = /^play2?$/i
 
