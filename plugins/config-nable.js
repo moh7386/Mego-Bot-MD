@@ -295,7 +295,7 @@ _${usedPrefix + command} *autoread*_
 _${usedPrefix + command} *modejadibot*_`, m, fake, )
 throw false
 }
-conn.reply(m.chat, {text: `👾 الخيار: ${type}\n🖇️ ولايه: ${isEnable ? 'شغال' : 'قافل'}\n📣 ل: ${isAll ? 'هذا البوت' : isUser ? '' : 'هذا الدردشه.'}*`, m, fake, )
+conn.reply(m.chat, `*${isEnable ? '❕' : '❗'} La función ${type} se a ${isEnable ? 'activado' : 'desactivado'} en ${isAll ? 'bot' : isUser ? '' : 'este chat.'}*`, m, fake, )
 
 }
 handler.help = ['en', 'dis'].map(v => v + 'able')
