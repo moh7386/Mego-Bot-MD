@@ -14,9 +14,9 @@ console.log(e)
   
 switch (true) {   
 case isCommand7:
-if (!text) return conn.reply(m.chat, `🎌 *Ingrese un enlace de facebook*\n\nEjemplo, !fb https://fb.watch/kAOXy3wf2L/?mibextid=Nif5oz`, m, fake, )
-if (!args[0].match(/www.facebook.com|fb.watch|web.facebook.com|business.facebook.com|video.fb.com/g)) return conn.reply(m.chat, '🎌 *No es un enlace válido*', m, fake, )
-await conn.reply(m.chat, '⏰ *الرجاء الانتظار حين يتم تلبيه طلبك *صلي ع محمد نبينا', m, fake, )
+if (!text) return conn.reply(m.chat, `🎌 *أدخل رابط الفيسبوك*\n\nمثال, !fb https://fb.watch/kAOXy3wf2L/?mibextid=Nif5oz`, m, fake, )
+if (!args[0].match(/www.facebook.com|fb.watch|web.facebook.com|business.facebook.com|video.fb.com/g)) return conn.reply(m.chat, '🎌 *إنه ليس رابطًا صالحًا*', m, fake, )
+await conn.reply(m.chat, '⏰ *الرجاء الانتظار حين يتم تلبيه طلبك صلي علي نبينا محمد*', m, fake, )
 m.react(done)
 let messageType = checkMessageType(args[0])
 let message = ''
@@ -34,7 +34,7 @@ case 'posts':
 message = 'الفيديو منشور علي فيسبوك 🚀'
 break
 default:
-message = 'تفضل الفيديو تم بواسطه ميججؤؤ لفآججر 🚀'
+message = '*انا لا اتحمل ذنوب اغانيك تفضل بواسطه ميججؤؤ لفآججر*  🚀'
 break
 }
 try {
