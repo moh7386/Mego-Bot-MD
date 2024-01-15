@@ -6,16 +6,16 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 
 var handler = async (m, { conn, command, args, text, usedPrefix }) => {
 
-if (!text) return conn.reply(m.chat, `🎌 *أدخل اسم فيديو يوتيوب*\n\nمثال, !${command} Banners - Someone To You`,  m, fake, )
+if (!text) return conn.reply(m.chat, `🎌 *أدخل اسم فيديو او رابط يوتيوب*\n\nمثال, !${command} Banners - Someone To You`,  m, fake, )
 m.react(rwait)
 
 try {
 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play') {
+if (command === 'اغنيه') {
 additionalText = 'audio'
-} else if (command === 'play2') {
+} else if (command === 'فيديو') {
 additionalText = 'video'}
 
 let texto1 = `*∘العنوان*
@@ -37,7 +37,7 @@ ${yt_play[0].url}
 ⏰ *الرجاء الانتظار حين يتم تلبيه طلبك صلي علي نبينا محمد*`.trim()
 await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: { title: yt_play[0].title, body: dev, thumbnailUrl: yt_play[0].thumbnail, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 
-if (command == 'play') {	
+if (command == 'اغنيه') {	
 try {
 let q = '128kbps'
 let v = yt_play[0].url
@@ -84,7 +84,7 @@ await conn.sendMessage(m.chat, { audio: { url: ress.url }, mimetype: 'audio/mpeg
 
 } catch {
 }}}}}
-} if (command == 'play2') {
+} if (command == 'فيديو') {
 try {
 let qu = '360'
 let q = qu + 'p'
@@ -123,7 +123,7 @@ return conn.reply(m.chat, '🚩 *حاول ثانيه*', m, fake, )}
 }
 handler.help = ['اغنيه', 'فيديو']
 handler.tags = ['descargas']
-handler.command = /^play2?$/i
+handler.command = /^فيديو?$/i
 
 handler.limit = true
 
