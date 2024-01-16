@@ -531,8 +531,8 @@ if (!isAnticall) return
 for (let cs of callUpdate) {
 if (cs.isGroup == false) {
 if (cs.status == "offer") {
-let callmsg = await this.reply(nk.from, `مرحبا *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'videollamadas' : 'llamadas'} ممنوع الاتصال سيتم حظرك false, { mentions: [cs.from] })
-let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;mego 👑;;;\nFN:mego\nORG:mego 👑\nTITLE:\nitem1.TEL;waid=201012531172:+201012531172\nitem1.X-ABLabel:mego 👑\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:Azami 👑\nEND:VCARD`
+let callmsg = await this.reply(nk.from, `مرحبا *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'videollamadas' : 'llamadas'} ممنوع الاتصال وسيتم حظرك`, false, { mentions: [cs.from] })
+let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;mego 👑;;;\nFN:Azami\nORG:Azami 👑\nTITLE:\nitem1.TEL;waid=+201012531172:+201012531172\nitem1.X-ABLabel:mego 👑\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:mego 👑\nEND:VCARD`
 await this.sendMessage(cs.from, { contacts: { displayName: 'mego 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
 await this.updateBlockStatus(cs.from, 'block')
 }}}
