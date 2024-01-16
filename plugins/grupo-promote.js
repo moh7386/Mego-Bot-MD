@@ -8,7 +8,7 @@ var number = text.split`@`[1]
 var number = text
 }
 
-if (!text && !m.quoted) return conn.reply(m.chat, `🎌 *Etiqueta al usuario. que desea promover a admin*\n\nEjemplo, !demote @tag\n!demote *responde a un mensaje*`, m, fake, )
+if (!text && !m.quoted) return conn.reply(m.chat, `🎌 *ضع ريبلاي على العضو. الذي يريد الترقية إلى مشرف*\n\nمثال, !ترقيه @منشن\n!ترقيه*الرد على رسالة*`, m, fake, )
 if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `🚩 *Número erróneo*`, m, fake, )
   
 try {
@@ -22,7 +22,7 @@ var user = number + '@s.whatsapp.net'
 } catch (e) {
 } finally {
 conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-conn.reply(m.chat, `✅ *Se promovió a admin con éxito*`, m, fake, )
+conn.reply(m.chat, `✅ *تم ترقيه اصبح زعيم*`, m, fake, )
 }
 
 }
