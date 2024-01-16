@@ -5,13 +5,13 @@ let groupAdmins = participants.filter(p => p.admin)
 let listaAdmins = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
 let owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
 
-if (!text) return conn.reply(m.chat, `🎌 *الرجاء إدخال السبب الخاص بك لاستدعاء المسؤولين, m, fake, )
-if (text.length < 10) return conn.reply(m.chat, `🚩 *السبب قصير جدًا، الحد الأدنى*`, m, fake, )
+if (!text) return conn.reply(m.chat, `🎌 *الرجاء إدخال السبب الخاص بك لاستدعاء المسؤولين` m, fake, )
+if (text.length < 10) return conn.reply(m.chat, `🚩 *السبب قصير جدًا، الحد الأدنى 10 أحرف*`, m, fake, )
 let mensaje = args.join` `
-let yo = `*Mensaje:* ${text}`
+let yo = `*رسالة:* ${text}`
 let texto = `${yo}
 
-🚩 *طاقم المجموعة*
+🚩 *المشرفين*
 ${listaAdmins}`.trim()
 
 conn.sendFile(m.chat, pp, 'error.jpg', texto, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
