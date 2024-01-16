@@ -9,7 +9,7 @@ var number = text
 }
 
 if (!text && !m.quoted) return conn.reply(m.chat, `🎌 *ضع ريبلاي على العضو. الذي يريد الترقية إلى مشرف*\n\nمثال, !ترقيه @منشن\n!ترقيه*الرد على رسالة*`, m, fake, )
-if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `🚩 *Número erróneo*`, m, fake, )
+if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `🚩 *رقم غير صحيح*`, m, fake, )
   
 try {
 if (text) {
@@ -22,13 +22,13 @@ var user = number + '@s.whatsapp.net'
 } catch (e) {
 } finally {
 conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-conn.reply(m.chat, `✅ *تم ترقيه اصبح زعيم*`, m, fake, )
+conn.reply(m.chat, `✅ *تم ترقيته اصبح زعيم*`, m, fake, )
 }
 
 }
 handler.help = ['promote']
 handler.tags = ['grupo']
-handler.command = ['promote', 'promover']
+handler.command = ['رفع', 'ترقيه']
 
 handler.group = true
 handler.admin = true
