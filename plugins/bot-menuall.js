@@ -273,6 +273,7 @@ mediaUrl: null,
 title: '『🔥┇mego-𝙱𝙾𝚃』', 
 body: null,
 thumbnail: img,
+sourceUrl: `https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J`
 }}}
 conn.sendMessage(m.chat, buttonMessage, { quoted: m })
 //await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
