@@ -161,7 +161,7 @@ throw false
 }
 bot.autoBio = isEnable
 break
-case 'تقييد':
+case 'تقيد':
 isAll = true
 if (!isOwner) {
 global.dfail('owner', m, conn)
@@ -273,7 +273,7 @@ if (!isROwner) {
 global.dfail('rowner', m, conn)
 throw false
 }
-bot.antiCall = isEnable
+bot.videollamadas = isEnable
 default:
 if (!/[01]/.test(command)) return await conn.reply(m.chat, `*🚨 خيارات الجروبات*
 
