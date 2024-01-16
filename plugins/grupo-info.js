@@ -14,7 +14,7 @@ ${groupMetadata.id}
 ${groupMetadata.subject}
 
 • *المشاركين بالجروب*
-${participants.length} Participantes
+${participants.length} مشاركين
 
 • *منشئ الجروب*
 @${owner.split('@')[0]}
@@ -22,13 +22,13 @@ ${participants.length} Participantes
 • *المشرفين*
 ${listAdmin}
 
-• *Configuraciones on/off*
+• *إعدادات on/off*
 ترحيب: ${welcome ? '✅' : '❌'}
 مضادحذف ${detect ? '✅' : '❌'} 
 مضادلينكات ${antiLink ? '✅' : '❌'} 
  مضادلينكات2 ${antiLink2 ? '✅' : '❌'}  
 
-• *Descripción*
+• *الوصف*
 ${groupMetadata.desc?.toString() || '⚠️ لا يوجد وصف!!'}
 `.trim()
 
