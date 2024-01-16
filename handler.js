@@ -531,9 +531,9 @@ if (!isAnticall) return
 for (let cs of callUpdate) {
 if (cs.isGroup == false) {
 if (cs.status == "offer") {
-let callmsg = await this.reply(nk.from, `Hola *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'videollamadas' : 'llamadas'} están prohibidas, seras bloqueado`, false, { mentions: [cs.from] })
-let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;Azami 👑;;;\nFN:Azami\nORG:mego 👑\nTITLE:\nitem1.TEL;waid=201012531172:+598 9999\nitem1.X-ABLabel:Azami 👑\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:Azami 👑\nEND:VCARD`
-await this.sendMessage(cs.from, { contacts: { displayName: 'Azami 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
+let callmsg = await this.reply(nk.from, `مرحبا *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'videollamadas' : 'llamadas'} ممنوع الاتصال سيتم حظرك false, { mentions: [cs.from] })
+let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;mego 👑;;;\nFN:mego\nORG:mego 👑\nTITLE:\nitem1.TEL;waid=201012531172:+201012531172\nitem1.X-ABLabel:mego 👑\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:Azami 👑\nEND:VCARD`
+await this.sendMessage(cs.from, { contacts: { displayName: 'mego 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
 await this.updateBlockStatus(cs.from, 'block')
 }}}
 }
