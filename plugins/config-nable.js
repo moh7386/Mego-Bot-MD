@@ -303,7 +303,7 @@ ${usedPrefix + command} *برايفت*
 ${usedPrefix + command} *جروبات*
 ${usedPrefix + command} *الصحين*
 ${usedPrefix + command} *مضادبرايفت*
-${usedPrefix + command} *مضادمكالمات*
+${usedPrefix + command} *مضادالمكالمات*
 ${usedPrefix + command} *البوت_الفرعي*`, m, fake, )
 throw false
 }
