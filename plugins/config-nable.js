@@ -267,13 +267,15 @@ throw false
 }
 global.opts['swonly'] = isEnable
 break
-case 'مضادمكالمات':
+case 'مضادالمكالمات':
+case 'مكالمات':
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
 throw false
 }
-bot.videollamadas = isEnable
+global.opts['antiCall'] = isEnable
+break
 default:
 if (!/[01]/.test(command)) return await conn.reply(m.chat, `*🚨 خيارات الجروبات*
 
