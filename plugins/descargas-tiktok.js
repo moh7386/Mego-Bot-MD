@@ -5,7 +5,7 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 if (!text) return conn.reply(m.chat, `*عايز تحمل ايه*\n*ابعت رابط الفيديو الي عايزه*\n*مثال:*\n*${usedPrefix + command} https://vm.tiktok.com/ZM29j1NYq*`, fkontak,  m)
 if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) return conn.reply(m.chat, `*❐┃خطئ رابط غير صحيح┃❌ ❯*`, fkontak,  m)  
 try {
-await conn.reply(m.chat, `⌛ _جاري الارسال..._\n*■■■■■ 100%*\nالفديو بيتبعت ( احب افكرك انا خالي المسئولية من ذنوب اغانيك ) 🔰`, fkontak,  m)  
+await conn.reply(m.chat, `⌛ _جاري الارسال..._\n▰▰▱▱▱\nالفديو بيتبعت ( احب افكرك انا خالي المسئولية من ذنوب اغانيك ) 🔰`, fkontak,  m)  
 const { author: { nickname }, video, description } = await tiktokdl(args[0])
 .catch(async _ => await tiktokdlv2(args[0]))
 .catch(async _ => await tiktokdlv3(args[0]))
