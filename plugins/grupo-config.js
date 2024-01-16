@@ -2,7 +2,7 @@ var handler = async (m, {conn, args, usedPrefix, command}) => {
 
 const isClose = { 'فتح': 'not_announcement', 'غلق': 'announcement', 'abierto': 'not_announcement', 'cerrado': 'announcement', 'abrir': 'not_announcement', 'cerrar': 'announcement', 'desbloquear': 'unlocked', 'bloquear': 'locked' }[(args[0] || '')]
 
-if (isClose === undefined) { return conn.reply(m.chat, `*اختر خيارًا لـ*\n\nمثال:*○ !${command} غلق*\n   *○ !${command} فتح*`, m, fake, )
+if (isClose === undefined) { return conn.reply(m.chat, `*اختر خيارًا لـ*\n\nمثال:*○ !${command} غلق*\n    *○ !${command} فتح*`, m, fake, )
 
 }
 await conn.groupSettingUpdate(m.chat, isClose)
