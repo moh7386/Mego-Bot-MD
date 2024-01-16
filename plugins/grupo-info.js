@@ -5,31 +5,31 @@ let { isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink, an
 let groupAdmins = participants.filter(p => p.admin) 
 let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
 let owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
-let text = `🚩 *Información del grupo*
+let text = `🚩 *معلومات الجروب*
 
-• *Id*
+• *تعريف*
 ${groupMetadata.id}
 
-• *Nombre del grupo*
+• *اسم الجروب*
 ${groupMetadata.subject}
 
-• *Total de participantes*
+• *المشاركين بالجروب*
 ${participants.length} Participantes
 
-• *Creador(a) del grupo*
+• *منشئ الجروب*
 @${owner.split('@')[0]}
 
-• *Admins del grupo*
+• *المشرفين*
 ${listAdmin}
 
 • *Configuraciones on/off*
-welcome: ${welcome ? '✅' : '❌'}
-detect ${detect ? '✅' : '❌'} 
-antilink ${antiLink ? '✅' : '❌'} 
-antilink 2 ${antiLink2 ? '✅' : '❌'}  
+ترحيب: ${welcome ? '✅' : '❌'}
+مضادحذف ${detect ? '✅' : '❌'} 
+مضادلينكات ${antiLink ? '✅' : '❌'} 
+ مضادلينكات2 ${antiLink2 ? '✅' : '❌'}  
 
 • *Descripción*
-${groupMetadata.desc?.toString() || '⚠️ No hay descripción!!'}
+${groupMetadata.desc?.toString() || '⚠️ لا يوجد وصف!!'}
 `.trim()
 
 conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
@@ -37,7 +37,7 @@ conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, { mentions: [...groupAdmi
 }
 handler.help = ['infogrupo']
 handler.tags = ['grupo']
-handler.command = /^(infogrupo|gro?upinfo|info(gro?up|gc))$/i
+handler.command = /^(معلوم_الجروب|gro?upinfo|info(gro?up|gc))$/i
 
 handler.group = true
 
