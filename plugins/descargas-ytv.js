@@ -3,10 +3,10 @@ import fetch from 'node-fetch'
 
 var handler = async (m, { conn, args, usedPrefix, command }) => {
 
-if (!args[0]) return conn.reply(m.chat, `🎌 *Ingrese un enlace de YouTube*\n\nEjemplo, !${command} https://youtu.be/85xI8WFMIUY`, m, fake, )
+if (!args[0]) return conn.reply(m.chat, `🎌 *أدخل رابط يوتيوب*\n\nمثال, !${command} https://youtu.be/85xI8WFMIUY`, m, fake, )
 m.react(rwait)
 
-await conn.reply(m.chat, `⏰ Espere un momento`, m, fake, )
+await conn.reply(m.chat, `⏰ *الرجاء الانتظار حين يتم تلبيه طلبك صلي علي نبينا محمد*`, m, fake, )
 
 try {
 
@@ -18,7 +18,7 @@ const dl_url = await yt.video[q].download()
 const ttl = await yt.title
 const size = await yt.video[q].fileSizeH
 m.react(done)
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `*Título*\n${ttl}\n\n*Peso*\n${size}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+await await conn.sendMessage(m.chat, { video: { url: dl_url }, الاسم: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `*العنوان*\n${ttl}\n\n*الوقت*\n${size}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
 } catch {
 
 /*try {
@@ -32,15 +32,14 @@ let n4 = lolh.result.thumbnail
 m.react(done)
 await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `*Título*\n${n}\n\n*Peso*\n${n3}`, thumbnail: await fetch(n4) }, { quoted: m })
 } catch {*/
-await conn.reply(m.chat, `🚩 *Ocurrió un error*`, m, fake, )
+await conn.reply(m.chat, `🚩 *حدث فشل*`, m, fake, )
 m.react(error)}
 
 }
 handler.help = ['ytv']
 handler.tags = ['descargas']
-handler.command = /^fgmp4|dlmp4|getvid|yt(v|mp4)?$/i
+handler.command = /^فيديو2|dlmp4|getvid|yt(v|mp4)?$/i
 
-handler.register = true
 handler.limit = true
 
 export default handler
