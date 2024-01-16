@@ -63,7 +63,7 @@ await conn.reply(m.chat, '🚩 *حدث فشل*', m, fake, )}
 }
 handler.help = ['yta']
 handler.tags = ['descargas']
-handler.command = /^اغنيه2|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
+handler.command = /^اغاني|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
 
 handler.limit = true
 
