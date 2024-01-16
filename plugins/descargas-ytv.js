@@ -18,7 +18,7 @@ const dl_url = await yt.video[q].download()
 const ttl = await yt.title
 const size = await yt.video[q].fileSizeH
 m.react(done)
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, الاسم: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `*العنوان*\n${ttl}\n\n*الوقت*\n${size}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+await await conn.sendMessage(m.chat, { video: { url: dl_url }, الاسم: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `*العنوان*\n${ttl}\n\n*الحجم*\n${size}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
 } catch {
 
 /*try {
