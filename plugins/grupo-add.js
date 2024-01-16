@@ -18,7 +18,7 @@ conn.reply(m.chat, `🎌 *تم ارسال الدعوة على الخاص*\n${nom
 }
 handler.help = ['add']
 handler.tags = ['grupo']
-handler.command = /^(اضافة|agregar|invitar|دعوه|añadir|\+)$/i
+handler.command = /^(اضافة|اضافه|invitar|دعوه|añadir|\+)$/i
 
 handler.group = true
 handler.admin = true
