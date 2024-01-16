@@ -4,7 +4,7 @@ import ytdl from 'ytdl-core';
 import axios from 'axios';
 import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
-if (!text) throw `*⚠️ INGRESE EL NOMBRE DE LA CANCIÓN QUE ESTÁ BUSCANDO*\n\n*💡 EJEMPLO*\n*${usedPrefix + command}* Another love`
+if (!text) throw `*⚠️ أدخل اسم الأغنية التي تبحث عنها*\n\n*💡 مثال*\n*${usedPrefix + command}* Another love`
 m.react(done) 
   try {
     const yt_play = await search(args.join(' '));
@@ -14,11 +14,11 @@ m.react(done)
     } else if (command === 'play4' || command == 'playdoc2') {
       additionalText = 'video 🎥';
     }
-    const texto1 = `*╭—╼—⌈🔊 𝚈𝙾𝚄𝚃𝚄𝙱𝙴 𝙳𝙾𝙲 🔊⌋—╼—❀*
- ┆❀ *Titulo:* ${yt_play[0].title}
- ┆❀ *Publicado:* ${yt_play[0].ago}
- ┆❀ *Duracion:* ${secondString(yt_play[0].duration.seconds)}
- ┆❀ *Vistas:* ${MilesNumber(yt_play[0].views)}
+    const texto1 = `*╭—╼—⌈🔊 تحميل يوتيوب 🔊⌋—╼—❀*
+ ┆❀ *عنوان:* ${yt_play[0].title}
+ ┆❀ *النشر:* ${yt_play[0].ago}
+ ┆❀ *المده:* ${secondString(yt_play[0].duration.seconds)}
+ ┆❀ *الاراء:* ${MilesNumber(yt_play[0].views)}
  ┆❀ *Autor:* ${yt_play[0].author.name}
  ┆❀ *Canal:* ${yt_play[0].author.url}
  ┆❀ *ID:* ${yt_play[0].videoId}
