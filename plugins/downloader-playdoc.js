@@ -9,9 +9,9 @@ m.react(done)
   try {
     const yt_play = await search(args.join(' '));
     let additionalText = '';
-    if (command === 'play3' || command == 'playdoc') {
+    if (command === 'شغل' || command == 'playdoc') {
       additionalText = 'audio 🔊';
-    } else if (command === 'play4' || command == 'playdoc2') {
+    } else if (command === 'شغل1' || command == 'playdoc2') {
       additionalText = 'video 🎥';
     }
     const texto1 = `*╭—╼—⌈🔊 تحميل يوتيوب 🔊⌋—╼—❀*
@@ -22,13 +22,13 @@ m.react(done)
  ┆❀ *مؤلف:* ${yt_play[0].author.name}
  ┆❀ *قناه:* ${yt_play[0].author.url}
  ┆❀ *تعريف:* ${yt_play[0].videoId}
- ┆❀ *يكتب:* ${yt_play[0].type}
+ ┆❀ *الطلب:* ${yt_play[0].type}
  ┆❀ *اللينك:* ${yt_play[0].url}\n
  ┆╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼
  ┆❀ *ارسال ${additionalText}, انتظر لحظة．．．_*
  *╰——————————————————╾`.trim();
     conn.sendMessage(m.chat, {image: {url: yt_play[0].thumbnail}, caption: texto1}, {quoted: m});
-    if (command == 'play3' || command == 'playdoc') {
+    if (command == 'شغل' || command == 'playdoc') {
       try {
         const q = '128kbps';
         const v = yt_play[0].url;
@@ -51,12 +51,12 @@ m.react(done)
             const ress = await ytdl.chooseFormat(infoo.formats, {filter: 'audioonly'});
             conn.sendMessage(m.chat, {audio: {url: ress.url}, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
           } catch {
-            await conn.reply(m.chat, '*[❗] 𝙴𝚁𝚁𝙾𝚁 𝙽𝙾 𝙵𝚄𝙴 𝙿𝙾𝚂𝙸𝙱𝙻𝙴 𝙳𝙴𝚂𝙲𝙰𝚁𝙶𝙰𝚁 𝙴𝙻 𝙰𝚄𝙳𝙸𝙾*', m);
+            await conn.reply(m.chat, '*[❗] لا يوجد وصف متاح لهذا الصوت*', m);
           }
         }
       }
     }
-    if (command == 'play4' || command == 'playdoc2') {
+    if (command == 'شغل1' || command == 'playdoc2') {
       try {
         const qu = '360';
         const q = qu + 'p';
@@ -89,7 +89,7 @@ m.react(done)
     throw '*[❗معلومه❗] خطأ لا يمكن العثور على الوسائط المفضلة المدخلة*';
   }
 };
-handler.help = ['play3', 'play4'].map((v) => v + ' < busqueda >');
+handler.help = ['شغل', 'شغل1'].map((v) => v + ' < busqueda >');
 handler.tags = ['downloader'];
 handler.command = /^(playdoc|playdoc2|شغل|شغل1)$/i;
 export default handler;
