@@ -5,7 +5,7 @@ import ytdl from 'ytdl-core'
 
 var handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
-if (!args[0]) conn.reply(m.chat, '🎌 *Ingrese el comando mas un enlace de youtube*',  m, fake, )
+if (!args[0]) conn.reply(m.chat, '🎌 *أدخل الأمر بالإضافة إلى رابط يوتيوب*',  m, fake, )
 
 let youtubeLink = ''
 if (args[0].includes('you')) {
@@ -19,13 +19,13 @@ if (matchingItem) {
 if (index < matchingItem.urls.length) {
 youtubeLink = matchingItem.urls[index]
 } else {
-return conn.reply(m.chat, `🚩 *No se encontro un enlace para ese numero ingresa un numero del 1 al ${matchingItem.urls.length}*`,  m, fake, )
+return conn.reply(m.chat, `🚩 *لم يتم العثور على رابط لهذا الرقم، أدخل رقمًا من 1 إلى ${matchingItem.urls.length}*`,  m, fake, )
 }} else {
-return conn.reply(m.chat, `🎌 *Para poder usar este comando de la manera (${usedPrefix + command} <numero>), realiza la busqueda de videos con ${usedPrefix}playlist <texto>*`,  m, fake, )
+return conn.reply(m.chat, `🎌 *من أجل استخدام هذا الأمر في الطريق (${usedPrefix + command} <رقم>), البحث عن مقاطع الفيديو مع ${usedPrefix}playlist <texto>*`,  m, fake, )
 }} else {
-return conn.reply(m.chat, `🎌 *Para poder usar este comando de la manera (${usedPrefix + command} <numero>), realiza la busqueda de videos con ${usedPrefix}playlist <texto>*`,  m, fake, )
+return conn.reply(m.chat, `🎌 *من أجل استخدام هذا الأمر في الطريق (${usedPrefix + command} <رقم>), البحث عن مقاطع الفيديو مع con ${usedPrefix}playlist <texto>*`,  m, fake, )
 }}} 
-await conn.reply(m.chat, `⏰ Espere un momento`, m, fake, )
+await conn.reply(m.chat, `⏰ *الرجاء الانتظار حين يتم تلبيه طلبك صلي علي نبينا محمد*`, m, fake, )
 
 try {
 
@@ -57,7 +57,7 @@ m.react(done)
 conn.sendMessage(m.chat, { audio: { url: ress.url }, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4' }, { quoted: m })
 } catch {
 m.react(error)
-await conn.reply(m.chat, '🚩 *Ocurrió un fallo*', m, fake, )}
+await conn.reply(m.chat, '🚩 *حدث فشل*', m, fake, )}
 }}
 
 }
@@ -65,7 +65,6 @@ handler.help = ['yta']
 handler.tags = ['descargas']
 handler.command = /^audio|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
 
-handler.register = true
 handler.limit = true
 
 export default handler
