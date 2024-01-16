@@ -8,8 +8,8 @@ var number = text.split`@`[1]
 var number = text
 }
 
-if (!text && !m.quoted) return conn.reply(m.chat, `🎌 *Etiqueta al admin. que desea degradar*\n\nEjemplo, !demote @tag\n!demote *responde a un mensaje*`, m, fake, )
-if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `🚩 *Número erróneo*`, m, fake, )
+if (!text && !m.quoted) return conn.reply(m.chat, `🎌 *ضع منشن للمشرف الذي تريد تنزيليه*\n\nمثال, !demote @tag\n!خفض *الرد ع رساله*`, m, fake, )
+if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `🚩 *رقم غير صحيح*`, m, fake, )
   
 try {
 if (text) {
@@ -21,14 +21,14 @@ var user = number + '@s.whatsapp.net'
 } 
 } catch (e) {
 } finally {
-conn.groupParticipantsUpdate(m.chat, [user], 'demote')
-conn.reply(m.chat, `✅ *Se degrado de admin con éxito*`, m, fake, )
+conn.groupParticipantsUpdate(m.chat, [user], 'خفض')
+conn.reply(m.chat, `🚯 *تبآ لك كنت ادمن فاشل*`, m, fake, )
 }
 
 }
 handler.help = ['demote']
 handler.tags = ['grupo']
-handler.command = ['demote', 'degradar']
+handler.command = ['خفض', 'تخفيض']
 
 handler.group = true
 handler.admin = true
