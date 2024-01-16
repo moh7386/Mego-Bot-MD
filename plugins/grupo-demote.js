@@ -21,7 +21,7 @@ var user = number + '@s.whatsapp.net'
 } 
 } catch (e) {
 } finally {
-conn.groupParticipantsUpdate(m.chat, [user], 'خفض')
+conn.groupParticipantsUpdate(m.chat, [user], 'demote')
 conn.reply(m.chat, `🚯 *تبآ لك كنت ادمن فاشل*`, m, fake, )
 }
 
