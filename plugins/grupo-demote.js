@@ -8,7 +8,7 @@ var number = text.split`@`[1]
 var number = text
 }
 
-if (!text && !m.quoted) return conn.reply(m.chat, `🎌 *ضع منشن للمشرف الذي تريد تنزيليه*\n\nمثال, !demote @tag\n!خفض *الرد ع رساله*`, m, fake, )
+if (!text && !m.quoted) return conn.reply(m.chat, `🎌 *ضع منشن للمشرف الذي تريد تنزيليه*\n\nمثال, !خفض @منشن\n!خفض *الرد ع رساله*`, m, fake, )
 if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `🚩 *رقم غير صحيح*`, m, fake, )
   
 try {
