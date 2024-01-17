@@ -8,7 +8,7 @@ conn.reply(m.chat, l + readMore + r, m)
 }
 handler.help = ['spoiler']
 handler.tags = ['implementos']
-handler.command = /^(spoiler|hidetext|readmore|selengkapnya)$/i
+handler.command = /^(مزيد|hidetext|readmore|selengkapnya)$/i
 
 export default handler
 
