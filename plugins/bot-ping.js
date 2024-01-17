@@ -31,8 +31,8 @@ const handler = async (m, { conn, usedPrefix }) => {
 
  ▢ *بينغ:* ${rtime}
  ▢ *وقت التشغيل:* ${uptime}
- ▢ *بروفايل:* ${usedPrefix}
- ▢ *الوضع:* ${self ? "privado" : "público"}
+ ▢ *بدء الامر:* ${usedPrefix}
+ ▢ *الوضع:* ${self ? "برايفت" : "عام"}
  ▢ *المسجلين.:* ${totalusrReg}
  ▢ *المستخدمين:* ${totalusr}
  ▢ *البوت الفرعي:* ${(conn.user.jid == global.conn.user.jid ? '' :  `بوت فرعي:\n ▢ +${global.conn.user.jid.split`@`[0]}`) || 'ليس بوت فرعي '}
