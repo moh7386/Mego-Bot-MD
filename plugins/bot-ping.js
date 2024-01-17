@@ -22,32 +22,32 @@ const handler = async (m, { conn, usedPrefix }) => {
   const old = performance.now();
   const neww = performance.now();
   const rtime = (neww - old).toFixed(7);
-  const wm = 'The Mystic Bot';
-  const info = ` _*< INFO - ESTADO />*_
+  const wm = 'The mego Bot';
+  const info = ` _*< معلومات - البوت />*_
 
  ▢ *مطور.:* mego
  ▢ *WA:* +201012531172
- ▢ *جروب:* https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J
+ ▢ *دعم:* https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J
 
- ▢ *Ping:* ${rtime}
- ▢ *Uptime:* ${uptime}
- ▢ *Prefijo:* ${usedPrefix}
- ▢ *Modo:* ${self ? "privado" : "público"}
- ▢ *Usuarios regs.:* ${totalusrReg}
- ▢ *Usuarios totales:* ${totalusr}
- ▢ *Tipo de bot:* ${(conn.user.jid == global.conn.user.jid ? '' : `Sub-bot de:\n ▢ +${global.conn.user.jid.split`@`[0]}`) || 'No es sub-bot'}
+ ▢ *بينغ:* ${rtime}
+ ▢ *وقت التشغيل:* ${uptime}
+ ▢ *بروفايل:* ${usedPrefix}
+ ▢ *الوضع:* ${self ? "privado" : "público"}
+ ▢ *المسجلين.:* ${totalusrReg}
+ ▢ *المستخدمين:* ${totalusr}
+ ▢ *البوت الفرعي:* ${(conn.user.jid == global.conn.user.jid ? '' :  `بوت فرعي:\n ▢ +${global.conn.user.jid.split`@`[0]}`) || 'ليس بوت فرعي '}
  
- ▢ *Chats privados:* ${chats.length - groups.length}
- ▢ *Grupos:* ${groups.length}
- ▢ *Chats totales:* ${chats.length}
+ ▢ *البرايفت:* ${chats.length - groups.length}
+ ▢ *جروبات:* ${groups.length}
+ ▢ *الدردشات:* ${chats.length}
  
- ▢ *Autoread:* ${autoread ? "activo" : "desactivado"}
- ▢ *Restrict:* ${restrict ? "activo" : "desactivado"}
- ▢ *PCOnly:* ${pconly ? "activado" : "desactivado"}
- ▢ *GPOnly:* ${gconly ? "activado" : "desactivado"}
- ▢ *AntiPrivado:* ${antiprivado ? "activado" : "desactivado"}
- ▢ *AntiLlamada:* ${antiCall ? "activado" : "desactivado"}
- ▢ *ModeJadiBot:* ${modejadibot ? "activado" : "desactivado"}`.trim();
+ ▢ *الصحين:* ${autoread ? "نشط" : "غير نشط"}
+ ▢ *تقيد:* ${restrict ? "نشط" : "غير نشط"}
+ ▢ *الكمبيوتر:* ${pconly ? "نشط" : "غير نشط"}
+ ▢ *جروب:* ${gconly ? "نشط" : "غير نشط"}
+ ▢ *برايفت:* ${antiprivado ? "نشط" : "غير نشط"}
+ ▢ *مكالمات:* ${antiCall ? "نشط" : "غير نشط"}
+ ▢ *بوت فرعي:* ${modejadibot ? "نشط" : "غير نشط"}`.trim();
   const doc = [
     "pdf",
     "zip",
@@ -82,7 +82,7 @@ const handler = async (m, { conn, usedPrefix }) => {
   conn.sendMessage(m.chat, Message, { quoted: m });
 };
 
-handler.command = /^(ping|info|status|estado)$/i;
+handler.command = /^(ping|info|بينغ|estado)$/i;
 export default handler;
 
 function clockString(ms) {
