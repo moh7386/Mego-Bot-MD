@@ -16,7 +16,7 @@ await m.reply('فشل')
 console.log(`فشل`)
 console.log(e)}}
 
-handler.command = /^(backup|respaldo|copia)$/i
+handler.command = /^(backup|قاعده_بيانات|copia)$/i
 handler.owner = true
 
 export default handler
