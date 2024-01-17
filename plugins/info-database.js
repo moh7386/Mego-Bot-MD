@@ -5,13 +5,13 @@ let rtotalreg = Object.values(global.db.data.users).filter(user => user.register
 
 conn.reply(m.chat, `${saludo}
 
-*📁 Según los datos de la database, tengo ${rtotalreg} usuarios registrados*
+*📁 وفقا لبيانات قاعدة البيانات، لدي ${rtotalreg} المستخدمون المسجلون*
 
-*🗂️ ${totalreg} no estan registrados*`, fkontak, m)
+*🗂️ ${totalreg} لم يتم تسجيلهم*`, fkontak, m)
 
 }
 handler.help = ['database', 'user']
 handler.tags = ['info']
-handler.command = /^(database|jumlahdatabase|user)$/i
+handler.command = /^(بيانات|jumlahdatabase|user)$/i
 
 export default handler
