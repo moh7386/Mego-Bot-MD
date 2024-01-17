@@ -28,7 +28,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     } else {
         try {
             let res = await fg.xnxxSearch(text)
-            let ff = res.result.map((v, i) => `${i + 1}┃ *Titulo* : ${v.title}\n*Link:* ${v.link}\n`).join('\n') 
+            let ff = res.result.map((v, i) => `${i + 1}┃ *عنوان* : ${v.title}\n*لينك:* ${v.link}\n`).join('\n') 
               if (res.status) m.reply(ff)
             } catch (e) {
               m.reply(`❌️ Error: intenta con otro`)
@@ -37,9 +37,8 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 }
 handler.help = ['xnxx'] 
 handler.tags = ['nsfw']
-handler.command = ['xnxxsearch', 'xnxxdl', 'xnxx'] 
+handler.command = ['سكس', 'xnxxdl', 'xnxx'] 
 handler.diamond = 2
 handler.premium = false
-handler.register = true
 
 export default handler
