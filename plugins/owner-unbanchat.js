@@ -4,5 +4,5 @@ m.reply('*[🌐] هذه الدردشه غير محظوره *')
 }
 handler.help = ['unbanchat']
 handler.tags = ['owner']
-handler.command = /^بان_شات$/i
+handler.command = /^بان_شات_فك$/i
 export default handler
