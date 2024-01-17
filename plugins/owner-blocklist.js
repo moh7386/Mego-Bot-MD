@@ -2,7 +2,7 @@
 
 let handler = async (m, { conn }) => {	
 await conn.fetchBlocklist().then(async data => {
-let txt = `*≡ Lista de bloqueados*\n\n*Total :* ${data.length}\n\n┌─⊷\n`
+let txt = `*≡ اللي واخدين بلوك 🚯*\n\n*العدد :* ${data.length}\n\n┌─⊷\n`
 for (let i of data) {
 txt += `▢ @${i.split("@")[0]}\n`}
 txt += "└───────────"
@@ -12,6 +12,6 @@ console.log(err);
 throw 'No hay números bloqueados'})}
 handler.help = ['blocklist']
 handler.tags = ['owner']
-handler.command = ['blocklist', 'listblock'] 
+handler.command = ['البلوكات', 'listblock'] 
 handler.rowner = true
 export default handler
