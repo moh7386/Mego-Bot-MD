@@ -1,10 +1,10 @@
 let handler = async (m) => {
 global.db.data.chats[m.chat].isBanned = true
-m.reply(`*[🛑] ESTE CHAT FUE BANEADO [🛑]*\n\n*❌ESTE CHAT NO TIENE PERMISO PARA USARME ASTA QUE SEA DESBANEADO❌*`)
+m.reply(`*[🔒] هذه الدردشة ليس لديها إذن لاستخدامي حتى يتم رفع الحظر عنها*`)
 }
 handler.help = ['banchat']
 handler.tags = ['owner']
-handler.command = /^banchat$/i
+handler.command = /^بان_شات$/i
 handler.botAdmin = true
 handler.admin = true 
 handler.group = true
