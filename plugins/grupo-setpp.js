@@ -11,7 +11,7 @@ await conn.updateProfilePicture(m.chat, img).then(_ => conn.reply(m.chat, '✅ *
 }
 handler.help = ['setpp', 'setppgc', 'setppgroup']
 handler.tags = ['grupo']
-handler.command = /^setpp(group|grup|gc|تغييرالصورة)?$/i
+handler.command = /^setpp(group|grup|gc)|تغييرالصورة?$/i
 
 handler.group = true
 handler.admin = true
