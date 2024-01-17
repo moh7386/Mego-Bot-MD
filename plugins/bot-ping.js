@@ -62,7 +62,9 @@ handler.help = ['ping']
 handler.tags = ['bot']
 handler.command = ['بينغ', 'سرعهه']
 
+conn.sendMessage(m.chat, { text: texto, contextInfo: { externalAdReply: { title: '', body: 'CURIOSITY - BOT - MD', thumbnailUrl: 'https://telegra.ph/file/6cbf9148b572711e9b000.jpg', sourceUrl: '', mediaType: 1, renderLargerThumbnail: true }}})
 
+}
 export default handler
 
 function clockString(ms) {
