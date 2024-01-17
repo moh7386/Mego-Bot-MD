@@ -6,8 +6,8 @@ throw false
 }
 
 let pesan = args.join` `
-let oi = `Mensaje: ${pesan}`
-let teks = `🚩 *Cluster - Tag All*\n\n${oi}\n\n`
+let oi = `الرساله: ${pesan}`
+let teks = `🚩 *الكل *\n\n${oi}\n\n`
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -19,7 +19,7 @@ conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, 
 }
 handler.help = ['tagall']
 handler.tags = ['grupo']
-handler.command = /^(tagall|invocar|invocacion|todos|invocación)$/i
+handler.command = /^(tagall|منشن|invocacion|todos|invocación)$/i
 
 handler.botAdmin = true
 handler.admin = true
