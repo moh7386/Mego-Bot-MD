@@ -8,7 +8,7 @@ conn.reply(m.chat, Object.entries(await stylizeText(text ? text : m.quoted && m.
 }
 handler.help = ['style']
 handler.tags = ['implementos']
-handler.command = /^(style(text)?)$/i
+handler.command = /^(خط(text)?)$/i
 
 export default handler
 
