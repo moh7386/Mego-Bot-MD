@@ -1,74 +1,94 @@
-import { totalmem, freemem } from 'os'
-import os from 'os'
-import util from 'util'
-import osu from 'node-os-utils'
-import { performance } from 'perf_hooks'
-import { sizeFormatter } from 'human-readable'
-import speed from 'performance-now'
-import { spawn, exec, execSync } from 'child_process'
-const format = sizeFormatter({ std: 'JEDEC', decimalPlaces: 2, keepTrailingZeroes: false, render: (literal, symbol) => `${literal} ${symbol}B` })
+import { generateWAMessageFromContent } from "@whiskeysockets/baileys";
+import os from "os";
+import util from "util";
+import sizeFormatter from "human-readable";
+import MessageType from "@whiskeysockets/baileys";
+import fs from "fs";
+import { performance } from "perf_hooks";
+const handler = async (m, { conn, usedPrefix }) => {
+  const _uptime = process.uptime() * 1000;
+  const uptime = clockString(_uptime);
+  const totalusrReg = Object.values(global.db.data.users).filter((user) => user.registered == true).length;
+  const totalusr = Object.keys(global.db.data.users).length;
+  const chats = Object.entries(conn.chats).filter(
+    ([id, data]) => id && data.isChats,
+  );
+  const groupsIn = chats.filter(([id]) => id.endsWith("@g.us"));
+  const groups = chats.filter(([id]) => id.endsWith("@g.us"));
+  const used = process.memoryUsage();
+  const { restrict, antiCall, antiprivado, modejadibot } =
+    global.db.data.settings[conn.user.jid] || {};
+  const { autoread, gconly, pconly, self } = global.opts || {};
+  const old = performance.now();
+  const neww = performance.now();
+  const rtime = (neww - old).toFixed(7);
+  const wm = 'The Mystic Bot';
+  const info = ` _*< INFO - ESTADO />*_
 
-var handler = async (m, { conn }) => {
+ ▢ *مطور.:* mego
+ ▢ *WA:* +201012531172
+ ▢ *جروب:* https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J
 
-let timestamp = speed()
-let latensi = speed() - timestamp
+ ▢ *Ping:* ${rtime}
+ ▢ *Uptime:* ${uptime}
+ ▢ *Prefijo:* ${usedPrefix}
+ ▢ *Modo:* ${self ? "privado" : "público"}
+ ▢ *Usuarios regs.:* ${totalusrReg}
+ ▢ *Usuarios totales:* ${totalusr}
+ ▢ *Tipo de bot:* ${(conn.user.jid == global.conn.user.jid ? '' : `Sub-bot de:\n ▢ +${global.conn.user.jid.split`@`[0]}`) || 'No es sub-bot'}
+ 
+ ▢ *Chats privados:* ${chats.length - groups.length}
+ ▢ *Grupos:* ${groups.length}
+ ▢ *Chats totales:* ${chats.length}
+ 
+ ▢ *Autoread:* ${autoread ? "activo" : "desactivado"}
+ ▢ *Restrict:* ${restrict ? "activo" : "desactivado"}
+ ▢ *PCOnly:* ${pconly ? "activado" : "desactivado"}
+ ▢ *GPOnly:* ${gconly ? "activado" : "desactivado"}
+ ▢ *AntiPrivado:* ${antiprivado ? "activado" : "desactivado"}
+ ▢ *AntiLlamada:* ${antiCall ? "activado" : "desactivado"}
+ ▢ *ModeJadiBot:* ${modejadibot ? "activado" : "desactivado"}`.trim();
+  const doc = [
+    "pdf",
+    "zip",
+    "vnd.openxmlformats-officedocument.presentationml.presentation",
+    "vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ];
+  const document = doc[Math.floor(Math.random() * doc.length)];
+  const Message = {
+    document: { url: `https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J` },
+    mimetype: `application/${document}`,
+    fileName: `Documento`,
+    fileLength: 99999999999999,
+    pageCount: 200,
+    contextInfo: {
+      forwardingScore: 200,
+      isForwarded: true,
+      externalAdReply: {
+        mediaUrl: "https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J",
+        mediaType: 2,
+        previewType: "pdf",
+        title: "The mego - Bot",
+        body: "Repositorio - GitHub",
+        thumbnail: imagen1,
+        sourceUrl: "https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J",
+      },
+    },
+    caption: info,
+    footer: wm,
+    headerType: 6,
+  };
+  conn.sendMessage(m.chat, Message, { quoted: m });
+};
 
-let _muptime = process.uptime() * 1000
-let muptime = clockString(_muptime)
-
-let chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
-let groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats && !chat.metadata?.read_only && !chat.metadata?.announce).map(v => v[0])
-
-
-let texto = `*📑 معلومات البوت*
-
-👑 *مطور*
- *mego*
---------------------------
-🥏 *اتصال* 
- *${ig}*
---------------------------
-🌐 *النسخة الحالية*
- ${vs}
---------------------------
-💻 *بادئة*
- *${usedPrefix}*
---------------------------
-🚦 *الدردشات الخاصة*
- *${chats.length - groups.length}*
---------------------------
-📑 *الدردشات الجماعية*
- *${groups.length}* 
---------------------------
-💬 *مجموع القطط*
- *${chats.length}* 
---------------------------
-⏰ *نشاط*
- *${uptime}*
---------------------------
-👥 *المستخدمين*
- *${totalreg}* 
---------------------------
-🚀 *سرعة:*
- *${speed}*
---------------------------
-📡 *القراءة التلقائية:*
- ${autoread ? '*قادر ✅*' : '*عاجز ❌*'}
---------------------------
-🔰 *تقيد:*
-${restrict ? '*قادر ✅*' : '*عاجز ❌*'}`.trim()
-
-handler.help = ['ping']
-handler.tags = ['bot']
-handler.command = ['بينغ', 'سرعهه']
-
-conn.sendMessage(m.chat, { text: texto, contextInfo: { externalAdReply: { title: '', body: 'CURIOSITY - BOT - MD', thumbnailUrl: 'https://telegra.ph/file/6cbf9148b572711e9b000.jpg', sourceUrl: '', mediaType: 1, renderLargerThumbnail: true }}})
-
-}
-export default handler
+handler.command = /^(ping|info|status|estado)$/i;
+export default handler;
 
 function clockString(ms) {
-let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+  const h = Math.floor(ms / 3600000);
+  const m = Math.floor(ms / 60000) % 60;
+  const s = Math.floor(ms / 1000) % 60;
+  console.log({ ms, h, m, s });
+  return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(":");
+}
