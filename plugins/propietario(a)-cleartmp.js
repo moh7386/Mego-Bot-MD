@@ -10,7 +10,7 @@ watch
 } from 'fs'
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => { 
 
-conn.reply(m.chat, `*⚠️ ARCHIVOS DE LA CARPETA TMP FUERON ELIMINADOS*`, m)
+conn.reply(m.chat, `*⚠️ ملفات مجلد TMP*`, m)
 
 const tmp = [tmpdir(), join(__dirname, '../tmp')]
 const filename = []
@@ -21,7 +21,7 @@ unlinkSync(file)
 })} //NO USAR ESTE COMANDO EN HEROKU | DO NOT USE THIS COMMAND ON HEROKU
 handler.help = ['cleartmp']
 handler.tags = ['owner']
-handler.command = /^(cleartmp|cleartemp|borrartmp|eliminartmp|borrartemp|borrartemp)$/i
+handler.command = /^(cleartmp|cleartemp|tmp|eliminartmp|borrartemp|borrartemp)$/i
 handler.exp = 500
 handler.rowner = true
 export default handler
