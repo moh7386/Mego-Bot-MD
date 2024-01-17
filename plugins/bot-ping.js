@@ -20,7 +20,7 @@ let chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats
 let groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats && !chat.metadata?.read_only && !chat.metadata?.announce).map(v => v[0])
 
 
-let texto = `*📑 INFO CURIOSITY BOT MD*
+let texto = `*📑 معلومات البوت*
 
 👑 *مطور*
  *mego*
@@ -60,7 +60,7 @@ ${restrict ? '*قادر ✅*' : '*عاجز ❌*'}`.trim()
 
 handler.help = ['ping']
 handler.tags = ['bot']
-handler.command = ['بينغغ', 'سرعهه']
+handler.command = ['بينغ', 'سرعهه']
 
 
 export default handler
