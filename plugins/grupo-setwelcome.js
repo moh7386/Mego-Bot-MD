@@ -10,7 +10,7 @@ conn.reply(m.chat, '✅ *تم تغيير الترحيب*', m, fake, )
 }
 handler.help = ['setwelcome']
 handler.tags = ['grupo']
-handler.command = /^تغيير_الدخول$/i
+handler.command = /^تغير_الدخول$/i
 
 handler.group = true
 handler.admin = true
