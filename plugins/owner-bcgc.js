@@ -4,7 +4,7 @@ let handler = async (m, { conn, isROwner, text }) => {
     let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
     let anu = groups.map(v => v.id)
     var pesan = m.quoted && m.quoted.text ? m.quoted.text : text
-    if(!pesan) throw '*⚠️ INGRESE EL TEXTO QUE QUIERE QUE TRÁMITE*'
+    if(!pesan) throw '*⚠️ أدخل النص الذي تريده*'
    // m.reply(`*📑 MENSAJE ENVIADO A ${anu.length} GRUPO/S*\n\n*🔔 NOTA: ES POSIBLE QUE NO SE ENVIE A TODOS LOS CHATS`)
     for (let i of anu) {
     await delay(500)
@@ -14,17 +14,17 @@ let handler = async (m, { conn, isROwner, text }) => {
   degreesLongitude: 139.75270667105852,
   accuracyInMeters: 0,
 degreesClockwiseFromMagneticNorth: 2,
-caption: '––––––『 *BROADCAST* 』––––––\n\n' + pesan + '\n\n*💌 ESTO ES UN COMUNICADO OFICIAL*',
+caption: '––––––『 *إذاعة* 』––––––\n\n' + pesan + '\n\n*💌 هذا بيان رسمي*',
 sequenceNumber: 2,
 timeOffset: 3,
 contextInfo: m,
 }}, {}).catch(_ => _)
     }
-  m.reply(`*📑 MENSAJE ENVIADO A ${anu.length} GRUPO/S*\n\n*🔔 NOTA: ES POSIBLE QUE NO SE ENVIE A TODOS LOS CHATS*`)
+  m.reply(`*📑 تم إرسال الرسالة إلى ${anu.length} جروبات*\n\n*🔔 ملاحظة: قد لا يتم إرسالها إلى جميع الدردشات*`)
 }
 handler.help = ['broadcastgroup', 'bcgc'].map(v => v + ' <teks>')
 handler.tags = ['owner']
-handler.command = /^(broadcast|bc)(group|grup|gc)$/i
+handler.command = /^(نشر|bc)(group|grup|gc)$/i
 handler.owner = true
 
 export default handler
