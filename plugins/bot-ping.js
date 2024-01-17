@@ -25,8 +25,8 @@ const handler = async (m, { conn, usedPrefix }) => {
   const wm = 'The mego Bot';
   const info = ` _*< معلومات - البوت />*_
 
- ▢ *مطور.:* mego
- ▢ *WA:* +201012531172
+ ▢ *مطور.:* ميججؤؤ لفآججر 👾
+ ▢ *رقم المطور:* wa.me)+201012531172
  ▢ *دعم:* https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J
 
  ▢ *بينغ:* ${rtime}
