@@ -3,15 +3,15 @@ import fetch from 'node-fetch'
 var handler = async (m, { conn, isOwner, usedPrefix, command, text, }) => {
 
 conn.dropmail = conn.dropmail ? conn.dropmail : {}
-let id = 'dropmail'
+let id = 'بريد'
 
 let lister = ['انشاء', 'رساله', 'حذف']
 
 const [feature, inputs, inputs_, inputs__, inputs___] = text.split(' ')
-if (!lister.includes(feature)) return m.reply('*❕ EJEMPLO:*\n' + usedPrefix + command + ' create\n\n*Seleccione un tipo existente*\n' + lister.map((v, index) => '  ○ ' + v).join('\n'))
+if (!lister.includes(feature)) return m.reply('*❕ مثال:*\n' + usedPrefix + command + ' انشاء\n\n*حدد نوعًا موجودًا*\n' + lister.map((v, index) => '  ○ ' + v).join('\n'))
 
 if (lister.includes(feature)) {
-if (feature == 'create') {
+if (feature == 'انشاء') {
 try {
 let eml = await random_mail();
 const timeDiff = new Date(eml[2]) - new Date();
@@ -27,13 +27,13 @@ await m.reply(eror);
 }
 }
 
-if (feature == 'message') {
+if (feature == 'رساله') {
 if (!conn.dropmail[id]) return m.reply('*⚠️ لا توجد رسائل، قم بإنشاء بريد إلكتروني أولاً*\n\n❕ مثال\n*' + usedPrefix + command + ' انشاء*')
 
 try {
 const eml = await get_mails(conn.dropmail[id][2]);
 const teks = eml[0].map((v, index) => {
-return `*EMAIL [ ${index + 1} ]*
+return `*ايميل [ ${index + 1} ]*
 *De* : ${v.fromAddr}
 *Para* : ${v.toAddr}
 
