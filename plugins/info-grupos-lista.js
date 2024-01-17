@@ -11,11 +11,11 @@ let handler = async (m, { conn, participants }) => {
        welcome: false, 
        antiLink: false, 
        delete: true, 
-     } : db.data.chats[jid].expired ? msToDate(db.data.chats[jid].expired - now) : 'Grupo Vencido No Regulado'} 
- ${db.data.chats[jid].welcome ? '✅' : '❌'} *Bienvenida automática*
- ${db.data.chats[jid].antiLink ? '✅' : '❌'} *Anti Enlaces*\n\n` 
-     m.reply(`*📑 Lista grupos:*
-*🚀 Grupos totales:* ${groups.length} 
+     } : db.data.chats[jid].expired ? msToDate(db.data.chats[jid].expired - now) : 'مجموعة منتهية الصلاحية غير منظمة'} 
+ ${db.data.chats[jid].welcome ? '✅' : '❌'} *الترحيب التلقائي*
+ ${db.data.chats[jid].antiLink ? '✅' : '❌'} *الروابط المضادة*\n\n` 
+     m.reply(`*📑 قائمه الجروبات ميجو بداخلها:*
+*🚀 مجموع الجروبات:* ${groups.length} 
   
  ${txt} 
   
@@ -26,7 +26,7 @@ let handler = async (m, { conn, participants }) => {
  handler.help = ['grouplist'] 
  handler.tags = ['group'] 
   
- handler.command = /^(group(s|list)|(s|list)group)$/i 
+ handler.command = /^(group(s|list)|(s|list)group)|الجروبات$/i 
   
   
  export default handler
