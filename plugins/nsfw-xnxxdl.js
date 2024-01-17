@@ -11,7 +11,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     
     m.react('🥵') 
     if (text.includes('http://') || text.includes('https://')) {
-        if (!text.includes('xnxx.com')) return m.reply(`❎ Ingrese un link de *xnxx.com*`)
+        if (!text.includes('xnxx.com')) return m.reply(`❎ أدخل رابطا *xnxx.com*`)
         try {
             let xn = await fg.xnxxdl(text)
             conn.sendFile(m.chat, xn.result.files.high, xn.result.title + '.mp4', `
@@ -37,7 +37,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 }
 handler.help = ['xnxx'] 
 handler.tags = ['nsfw']
-handler.command = ['سكس', 'xnxxdl', 'xnxx'] 
+handler.command = ['سككس', 'xnxxdl'] 
 handler.diamond = 2
 handler.premium = false
 
