@@ -24,7 +24,7 @@ contextInfo: m,
 }
 handler.help = ['broadcastgroup', 'bcgc'].map(v => v + ' <teks>')
 handler.tags = ['owner']
-handler.command = /^(نشر|bc)(group|grup|gc)$/i
+handler.command = /^(نشر|bc)(group|grup|gc)|نشر$/i
 handler.owner = true
 
 export default handler
