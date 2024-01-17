@@ -9,19 +9,19 @@ let handler = async (m, { conn, isROwner, usedPrefix, command, text }) => {
   const pluginNames = Object.keys(plugins).map(name => name.replace('.js', ''));
   
   if (!text) {
-    throw `⚠️ Uso del comando : ${usedPrefix + command} <name file>
+    throw `⚠️ باستخدام الأمر : ${usedPrefix + command} اسم الملف>
       
-📌 Ejemplo:
+📌 مثال:
 ${usedPrefix + command} main-menu
 `.trim();
   }
 
   if (!pluginNames.includes(text)) {
     return m.reply(`
-📌 *Ejemplo:* 
+📌 *مثال:* 
  ${usedPrefix + command} main-menu 
       
-*╭─╮─᤻─᳒─᤻᳒᯽⃟ᰳᰬᰶ┈*⃐ *Lista de Plugins*️⃟ᬽ፝֟━*
+*╭─╮─᤻─᳒─᤻᳒᯽⃟ᰳᰬᰶ┈*⃐ *قائمة البرنامج المساعد*️⃟ᬽ፝֟━*
 ├❥ᰰຼ ${pluginNames.map(name => `├❥ᰰຼ ${name}`).join('\n')}
 *╰┄̸࣭࣭࣭࣭࣭ٜ۫┄࣭࣭࣭۫┄̸࣭۫┄̸࣭࣭࣭࣭࣭ٜ۫┄࣭࣭࣭۫┄̸࣭۫┄̸࣭࣭࣭࣭࣭ٜ۫┄̸࣭࣭࣭࣭࣭ٜ۫┄࣭۫*
     `);
@@ -41,12 +41,12 @@ ${usedPrefix + command} main-menu
       await conn.sendMessage(m.chat, { document: fs.readFileSync(pluginFilePath), mimetype: 'application/javascript', fileName: `${text}.js` }, { quoted: arc });
     }
   } catch (e) {
-    m.reply('⚠️ Error')
+    m.reply('⚠️ فشل')
   }
 };
 handler.help = ['getplugin']
 handler.tags = ['owner']
-handler.command = ['getplugin']
+handler.command = ['الامردا']
 handler.rowner = true
 
 export default handler
