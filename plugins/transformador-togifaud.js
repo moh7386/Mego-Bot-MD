@@ -1,17 +1,17 @@
 var handler = async (m, {conn, usedPrefix, command}) => {
 
-if (!m.quoted) throw `*⚠️ RESPONDA A UN VÍDEO QUE DESEE CONVERTIR A GIF CON AUDIO*` 
+if (!m.quoted) throw `*⚠️رد ع فيديو لتحويله جيفgif*` 
 const q = m.quoted || m
 const mime = (q.msg || q).mimetype || ''
-if (!/(mp4)/.test(mime)) throw `*⚠️ MÍMICA ${mime} NO SOPORTADA*` 
-m.reply('*🚀 C A R G A N D O*')
+if (!/(mp4)/.test(mime)) throw `*⚠️ تشابه ${mime} غير مدعوم*` 
+m.reply('*🚀 تم التحويل بوساطه ميجو*')
 const media = await q.download()
 conn.sendMessage(m.chat, {video: media, gifPlayback: true, caption: '*🚀🚀*'}, {quoted: m})
 
 }
 handler.help = ['togifaud']
 handler.tags = ['transformador']
-handler.command = ['togifaud']
+handler.command = ['جيف']
 
 handler.limit = true
  
