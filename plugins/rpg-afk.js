@@ -1,22 +1,22 @@
 import db from '../lib/database.js'
 let handler = async (m, { conn, text }) => {
     let user = global.db.data.users[m.sender]
-    if (!text) return m.reply(`*⚠️ POR FAVOR COLOQUE SU MOTIVO PARA ESTAR AFK*\n\n💡 EJEMPLO\n*#afk Voy a comer*`)
-    if (text.length < 10) return m.reply(`*⚠️ EL MOTIVO ES MUY CORTO, MINIMO 10 CARÁCTERES*`)
+    if (!text) return m.reply(`*⚠️ يرجي وضع السبب الخاص بك*\n\n💡 مثال\n*.اختفاء رايح انام*`)
+    if (text.length < 10) return m.reply(`*⚠️ السبب قصير جدًا، الحد الأدنى 10 أحرف*`)
     user.afk = + new Date
     user.afkReason = text
     conn.reply(m.chat, `
-\t\t\t\t *「 ⚠️ ESTADO AFK ⚠️ 」*
+\t\t\t\t *「 ⚠️ حاله الاخفاء ⚠️ 」*
  
-*► Estarás afk hasta que envíes un mensaje.*
+*► سوف تكون متوقفًا عن العمل حتى تقوم بإرسال رسالة.*
 
-👤 *Usuario:* @${m.sender.split`@`[0]} 
-👀 *Razón:* ${text ? ': ' + text : ''}
+👤 *المستخدم:* @${m.sender.split`@`[0]} 
+👀 *السبب:* ${text ? ': ' + text : ''}
   `, m, { mentions: [m.sender]})
 }
 handler.help = ['afk *<razón>*']
 handler.tags = ['rg']
-handler.command = ['afk']
+handler.command = ['اخفاء']
 handler.register = true
 
 export default handler
