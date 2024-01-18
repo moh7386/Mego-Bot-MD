@@ -3,8 +3,8 @@ export function before(m) {
     let user = global.db.data.users[m.sender]
     if (user.afk > -1) {
         m.reply(`
-*「⏰ DEJASTE DE ESTAR AFK ⏰」*\n ${user.afkReason ? ' \n👀 Razón: ' + user.afkReason : ''}
-⏱️ *Durante:* ${(new Date - user.afk).toTimeString()}
+*「⏰ انت الان ليس مخفي ⏰」*\n ${user.afkReason ? ' \n👀 سبب: ' + user.afkReason : ''}
+⏱️ *وقت:* ${(new Date - user.afk).toTimeString()}
   `.trim())
         user.afk = -1
         user.afkReason = ''
@@ -19,9 +19,9 @@ export function before(m) {
             continue
         let reason = user.afkReason || ''
         m.reply(`
-️⚠️ *EL USUARIO QUE MENCIONASTE ESTA AFK*
-${reason ? '👀 *Razón* : ' + reason : '*Sin razón*'}
-⏱️ *Durante* : ${clockString(new Date - afkTime)}
+️⚠️ *المستخدم الذي طلبته هو في وضع الاخفاء*
+${reason ? '👀 *سبب* : ' + reason : '*بدون سبب*'}
+⏱️ *وقت* : ${clockString(new Date - afkTime)}
   `.trim())
     }
     return true
