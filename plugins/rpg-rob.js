@@ -43,7 +43,7 @@ let handler = async (m, {conn, text, usedPrefix, command, groupMetadata}) => {
 
 handler.help = ["saquear [@user]"];
 handler.tags = ['rg']
-handler.command = /^(raidear|اعاده|rob|robar)$/i;
+handler.command = /^(raidear|rob|robar)$/i;
 handler.group = true;
 handler.cooldown = cooldown;
 export default handler;
