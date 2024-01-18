@@ -6,15 +6,15 @@ let handler = async (m, { conn, command, args }) => {
   if (global.db.data.users[m.sender].exp >= xpperdiamond * count) {
     global.db.data.users[m.sender].exp -= xpperdiamond * count
     global.db.data.users[m.sender].diamond += count
-    conn.reply(m.chat, `*NOTA DE PAGO 📝*
+    conn.reply(m.chat, `*ملاحظة الدفع 📝*
     
-*COMPRA* : + ${count}💎 
-*GASTADO* : -${xpperdiamond * count} XP`, m)
-  } else conn.reply(m.chat, `*⚠️ NO TIENES SUFICIENTE XP PARA COMPAR ${count} DIAMANTES 💎*`, m)
+*شراء* : + ${count}💎 
+*أنفق* : -${xpperdiamond * count} XP`, m)
+  } else conn.reply(m.chat, `*⚠️ ليس لديك ما يكفي من اكسبي للشراء ${count} الماس 💎*`, m)
 }
 handler.help = ['buy', 'buyall']
 handler.tags = ['rg']
-handler.command = ['buy', 'buyall'] 
+handler.command = ['شراء', 'شراءالكل'] 
 handler.register = true
 handler.disabled = false
 
