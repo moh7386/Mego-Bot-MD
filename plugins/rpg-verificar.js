@@ -5,15 +5,15 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   let name2 = conn.getName(m.sender)
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
   let pp = await this.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/1861aab98389b13db8588.jpg')
-  if (user.registered === true) throw `*⚠️ Ya estás registrado*\n\n¿Quiere volver a registrarse?\n\n💬 Use este comando para *eliminar su registro*\n*${usedPrefix}unreg* <Número de serie>`
-  if (!Reg.test(text)) throw `*⚠️ Formato incorrecto*\n\n📝 Uso del comamdo: *${usedPrefix + command} nombre.edad*\n💡 Ejemplo : *${usedPrefix + command}* ${name2}.18`
+  if (user.registered === true) throw `*⚠️ انت مسجل مسبقا*\n\n¿تريد التسجيل مرة أخرى?\n\n💬 استخدم هذا الأمر ل *اِسْتَبْعَد السجل الخاص بك*\n*${usedPrefix}غير منتظم* <رقم سري>`
+  if (!Reg.test(text)) throw `*⚠️ تنسيق غير صحيح*\n\n📝 باستخدام الأمر: *${usedPrefix + command} الاسم العمر*\n💡 مثال : *${usedPrefix + command}* ${name2}.18`
   let [_, name, splitter, age] = text.match(Reg)
-  if (!name) throw '*📝 El nombre no puede estar vacío*'
-  if (!age) throw '*📝 La edad no puede estar vacía*'
-  if (name.length >= 30) throw '*⚠️ El nombre es demasiado largo*' 
+  if (!name) throw '*📝 لا يمكن أن يكون الاسم فارغًا*'
+  if (!age) throw '*📝 لا يمكن أن يكون العمر فارغًا*'
+  if (name.length >= 30) throw '*⚠️ اسم طويل جدا*' 
   age = parseInt(age)
-  if (age > 100) throw '*👴🏻 Wow el abuelo quiere jugar al bot*'
-  if (age < 5) throw '*👀 hay un bebé jsjsj*'
+  if (age > 100) throw '*👴🏻 واو الجد يريد أن يلعب دور الروبوت*'
+  if (age < 5) throw '*👀 هناك طفل ههه*'
   user.name = name.trim()
   user.age = age
   user.regTime = + new Date
@@ -21,10 +21,10 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)	
 m.react('📩') 
 let regbot = `
-🗃️ *R E G I S T R A D O* 🗃️
-🪁 *Nombre:* ${name}
-🎨 *Edad* : ${age} años
-🥏 *Numero de serie*:
+🗃️ *مبروك التسجيل* 🗃️
+🪁 *الاسم:* ${name}
+🎨 *العمر* : ${age} años
+🥏 *ايدي*:
 ${sn}`
 await m.reply(regbot)
 // await conn.sendUrl(m.chat, regbot, m, { externalAdReply: { mediaType: 1, renderLargerThumbnail: true, thumbnail: pp, thumbnailUrl: pp, title: 'Registrado 📩', }})
@@ -33,7 +33,7 @@ await m.reply(regbot)
 handler.help = ['reg'].map(v => v + ' <nombre.edad>')
 handler.tags = ['rg']
 
-handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
+handler.command = ['verify', 'تسجيل', 'reg', 'register', 'registrar'] 
 
 export default handler
 
