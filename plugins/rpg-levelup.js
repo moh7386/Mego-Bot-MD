@@ -50,6 +50,6 @@ let user = global.db.data.users[m.sender]
 handler.help = ['levelup']
 handler.tags = ['rg']
 
-handler.command = ['nivel', 'lvl', 'levelup', 'level'] 
+handler.command = ['nivel', 'lvl', 'لفل', 'level'] 
 
 export default handler
