@@ -10,7 +10,7 @@ user.premiumTime = 0
 user.premium = false
 let JID = Object.keys(global.db.data.users).find((key) => global.db.data.users[key] === user)
 let usuarioJid = JID.split`@`[0]
-let textoo = `*😿 @${usuarioJid}, PARECE QUE TU TIEMPO PREMIUM SE A TERMINADO*`
+let textoo = `*😿 @${usuarioJid}, يبدو ان وقت البريم قد انتهي*`
 await this.sendMessage(JID, {text: textoo, mentions: [JID]}, {quoted: ''})
 
 }}}}
