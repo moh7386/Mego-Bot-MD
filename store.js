@@ -32,11 +32,11 @@ global.yt = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J'
 global.ig = 'https://instagram.com/mego51_51?igshid=NTc4MTIwNjQ2YQ=='
 global.md = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J'
 global.paypal = 'https://instagram.com/mego51_51?igshid=NTc4MTIwNjQ2YQ=='
-global.git = 'https://github.com/AzamiJs'
+global.git = 'https://instagram.com/mego51_51?igshid=NTc4MTIwNjQ2YQ=='
 global.nn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //Grupo ofc
 global.nnn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //Curiosity global
 global.nnnn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //colaboración multi bots
-global.nnnnn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //Colaboración CuriosityBot - NovaBot 
+global.nnnnn = 'https://instagram.com/mego51_51?igshid=NTc4MTIwNjQ2YQ==' //Colaboración CuriosityBot - NovaBot 
 global.nnnnnn = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J' //enlace curiosity
 global.channel = 'https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J'
 global.email = 'aztmego@gmail.com'
