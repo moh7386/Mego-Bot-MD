@@ -8,35 +8,35 @@ let user = global.db.data.users[m.sender]
     if (!canLevelUp(user.level, user.exp, global.multiplier)) {
         let { min, xp, max } = xpRange(user.level, global.multiplier)
         throw `
-»»» 「 ✨ NIVEL ✨ 」
-» *NOMBRE*
+»»» 「 👾 لفلك يحب 👾 」
+» *الاسم*
 › ${name}
 •-------------------
-» *NIVEL:* 
+» *لفل:* 
 › *${user.level}*
 •-------------------
-» *XP:*
+» *اكسبي:*
 › *${user.exp - min}/${xp}*
 
-*Te falta ${max - user.exp} de XP para subir de nivel*
+*أنت مفقود ${max - user.exp} XP إلى المستوى الأعلى*
 `.trim()
     }
     let before = user.level * 1
     while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
     if (before !== user.level) {
-        let teks = `Bien hecho! ${conn.getName(m.sender)} Nivel: ${user.level}`
+        let teks = `أحسنت! ${conn.getName(m.sender)} مستوى: ${user.level}`
         let str = `
-»»» 「 ✨ NIVEL ✨ 」
-» *NIVEL ANTERIOR:*
+»»» 「 👾 لفلك يحب 👾 」
+» *المستوى السابق:*
 › *${before}*
 •-------------------
-» *NIVEL ACTUAL:*
+» *المستوى الحالي:*
 › *${user.level}*
 •-------------------
-» *FECHA:* 
+» *التاريخ:* 
 › *${new Date().toLocaleString('id-ID')}*
 
-*_Cuanto más interactúes con ${cb}, mayor será tu nivel!!_*
+*كلما زاد تفاعلك معه ${cb}, كلما ارتفع مستواك!!*
 `.trim()
         try {
             const img = await levelup(teks, user.level)
