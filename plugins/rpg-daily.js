@@ -18,7 +18,6 @@ let exppremium = `${pickRandom([1000, 1500, 1800, 2100, 2500, 2900, 3300, 3600, 
 handler.help = ['daily']
 handler.tags = ['rg']
 handler.command = ['يومي', 'claim'] 
-handler.register = true
 
 export default handler
 
