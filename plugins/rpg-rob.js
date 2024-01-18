@@ -8,20 +8,20 @@ let handler = async (m, {conn, text, usedPrefix, command, groupMetadata}) => {
   if (!text) return m.reply(`*➳ ETIQUETA AL USUARIO QUE QUIERE SAQUEAR*\n\n*EJEMPLO:* ${usedPrefix + command} @tɑg>.`);
   try { 
     let _user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
-    if (!_user in global.db.data.users) return m.reply(`➳ El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
+    if (!_user in global.db.data.users) return m.reply(`➳ المستخدم غير مسجل في قاعدة البيانات!`);
     if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
     if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
-    if (global.db.data.users[_user] == undefined) return m.reply(`➳ El usuɑrio no estά registrɑdo en lɑ bɑse de dɑtos!`);
+    if (global.db.data.users[_user] == undefined) return m.reply(`➳ المستخدم غير مسجل في قاعدة البيانات!`);
     let uuser = global.db.data.users[_user];
     let exp = Math.floor(Math.random() * ro)
     let diamond = Math.floor(Math.random() * d)
-    let raid = `*ʜᴀs sᴀǫᴜᴇᴀᴅᴏ ⚔️ ᴀ @${_user.split("@s.whatsapp.net")[0]}*
-◦ ᴇxᴘ: ${exp}
-◦ ᴅɪᴀᴍᴀɴᴛᴇ: ${diamond}
+    let raid = `المستخدم ⚔️ ᴀ @${_user.split("@s.whatsapp.net")[0]}*
+اكسبي: ${exp}
+◦ العدد: ${diamond}
 
-ʀᴏʙᴀᴅᴏ ᴘᴏʀ: @${m.sender.split("@")[0]}`;
-    if (uuser.diamond <= 5) return m.reply("El usuario no tiene suficientes recursos!");
-    if (uuser.exp <= 10) return m.reply(`El usuario no tiene suficientes recursos!`);
+الحساب: @${m.sender.split("@")[0]}`;
+    if (uuser.diamond <= 5) return m.reply("ليس لدى المستخدم موارد كافية");
+    if (uuser.exp <= 10) return m.reply(`ليس لدى المستخدم موارد كافية!`);
     global.db.data.users[_user].exp -= exp * 1;
     global.db.data.users[_user].diamond -= diamond * 1;
     global.db.data.users[m.sender].exp += exp * 1;
@@ -37,13 +37,13 @@ let handler = async (m, {conn, text, usedPrefix, command, groupMetadata}) => {
   );*/
     global.db.data.users[m.sender].lastrob = new Date() * 1;
   } catch {
-    await m.reply(`*🚓🚓🚓No le pudiste robar por que a este usuario los protege la policía 👮(AFK)*`);
+    await m.reply(`*🚓🚓🚓لا يمكنك سرقته لأن الشرطة تحمي هذا المستخدم 👮 (AFK)*`);
   }
 };
 
 handler.help = ["saquear [@user]"];
 handler.tags = ['rg']
-handler.command = /^(raidear|saquear|rob|robar)$/i;
+handler.command = /^(raidear|اعاده|rob|robar)$/i;
 handler.group = true;
 handler.cooldown = cooldown;
 export default handler;
