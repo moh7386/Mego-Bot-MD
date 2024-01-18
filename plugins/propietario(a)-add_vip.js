@@ -1,18 +1,29 @@
-let handler = async (m, { conn, text, command, usedPrefix }) => {
+//import db from '../lib/database.js'
+
+let handler = async (m, { conn, text, usedPrefix, command }) => {
 let who
-if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text
-else who = m.chat
-if (!who) throw `*⚠️ ضع ريبلاي على الشخص الذي سيصبح مستخدمًا VIP\n\n💡 مثال\n*${usedPrefix + command} @tag*`
-if (global.prems.includes(who.split`@`[0])) throw `*المستخدم بالفعل VIP ✨*`
+    if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
+    else who = m.chat
+    let user = global.db.data.users[who]
+    if (!who) throw `✳️ اعمل ريبلاي للمستخدم\n\n📌 مثال : ${usedPrefix + command} @user`
+if (global.prems.includes(who.split`@`[0])) throw '✳️ المستخدم المذكور هو فعلا مميز'
 global.prems.push(`${who.split`@`[0]}`)
-conn.reply(m.chat, `*@${who.split`@`[0]} أنت الآن مستخدم VIP.  لن يكون لديك حدود مع ${cb} 😏*`, m, {
-contextInfo: {
-mentionedJid: [who]
-}})}
-handler.help = ['addprem <@user>']
+
+conn.reply(m.chat, `
+✅ مميز
+
+@${who.split`@`[0]} ابسط يعم اصبحت مميز 
+┌───────────
+▢ *الرقم:* ${user.name}
+└───────────
+`, m, { mentions: [who] })
+
+}
+handler.help = ['addprem <@tag>']
 handler.tags = ['owner']
-handler.command = /^(add|\+)prem|بريم$/i
+handler.command = ['بريم', 'addpremium'] 
+
 handler.group = true
-handler.admin = true
-handler.botAdmin = true
+handler.rowner = true
+
 export default handler
