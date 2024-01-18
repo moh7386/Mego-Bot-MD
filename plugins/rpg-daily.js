@@ -6,18 +6,18 @@ let exppremium = `${pickRandom([1000, 1500, 1800, 2100, 2500, 2900, 3300, 3600, 
   let d = Math.floor(Math.random() * 30)
   global.db.data.users[m.sender].diamond += d
   let time = global.db.data.users[m.sender].lastclaim + 7200000 //2 Horas
-  if (new Date - global.db.data.users[m.sender].lastclaim < 7200000) throw `*🕚 Vuelve en ${msToTime(time - new Date())}* `
+  if (new Date - global.db.data.users[m.sender].lastclaim < 7200000) throw `*🕚 أعود للداخل ${msToTime(time - new Date())}* `
   global.db.data.users[m.sender].exp += exppremium ? prem : exp
-  m.reply(`🎁 *RECOMPENSA DIARIA*
+  m.reply(`🎁 *مكافأة اليومية*
 
-*✒ Has recibido:*
-🆙 *XP* : +${isPrems ? exppremium : exp}
-💎 *DIAMANTE* : +${d}`)
+*✒ لقد تلقيت:*
+🆙 *اكسبي* : +${isPrems ? exppremium : exp}
+💎 *الماس* : +${d}`)
   global.db.data.users[m.sender].lastclaim = new Date * 1
 }
 handler.help = ['daily']
 handler.tags = ['rg']
-handler.command = ['daily', 'claim'] 
+handler.command = ['يومي', 'claim'] 
 handler.register = true
 
 export default handler
