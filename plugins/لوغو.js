@@ -3,8 +3,8 @@ import cheerio from "cheerio";
 import FormData from "form-data";
 const split = '|';
 const handler = async (m, {conn, args: [effect], text: txt, usedPrefix, command, name}) => {
-  if (!effect) throw '*[❗𝐈𝐍𝐅𝐎❗] ¿𝙲𝙾𝙼𝙾 𝚄𝚂𝙰𝚁 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾?*\n—◉ _#logo (efecto) (texto)_\n*𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n—◉ #logo 3d-deep-sea-metal mego\n\n*[❗]يمكنك وضع اسمين منفصلين بالصوره عبر :*\n—◉ _#logo (اسم اللوغو) (الاسم الاول|الاسم التاني)_\n*مثال:*\n—◉ _#logo Wolf-Logo-Galaxy mego|Bot_\n\n*<اسماء اللوغو الموجوده/>*\n\n° ඬ⃟📝 #logo ' + effects.map((v) => v.title).join('\n° ඬ⃟📝 #logo ');
-  if (!effects.find((v) => (new RegExp(v.title, 'gi')).test(effect))) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙴𝙵𝙴𝙲𝚃𝙾 ${effect} 𝙽𝙾 𝙴𝚂𝚃𝙰 𝙴𝙽 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙴𝙵𝙴𝙲𝚃𝙾𝚂*`;  
+  if (!effect) throw '*[❗معلومه❗] ¿لاستخدام الامر اكتب ?*\n—◉ _#logo (اسم اللوغو) (اسمك)_\n*مثال:*\n—◉ #logo 3d-deep-sea-metal mego\n\n*[❗]يمكنك وضع اسمين منفصلين بالصوره عبر :*\n—◉ _#logo (اسم اللوغو) (الاسم الاول|الاسم التاني)_\n*مثال:*\n—◉ _#logo Wolf-Logo-Galaxy mego|Bot_\n\n*<اسماء اللوغو الموجوده/>*\n\n° ඬ⃟📝 #logo ' + effects.map((v) => v.title).join('\n° ඬ⃟📝 #logo ');
+  if (!effects.find((v) => (new RegExp(v.title, 'gi')).test(effect))) throw `*[❗معلومه❗] الطلب ${effect} ليس موجود لدي*`;  
   let text = txt.replace(new RegExp(effect, 'gi'), '').trimStart();
   if (text.includes(split)) {
     text = text.split(split).map((t) => t.trim());
@@ -14,7 +14,7 @@ const handler = async (m, {conn, args: [effect], text: txt, usedPrefix, command,
   const effectoSelect = effects.find((effectz) => new RegExp(effectz?.title, 'i').test(effect));
   const res = await maker(effectoSelect?.url, [...text]).catch(_ => { throw '*[❗] النص مفقود*' })
    if (typeof res == 'number') throw res == -1 ? `*[❗𝐈𝐍𝐅𝐎❗]اسم اللوغو ${effect} ليس موجود بالقائمه*` : `*[❗𝐈𝐍𝐅𝐎❗] الاستخدام غير صحيح ${usedPrefix + command} ${effect} ${new Array(res).fill('texto').map((v, i) => v + (i ? i + 1 : '')).join('|')}*`;
-  await conn.sendMessage(m.chat, {image: {url: res.image}, caption: `*𝚃𝙾𝙼𝙰 𝚃𝚄 𝙸𝙼𝙰𝙶𝙴𝙽 𝙿𝙴𝚁𝚂𝙾𝙽𝙰𝙻𝙸𝚉𝙰𝙳𝙰!!*\n*𝙴𝙵𝙴𝙲𝚃𝙾: ${effect}*`}, {quoted: m});  
+  await conn.sendMessage(m.chat, {image: {url: res.image}, caption: `*تفضل الصوره !!*\n*الطلب: ${effect}*`}, {quoted: m});  
 };
 handler.help = ['logos'];
 handler.tags = ['nulis'];
