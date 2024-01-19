@@ -11,9 +11,9 @@ let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[this.user.jid] || {}
 
 if (bot.antiPrivate && !isOwner && !isROwner) {
-await m.reply(`👾 *مرحبا* @${who.replace(/@.+/, '')}, *لا يمكنك استخدام البوت برايفت *\n\n*انضم اللي المجموعه الخاصه بالبوت لمتابعه الجديد من ميجو بوت*
-*https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J*\n${nn}`, false, { mentions: [who] })
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'banchat')
+await m.reply(`👾 *مرحبا* @${who.replace(/@.+/, '')}, *لا يمكنك استخدام البوت برايفت*\n\n*انضم اللي المجموعه الخاصه بالبوت لمتابعه الجديد واستخدام ميجو بوت*
+\n${nn}`, false, { mentions: [who] })
+await conn.groupParticipantsUpdate(m.chat, [m.sender], 'block')
 
 return !1
 }}
