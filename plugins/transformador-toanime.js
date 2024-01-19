@@ -26,7 +26,7 @@ throw '*⚠️ خطأ، حاول مرة أخرى*'}}}
 }
 handler.help = ['toanime']
 handler.tags = ['transformador']
-handler.command = /^(لكرتون|toanime)$/i
+handler.command = /^(لكرتون|لانمي)$/i
 
 handler.limit = true
  
