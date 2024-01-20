@@ -3,7 +3,7 @@ import uploadImage from '../lib/uploadImage.js'
 let handler = async (m) => {
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw '*اين الصوره؟'
+  if (!mime) throw '*اين الصوره؟*'
   if (mime && mime.startsWith('video/')) {
     throw 'رد علی صوره!';
   }
@@ -12,7 +12,7 @@ let handler = async (m) => {
   m.reply(wait)
   let link = await (isTele ? uploadImage : uploadImage)(media);
   let lr = (`https://api.popcat.xyz/wanted?image=${link}`)
-  conn.sendFile(m.chat, lr, 'wanted.png', `*🎀┇miku bot*`, m)
+  conn.sendFile(m.chat, lr, 'wanted.png', `*『🔥┇𝙼𝙴𝙶𝙾-𝙱𝙾𝚃』*`, m)
 }
 handler.help = ['wanted']
 handler.tags = ['meme']
