@@ -56,6 +56,6 @@ ${translatedTafsirar.text}`;
 
 quranSurahHandler.help = ['quran [surah_number|surah_name]'];
 quranSurahHandler.tags = ['quran', 'surah'];
-quranSurahHandler.command = ['quran', 'surah','القران','قران','القرآن','قرآن']
+quranSurahHandler.command = ['quran', 'surah','سوره']
 
 export default quranSurahHandler;
