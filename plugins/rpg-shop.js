@@ -9,10 +9,10 @@ let handler = async (m, { conn, command, args }) => {
     conn.reply(m.chat, `*ملاحظة الدفع 📝*
     
 *شراء* : + ${count}💎 
-*أنفق* : -${xpperdiamond * count} XP`, m)
+*أنفق* : -${xpperdiamond * count} اكسبي`, m)
   } else conn.reply(m.chat, `*⚠️ ليس لديك ما يكفي من اكسبي للشراء ${count} الماس 💎*`, m)
 }
-handler.help = ['buy', 'buyall']
+handler.help = ['شراء', 'شراءالكل']
 handler.tags = ['rg']
 handler.command = ['شراء', 'شراءالكل'] 
 handler.register = true
