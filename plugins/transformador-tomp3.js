@@ -1,23 +1,14 @@
-import { toAudio } from '../lib/converter.js'
-
-var handler = async (m, { conn, usedPrefix, command }) => {
-
-let q = m.quoted ? m.quoted : m
-let mime = (m.quoted ? m.quoted : m.msg).mimetype || ''
-if (!/video|audio/.test(mime)) throw `*⚠️ الرد على مقطع فيديو أو ملاحظة صوتية عن طريق التحويل إلى صوت/MP3*`
-let media = await q.download?.()
-if (!media && !/video/.test(mime)) throw '*⚠️ حدث خطأ، يرجى المحاولة مرة أخرى*'
-if (!media && !/audio/.test(mime)) throw '*⚠️ حدث خطأ، يرجى المحاولة مرة أخرى*'
-let audio = await toAudio(media, 'mp4')
-if (!audio.data && !/audio/.test(mime)) throw '*⚠️ حدث خطأ، يرجى المحاولة مرة أخرى*'
-if (!audio.data && !/video/.test(mime)) throw '*⚠️ حدث خطأ، يرجى المحاولة مرة أخرى*'
-conn.sendFile(m.chat, audio.data, 'error.mp3', '', m, null, { mimetype: 'audio/mp4' })
-
-}
-handler.help = ['tomp3']
-handler.tags = ['transformador']
-handler.command = /^to(mp3|a(udio)?)|لصوت$/i
-
-handler.limit = true
-
-export default handler
+import {toAudio} from '../lib/converter.js';
+const handler = async (m, {conn, usedPrefix, command}) => {
+  const q = m.quoted ? m.quoted : m;
+  const mime = (q || q.msg).mimetype || q.mediaType || '';
+  if (!/video|audio/.test(mime)) throw `*[❗ملحوظه❗] رد ع فيديو يحب*`;
+  const media = await q.download();
+  if (!media) throw '*[❗معلومه❗] حدث خطأ ما*';
+  const audio = await toAudio(media, 'mp4');
+  if (!audio.data) throw '*[❗معلومه❗]نأسف، حدث خطأ أثناء تحويل تسجيل الصوت إلى نص. يرجى المحاولة مرة أخرى*';
+  conn.sendMessage(m.chat, {audio: audio.data, mimetype: 'audio/mpeg'}, {quoted: m});
+};
+handler.alias = ['tomp3', 'toaudio'];
+handler.command = /^to(mp3|audio)|لصوت$/i;
+export default handler;
