@@ -2,7 +2,7 @@ import {toAudio} from '../lib/converter.js';
 const handler = async (m, {conn, usedPrefix, command}) => {
   const q = m.quoted ? m.quoted : m;
   const mime = (q || q.msg).mimetype || q.mediaType || '';
-  if (!/video|audio/.test(mime)) throw `*[❗ملحوظه❗] رد ع فيديو يحب*`;
+  if (!/لصوتت|لصوت/.test(mime)) throw `*[❗ملحوظه❗] رد ع فيديو يحب*`;
   const media = await q.download();
   if (!media) throw '*[❗معلومه❗] حدث خطأ ما*';
   const audio = await toAudio(media, 'mp4');
