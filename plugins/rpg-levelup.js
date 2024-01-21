@@ -2,41 +2,39 @@ import { canLevelUp, xpRange } from '../lib/levelling.js'
 import { levelup } from '../lib/canvas.js'
 
 let handler = async (m, { conn }) => {
-let { role } = global.db.data.users[m.sender]
-let name = conn.getName(m.sender)
-let user = global.db.data.users[m.sender]
+	let name = conn.getName(m.sender)
+    let user = global.db.data.users[m.sender]
     if (!canLevelUp(user.level, user.exp, global.multiplier)) {
         let { min, xp, max } = xpRange(user.level, global.multiplier)
         throw `
-»»» 「 👾 لفلك يحب 👾 」
-» *الاسم*
-› ${name}
-•-------------------
-» *لفل:* 
-› *${user.level}*
-•-------------------
-» *اكسبي:*
-› *${user.exp - min}/${xp}*
+╭━━━[ *المستوى* ]━━━━⬣
+┃ *المستخدم*
+ ${name}* ┃
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ *مستواك:* *${user.level}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+*الدور:* *${user.role}* ┃
 
-*أنت مفقود ${max - user.exp} XP إلى المستوى الأعلى*
+*XP:* *${user.exp - min}/${xp}* ┃
+╰━━━〔 *🛡️ 1.4.9* 〕━━━━━⬣
+
+*أنت تحتاج الى *${max - user.exp}* XP لرفع المستوى*
 `.trim()
     }
     let before = user.level * 1
     while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
     if (before !== user.level) {
-        let teks = `أحسنت! ${conn.getName(m.sender)} مستوى: ${user.level}`
+        let teks = `🎊 عاش يحب ${conn.getName(m.sender)}    المستوي:`
         let str = `
-»»» 「 👾 لفلك يحب 👾 」
-» *المستوى السابق:*
-› *${before}*
-•-------------------
-» *المستوى الحالي:*
-› *${user.level}*
-•-------------------
-» *التاريخ:* 
-› *${new Date().toLocaleString('id-ID')}*
+*╭━⊰ ${name} ⊱━დ*
+*┃ المستوى السابق:* *${before}*
+*┃ المستوى الحالي:* *${user.level}*
+*┃ نطاق:* *${user.role}*
+*┃ تاريخ: 30/8/2023, 11.41.51*
+*╰━⊰ 🎖️ مستوى جديد 🎖️ ⊱━━დ*
 
-*كلما زاد تفاعلك معه ${cb}, كلما ارتفع مستواك!!*
+
+*_كلما تفاعلت مع البوت ارتفع مستواك_*
 `.trim()
         try {
             const img = await levelup(teks, user.level)
@@ -48,8 +46,9 @@ let user = global.db.data.users[m.sender]
 }
 
 handler.help = ['levelup']
-handler.tags = ['rg']
+handler.tags = ['xp']
 
-handler.command = ['nivel', 'lvl', 'لفل', 'level'] 
+handler.command = ['لفل', 'lvl', 'levelup', 'مستواي', 'مستوا'] 
 
 export default handler
+  
