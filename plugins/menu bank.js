@@ -18,7 +18,7 @@ let love = `
 *✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬━─━✥*
  `.trim()
 m.reply(love, null, { mentions: conn.parseMention(love) })}
-handler.help = [ love ]
-handler.tags = [ fun ]
-handler.command = /^(زفت)$/i
+handler.help = [ 'love' ]
+handler.tags = [ 'fun' ]
+handler.command = /^(البنك)$/i
 export default handler
