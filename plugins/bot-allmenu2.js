@@ -23,7 +23,6 @@ let { min, xp, max } = xpRange(level, global.multiplier)
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length 
 let more = String.fromCharCode(8206)
 let readMore = more.repeat(850)   
-let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let str = `
 *✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬━─━✥*
 
