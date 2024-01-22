@@ -19,5 +19,5 @@ let love = `
 m.reply(love, null, { mentions: conn.parseMention(love) })}
 handler.help = [ love ]
 handler.tags = [ fun ]
-handler.command = /^(البنك)$/i
+handler.command = /^(البنكك)$/i
 export default handler
