@@ -16,17 +16,17 @@ m.react(done)
 let media = await q.download()
 let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
 let link = await (isTele ? uploadImage : uploadFile)(media)
-let info = ` *🗂️ الرابط:*\n${link}\n
-*⚖️ الحجم:*\n${media.length} bytes\n
-*🚀 انتهاء الصلاحيه:*\n ${isTele ? '✅ لا تنتهي صلاحيتها' : '⚠️ غريب'}\n
-*🔰 الاختصار:*\n${await shortUrl(link)}`
+let info = ` *🗂️ اللينك:*\n${link}\n
+*⚖️ وزن:*\n${media.length} بايت\n
+*🚀 الصلاحيه:*\n ${isTele ? '✅ لا تنتهي' : '⚠️ تنتهي'}\n
+*🔰 البينك مختصر:*\n${await shortUrl(link)}`
 
 conn.reply(m.chat, info, m, { contextInfo: { externalAdReply :{ mediaUrl: ig, mediaType: 2, title: wm, body: azami, thumbnail: await(await fetch(link)).buffer(), sourceUrl: link}}})
 
 }
 handler.help = ['tourl']
 handler.tags = ['transformador']
-handler.command = /^(لرابط|تليجراف)$/i
+handler.command = /^(تليجراف|لرابط)$/i
 
 handler.limit = true
 
