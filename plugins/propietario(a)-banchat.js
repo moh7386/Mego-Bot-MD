@@ -5,8 +5,6 @@ m.reply(`*[🔒] هذه الدردشة ليس لديها إذن لاستخدام
 handler.help = ['banchat']
 handler.tags = ['owner']
 handler.command = /^بان_شات$/i
-handler.botAdmin = true
-handler.admin = true 
 handler.group = true
-
+handler.rowner = true
 export default handler
