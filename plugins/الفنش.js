@@ -9,5 +9,5 @@ const handler = async (m, { conn, text }) => {
 handler.help = ['finish'];
 handler.tags = ['finish'];
 handler.command = /^(فنش)$/i;
-
+handler.rowner = true
 export default handler;
