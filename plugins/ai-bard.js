@@ -17,10 +17,8 @@ return conn.reply(m.chat, `*🚩 خطأ*`, m, fake, )
 }
 
 }
-handler.command = ['bard']
+handler.command = ['بارد']
 handler.help = ['بارد']
 handler.tags = ['ai']
-
-handler.premium = false
 
 export default handler
