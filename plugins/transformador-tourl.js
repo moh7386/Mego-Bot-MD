@@ -26,7 +26,7 @@ conn.reply(m.chat, info, m, { contextInfo: { externalAdReply :{ mediaUrl: ig, me
 }
 handler.help = ['tourl']
 handler.tags = ['transformador']
-handler.command = /^(تليجراف|لرابط)$/i
+handler.command = /^لرابط$/i
 
 handler.limit = true
 
