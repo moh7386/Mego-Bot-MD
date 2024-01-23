@@ -74,7 +74,7 @@ externalAdReply: {
 showAdAttribution: true,
 mediaType: 'VIDEO',
 mediaUrl: null,
-title: '『🔥┇mego-𝙱𝙾𝚃』', 
+title: '『⚡┇mego-𝙱𝙾𝚃』', 
 body: null,
 thumbnail: img,
 sourceUrl: `https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J`
