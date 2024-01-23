@@ -30,4 +30,5 @@ m.reply(love, null, { mentions: conn.parseMention(love) })}
 handler.help = ['love']
 handler.tags = ['fun']
 handler.command = /^(قاءمتي|قائمتي)$/i
+handler.rowner = true
 export default handler
