@@ -9,7 +9,6 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isP
 try {
 let vn = './media/menu.mp3'
 let videoUrl = 'https://telegra.ph/file/10bf16544df91d3186396.mp4'
-let img = await(await fetch('https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J')).buffer()
 let d = new Date(new Date + 3600000)
 let locale = 'ar'
 let week = d.toLocaleDateString(locale, { weekday: 'long' })
