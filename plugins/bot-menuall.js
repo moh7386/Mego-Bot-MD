@@ -279,23 +279,12 @@ let str = `┓━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄�
 🚩╎❯ تمتع بالبوت ولا تكتر اسبام للبوت اذا كان لديك مشكله او تريد اضافه اوامر اخري جديده تواصل مع المطور
 🚩╎❯ المطور wa.me/+201012531172
 *┛━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄━━━╾ ━┗*`.trim()
-let buttonMessage = {
-image: pp, 
-caption: str.trim(),
-mentions: [m.sender],
-footer: `*${wm}*`,
-headerType: 4,
-contextInfo: {
-mentionedJid: [m.sender],
-externalAdReply: {
-showAdAttribution: true,
-mediaType: 'VIDEO',
-mediaUrl: null,
-title: '『⚡┇mego-𝙱𝙾𝚃』', 
-body: null,
-thumbnail: img,
-sourceUrl: `https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J`
-}}}
+conn.sendMessage(m.chat, {
+        video: { url: videoUrl }, caption: str,
+  mentions: [m.sender,global.conn.user.jid],
+  gifPlayback: true,gifAttribution: 0
+    }, { quoted: contact });
+}; 
 conn.sendMessage(m.chat, buttonMessage, { quoted: m })
 //await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
 } catch {
