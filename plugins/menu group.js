@@ -1,5 +1,5 @@
 let handler = async (m, { conn, command, text }) => {
-let love = `
+ let love = `
 
 *✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬━─━✥*
 
@@ -28,7 +28,6 @@ let love = `
 ❐..🔕╎❯ .الانذارات⌉
 *✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬━─━✥*
  `.trim()
-let pp = imagen4
 m.reply(love, null, { mentions: conn.parseMention(love) })}
 handler.help = ['love']
 handler.tags = ['fun']
