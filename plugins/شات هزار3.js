@@ -7,22 +7,10 @@ let handler = m => m;
      responses = [ 
  '*هلا بيك يعمري 👑🔥*'  
      ]; 
-} else if (/^وه$/i.test(m.text)) { 
-     responses = [ 
-       '*😹متوهوهش *',  
-     ]; 
-   }else if (/^نعم/i.test(m.text)) { 
+}else if (/^نعم/i.test(m.text)) { 
      responses = [ 
 '*حد ناداك انت 🤡*'
      ]; 
- }else if (/^ميجو من عمك|ميجو عمك$/i.test(m.text)) { 
-     responses = [ 
-'*ميجو اككيد😩🔥*'
-     ]; 
-}else if (/^يسطا$/i.test(m.text)) { 
-     responses = [ 
-' *بيعت التاكس 👾✨*'
-   ]; 
    }else if (/^ميجو تحبني؟|بوت تحبني$/i.test(m.text)) { 
      responses = [ 
 '*اموت فيك 🌚💔*',
@@ -63,12 +51,7 @@ let handler = m => m;
        '🌚♥اكيد',  
 
      ];
-     }else if (/^هاي$/i.test(m.text)) { 
-     responses = [ 
-       'هاي',  
-
-     ];
-     }else if (/^اي$/i.test(m.text)) { 
+   }else if (/^اي$/i.test(m.text)) { 
      responses = [ 
        '*ختك عليه 🗿*',  
 
@@ -83,11 +66,7 @@ let handler = m => m;
        'مساء الخير',  
 
      ];
-     }else if (/^صباح|صباح$/ .test(m.text)) { 
-     responses = [ 
-       '*صباح الورد♥*',  
-     ];
-       }else if (/^اوامر$/i.test(m.text)) { 
+   }else if (/^اوامر$/i.test(m.text)) { 
      responses = [ 
        '*لا تنسى ال .*',  
      ];
