@@ -50,7 +50,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
         const videoURL = 'https://telegra.ph/file/e27416d79b6803287c628.mp4';
 
-        await conn.sendMessage(m.chat, { video : { url: videoURL9 }, caption: info9 });
+        await conn.sendMessage(m.chat, { video : { url: videoURL }, caption: info });
     } catch (error) {
         console.log(error);
     }
