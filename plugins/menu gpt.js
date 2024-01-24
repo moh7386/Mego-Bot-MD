@@ -21,6 +21,6 @@ handler.help = ['love']
 
 handler.tags = ['fun']
 
-handler.command = /^(الذكاء)$/i
+handler.command = /^(ذكاءاصطناعي)$/i
 
 export default handler
