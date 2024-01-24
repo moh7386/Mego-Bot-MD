@@ -18,7 +18,7 @@ conn.sendMessage(m.chat, { text: json.result }, { quoted: m })
 } else return conn.reply(m.chat, `*🎌 إرسال صورة مع الأمر *\n\nمثال, !شوف هنا اي`, m, fake, )
 
 }
-handler.help = ['شوف']
+handler.help = ['bargimg']
 handler.tags = ['ai']
 handler.command = /^(شوف)$/i
 
