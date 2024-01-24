@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, command }) => {
     try {
-        let info9 = `┓━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄━━━╾ ━┏
+        let info = `┓━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄━━━╾ ━┏
  مـرحــبـا ${taguser} 👋🏻
 
 ≼👤≽ مـعـلــومـات الـبــوت╿↶
