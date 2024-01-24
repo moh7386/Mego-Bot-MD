@@ -1,30 +1,39 @@
-import fs from 'fs'
-import fetch from 'node-fetch'
-import { xpRange } from '../lib/levelling.js'
-const { levelling } = '../lib/levelling.js'
-import PhoneNumber from 'awesome-phonenumber'
-import { promises } from 'fs'
-import { join } from 'path'
-let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems }) => {
-try {
-let vn = './media/menu.mp3'
-let pp = imagen3
-let img = await(await fetch('https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J')).buffer()
-let d = new Date(new Date + 3600000)
-let locale = 'ar'
-let week = d.toLocaleDateString(locale, { weekday: 'long' })
-let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
-let _uptime = process.uptime() * 1000
-let uptime = clockString(_uptime)
-let user = global.db.data.users[m.sender]
-let { money, joincount } = global.db.data.users[m.sender]
-let { exp, limit, level, role } = global.db.data.users[m.sender]
-let { min, xp, max } = xpRange(level, global.multiplier)
-let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length 
-let more = String.fromCharCode(8206)
-let readMore = more.repeat(850)   
-let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-let str = `┓━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄━━━╾ ━┏
+   import { createHash } from 'crypto'
+   import PhoneNumber from 'awesome-phonenumber'
+   import { canLevelUp, xpRange } from '../lib/levelling.js'
+   import fetch from 'node-fetch'
+   import fs from 'fs'
+   const { levelling } = '../lib/levelling.js'
+   import moment from 'moment-timezone'
+   import { promises } from 'fs'
+   import { join } from 'path'
+   const time = moment.tz('Egypt').format('HH')
+   let wib = moment.tz('Egypt').format('HH:mm:ss')
+   //import db from '../lib/database.js'
+
+   let handler = async (m, { conn, usedPrefix, command}) => {
+       let d = new Date(new Date + 3600000)
+       let locale = 'en'
+       let week = d.toLocaleDateString(locale, { weekday: 'long' })
+       let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
+       let _uptime = process.uptime() * 1000
+       let uptime = clockString(_uptime)
+   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+   if (!(who in global.db.data.users)) throw `✳️ لم يتم العثور على المستخدم في قاعدة البيانات الخاصة بي`
+   let videoUrl = 'https://telegra.ph/file/93ac67bc612e76564be3c.mp4'
+   let user = global.db.data.users[who]
+   let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who]
+   let { min, xp, max } = xpRange(user.level, global.multiplier)
+   let username = conn.getName(who)
+   let math = max - xp
+   let prem = global.prems.includes(who.split`@`[0])
+   let sn = createHash('md5').update(who).digest('hex')
+   let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length 
+   let more = String.fromCharCode(8206)
+   let readMore = more.repeat(850) 
+   let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
+   let str = `
+┓━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄━━━╾ ━┏
 👑┇❯ مـرحــبـا بــك یــا ${taguser}
 
 ≼👤≽ مـعـلــومـات الـبــوت╿↶
@@ -283,35 +292,38 @@ let str = `┓━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄�
 🚩╎❯ ممنوع سب البوت لانك سبيت البوت = سبيت المطور
 🚩╎❯ تمتع بالبوت ولا تكتر اسبام للبوت اذا كان لديك مشكله او تريد اضافه اوامر اخري جديده تواصل مع المطور
 🚩╎❯ المطور wa.me/+201012531172
-*┛━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄━━━╾ ━┗*`.trim()
-let buttonMessage = {
-image: pp, 
-caption: str.trim(),
-mentions: [m.sender],
-footer: `*${wm}*`,
-headerType: 4,
-contextInfo: {
-mentionedJid: [m.sender],
-externalAdReply: {
-showAdAttribution: true,
-mediaType: 'VIDEO',
-mediaUrl: null,
-title: '『⚡┇mego-𝙱𝙾𝚃』', 
-body: null,
-thumbnail: img,
-sourceUrl: `https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J`
-}}}
-conn.sendMessage(m.chat, buttonMessage, { quoted: m })
-//await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
-} catch {
-conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙼𝙴𝙽𝚄 𝚃𝙸𝙴𝙽𝙴 𝚄𝙽 𝙴𝚁𝚁𝙾𝚁 𝚈 𝙽𝙾 𝙵𝚄𝙴 𝙿𝙾𝚂𝙸𝙱𝙻𝙴 𝙴𝙽𝚅𝙸𝙰𝚁𝙻𝙾, 𝚁𝙴𝙿𝙾𝚁𝚃𝙴𝙻𝙾 𝙰𝙻 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾 𝙳𝙴𝙻 𝙱𝙾𝚃*', m)
-}}
-handler.command = /^(المهام)$/i
-handler.exp = 50
-handler.fail = null
-export default handler
-function clockString(ms) {
-let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+*┛━ ╼━━━╃⌬〔 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 〕⌬╄━━━╾ ━┗*
+   `.trim()
+       conn.sendMessage(m.chat, {
+           video: { url: videoUrl }, caption: str,
+     mentions: [m.sender,global.conn.user.jid],
+     gifPlayback: true,gifAttribution: 0
+       }, { quoted: m });
+   };
+   handler.help = ['main']
+   handler.command = ['المهام'] 
+
+   export default handler
+   function clockString(ms) {
+       let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+       let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+       let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+       return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+
+       function ucapan() {
+         const time = moment.tz('Egypt').format('HH')
+         let res = "بداية يوم سعيده ☀️"
+         if (time >= 4) {
+           res = "صباح الخير 🌄"
+         }
+         if (time >= 10) {
+           res = "مساء الخير ☀️"
+         }
+         if (time >= 15) {
+           res = "مساء الخير 🌇"
+         }
+         if (time >= 18) {
+           res = "مساء الخير 🌙"
+         }
+         return res
+       }
