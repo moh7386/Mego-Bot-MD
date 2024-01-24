@@ -8,7 +8,7 @@ let mime = (q.msg || q).mimetype || q.mediaType || ''
 if (/image/g.test(mime) && !/webp/g.test(mime)) {
 let buffer = await q.download()
 
-conn.sendPresenceUpdate('تأليف', m.chat)
+conn.sendPresenceUpdate('composing', m.chat)
 
 let media = await (uploader)(buffer)
 let json = await (await fetch(`https://aemt.me/bardimg?url=${media}&text=${text}`)).json()
@@ -20,6 +20,6 @@ conn.sendMessage(m.chat, { text: json.result }, { quoted: m })
 }
 handler.help = ['bargimg']
 handler.tags = ['ai']
-handler.command = /^(شوف)$/i
+handler.command = /^(شوف|bargimg)$/i
 
 export default handler
