@@ -56,38 +56,13 @@ let handler = m => m
 
  } 
 
- if (/^السلام عليكم$/i.test(m.text) ) { //sem prefixo 
- conn.reply(m.chat, ` وعليكم السلام `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
-
- } 
-
  if (/^تصبح علي خير|تصبحوا علي خير/i.test(m.text) ) { //sem prefixo 
  conn.reply(m.chat, ` وانت من اهل الخير حبيبي✨💜 `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
 
  }  
 
- if (/^احبك ميجو$/i.test(m.text) ) { //sem prefixo 
- conn.reply(m.chat, ` انا اكتر ✨🥹💜 `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
-
- } 
-
- if (/^🐦|🗿$/i.test(m.text) ) { //sem prefixo 
- conn.reply(m.chat, ` انظر بعيد `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
-
- } 
-
   if (/باي^$/i.test(m.text) ) { //sem prefixo 
  conn.reply(m.chat, `باي`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
-
- } 
-
- if (/هلا^$/i.test(m.text) ) { //sem prefixo 
- conn.reply(m.chat, `هلا`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
-
- } 
-
- if (/^كيفك|عامل ايه$/i.test(m.text) ) { //sem prefixo 
- conn.reply(m.chat, ` الحمد لله و انت`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
 
  } 
  return !0 } 
