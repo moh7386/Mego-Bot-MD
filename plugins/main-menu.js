@@ -93,21 +93,3 @@
        let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
        let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
        return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
-
-       function ucapan() {
-         const time = moment.tz('Egypt').format('HH')
-         let res = "بداية يوم سعيده ☀️"
-         if (time >= 4) {
-           res = "صباح الخير 🌄"
-         }
-         if (time >= 10) {
-           res = "مساء الخير ☀️"
-         }
-         if (time >= 15) {
-           res = "مساء الخير 🌇"
-         }
-         if (time >= 18) {
-           res = "مساء الخير 🌙"
-         }
-         return res
-       }
