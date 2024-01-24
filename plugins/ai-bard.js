@@ -1,24 +1,28 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
 
-var handler = async (m, { text,  usedPrefix, command }) => {
+const handler = async (m, {conn, text, usedPrefix, command}) => {
+  if (!text) {
+    throw `_*<بارد />*_\n\n*[ 🤖 ] تقديم النص.*\n\n*[ 💡 ] مثال:* _${usedPrefix + command} بارد مرحبا بك_`;
+  }
 
-if (!text) return conn.reply(m.chat, `🎌 *أدخل الطلب*\n\nمثال, .بارد هل تعرف محمد صلاح`, m, fake, )
+  try {
+    conn.sendPresenceUpdate('composing', m.chat);
 
-try {
+    const API_URL = `https://vihangayt.me/tools/bard?q=${encodeURIComponent(text)}`;
+    const response = await fetch(API_URL);
+    const data = await response.json();
 
-conn.sendPresenceUpdate('composing', m.chat)
-var apii = await fetch(`https://aemt.me/bard?text=${text}`)
-var res = await apii.json()
-await m.reply(res.result)
+    if (data.status && data.data) {
+      const respuestaAPI = data.data;
+      conn.reply(m.chat, respuestaAPI, m);
+    } else {
+      throw '_*< بارد />*_\n\n*[ ℹ️ ] لا يمكن الحصول على رد صالح.*';
+    }
+  } catch (error) {
+    throw `_*< بارد />*_\n\n*[ ℹ️ ] حدث خطأ.  الرجاء معاودة المحاولة في وقت لاحق.*`;
+  }
+};
 
-} catch (error) {
-console.error(error)
-return conn.reply(m.chat, `*🚩 خطأ*`, m, fake, )
-}
+handler.command = /^بارد$/i;
 
-}
-handler.command = ['بارد']
-handler.help = ['بارد']
-handler.tags = ['ai']
-
-export default handler
+export default handler;
