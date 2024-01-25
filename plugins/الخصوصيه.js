@@ -35,7 +35,7 @@ global.terminos = `
 
 -----------------
 جروب المطور :
-❈↲ https://chat.whatsapp.com/HiP4wq4KssO50q78Wacv0J
+❈↲ https://chat.whatsapp.com/KF1ouG4qNb4J0dI0JTH8Ht
 
 -----------------
 رقم المطور ️:
