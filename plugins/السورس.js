@@ -1,13 +1,7 @@
 let handler = async (m, { conn, command, text }) => {
-let love = `
-*✥━─━⌬〘🔥〙⌬━─━✥*
+let love = `‏
 
-⬪  ࣪    ࣭     ࣪     ࣭   𝅦𝅦   ࣭     ࣪     ࣭    ࣪  ⬫
-⬪  ࣪    ࣭     ࣪     ࣭   𝅦𝅦   ࣭     ࣪     ࣭    ࣪  ⬫
-⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪▭̷໋̟  ۫ 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 ۫  ▭̷໋̟۪۬໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪
-   ‏
-
-*✥━─━⌬〘🔥〙⌬━─━✥*
+*✥━─━⌬〘𝒎𝒆𝒈𝒐_𝒃𝒐𝒕〙⌬━─━✥*
 
 *⌬〘 مرحبا بك في بوت ميجو 〙⌬*
 
@@ -36,7 +30,7 @@ let love = `
 
 *⏣⊰ https://Solo.to/mego51-51 ⊱⏣*
 
-*✥━─━⌬〘🔥〙⌬━─━✥*
+*✥━─━⌬〘𝒎𝒆𝒈𝒐_𝒃𝒐𝒕〙⌬━─━✥*
  `.trim()
 m.reply(love, null, { mentions: conn.parseMention(love) })}
 handler.help = ['love']
