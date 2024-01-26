@@ -2,7 +2,7 @@ let handler = async (m, { conn }) => {
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   let videoUrl = 'https://telegra.ph/file/73fd2daa9dca15ae5db80.mp4'
   let { name } = global.db.data.users[who]
-  
+  m.react('🔕')
 let str = `                  ✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬━─━✥
 【..≼قــســم الجروبات≽..】
                    ⋄━───═◞⬪⋇⬪◟═───━⋄
