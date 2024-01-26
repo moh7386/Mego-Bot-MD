@@ -1,8 +1,9 @@
-let handler = async (m, { conn, command, text }) => {
-
-let love = `
-
-*✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬━─━✥*
+let handler = async (m, { conn }) => {
+  let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let videoUrl = 'https://telegra.ph/file/3237b066ba0b62f193563.mp4'
+  let { name } = global.db.data.users[who]
+  
+let str = `*✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬━─━✥*
 【..≼قــسم الصــوتيـــات≽..】
 *⋄━───═◞⬪⋇⬪◟═───━⋄*
 ❏..🔊╎❯ .عميق⌉
@@ -17,15 +18,16 @@ let love = `
 ❏..🔊╎❯ .سنجاب⌉
 ❏..🔊╎❯ .مكس⌉
 *✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬━─━✥*
+`
+  conn.sendMessage(m.chat, {
+           video: { url: videoUrl }, caption: str,
+     mentions: [m.sender,global.conn.user.jid],
+     gifPlayback: true,gifAttribution: 0
+       }, { quoted: m });
+   };
 
- `.trim()
-
-m.reply(love, null, { mentions: conn.parseMention(love) })}
-
-handler.help = ['love']
-
-handler.tags = ['fun']
-
-handler.command = /^(الاصوات)$/i
+handler.help = ['main']
+handler.tags = ['group']
+handler.command = ['الاصوات']
 
 export default handler
