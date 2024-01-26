@@ -7,7 +7,7 @@ async function handler(m, { conn, args, usedPrefix, command }) {
     let user = global.db.data.users[m.sender]
     const item = items.filter(v => v in user && typeof user[v] == 'number')
     let lol = `*⚠️ استخدام الأمر*
-${usedPrefix + command}  [اكتب] [كمية] [@user]
+${usedPrefix + command}  [عدد] [النوع] [@user]
 
 📝 مثال : ${usedPrefix + command} exp 65 @201012531172
 
@@ -28,8 +28,8 @@ ${usedPrefix + command}  [اكتب] [كمية] [@user]
 
 يملك  *60* s
 
-اكتب: (نعم) لتصحيح الأمر
-اكتب: (لا) للإلغاء
+اكتب: (si) لتصحيح الأمر
+اكتب: (no) للإلغاء
 `.trim()
     let c = 'MEGO-BOT'
     await conn.reply(m.chat, confirm, m, { mentions: [who] })
