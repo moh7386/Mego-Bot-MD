@@ -43,6 +43,6 @@ let str = `                  ✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬�
 
 handler.help = ['main']
 handler.tags = ['group']
-handler.command = ['البنك']
+handler.command = ['التحميلات']
 
 export default handler
