@@ -21,5 +21,5 @@ await conn.sendFile(m.chat, out, 'error.mp4', '*تمت عملية تحويل ا�
 }
 handler.help = ['tovideo']
 handler.tags = ['sticker']
-handler.command = ['ستكرفيديو', 'ستكر-لفيديو', 'mp4', 'togif']
+handler.command = ['لفديو', 'ستكر-لفيديو', 'mp4', 'togif']
 export default handler
