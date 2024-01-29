@@ -1,9 +1,10 @@
-import MessageType from '@adiwajshing/baileys'
-let handler = async (m, { conn, usedPrefix, command }) => {
-let room = Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))
-if (room == undefined) return conn.sendButton(m.chat, '*[❗] انت لست في مباراة*', wm, null, [['𝙸𝙽𝙸𝙲𝙸𝙰𝚁 𝚂𝙰𝙻𝙰 𝙳𝙴 𝙹𝚄𝙴𝙶𝙾', `${usedPrefix}ttt partida nueva`]], m)
-delete conn.game[room.id]
-await m.reply('*[✔] تم حذف اللعبة بنجاح*')}
-handler.command = /^(dlettt|deltt|احذف_اللعبة|احذف_اللعبه)$/i
-handler.fail = null
-export default handler
+import MessageType from '@whiskeysockets/baileys';
+const handler = async (m, {conn, usedPrefix, command}) => {
+  const room = Object.values(conn.game).find((room) => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender));
+  if (room == undefined) return conn.sendButton(m.chat, '*[❗] 𝙽𝙾 𝙴𝚂𝚃𝙰𝚂 𝙴𝙽 𝙽𝙸𝙽𝙶𝚄𝙽𝙰 𝙿𝙰𝚁𝚃𝙸𝙳𝙰 𝙳𝙴 𝚃𝚁𝙴𝚂 𝙴𝙽 𝚁𝙰𝚈𝙰*', wm, null, [['𝙸𝙽𝙸𝙲𝙸𝙰𝚁 𝚂𝙰𝙻𝙰 𝙳𝙴 𝙹𝚄𝙴𝙶𝙾', `${usedPrefix}ttt partida nueva`]], m);
+  delete conn.game[room.id];
+  await m.reply('*[✔] تم حذف اللعبة بنجاح*');
+};
+handler.command = /^(delttt|deltt|كنسل|deltictactoe)$/i;
+handler.fail = null;
+export default handler;
