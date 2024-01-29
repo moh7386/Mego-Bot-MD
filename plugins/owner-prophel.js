@@ -39,7 +39,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
 
 handler.help = ['setppbotfull']
 handler.tags = ['owner']
-handler.command = /^(حطها_بروفايل)$/i
+handler.command = /^(حطهابروفايل)$/i
 
 handler.owner = true
 
