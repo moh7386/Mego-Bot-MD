@@ -2,7 +2,7 @@ let handler = m => m
  handler.all = async function (m) { 
  let chat = global.db.data.chats[m.chat] 
 
- if (/^احا$/i.test(m.text) ) { //sem prefixo 
+ if (/^احااااااااااا$/i.test(m.text) ) { //sem prefixo 
  conn.reply(m.chat, `احتين علي احتك 😂🔥`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
 
  } 
@@ -13,7 +13,7 @@ let handler = m => m
  } 
 
  if (/^يب$/i.test(m.text) ) { //sem prefixo 
- conn.reply(m.chat, ` يعم قول ايوا 🗿`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+ conn.reply(m.chat, ` يعم قول اه 🗿`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
 
  } 
 
