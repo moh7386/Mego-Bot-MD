@@ -1,4 +1,3 @@
-let handler = async (m, { conn, command, text }) => {
 let handler = async (m, { conn }) => {
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   let videoUrl = 'https://telegra.ph/file/af11f126f24c4e3ac3848.mp4'
@@ -37,5 +36,4 @@ let str = `                  ✥━─━⌬ 𝒎𝒆𝒈𝒐_𝒃𝒐𝒕 ⌬�
 handler.help = ['main']
 handler.tags = ['group']
 handler.command = ['التحويلات']
-
 export default handler
