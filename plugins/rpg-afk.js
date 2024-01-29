@@ -16,7 +16,7 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['afk *<razón>*']
 handler.tags = ['rg']
-handler.command = ['اخفاء']
+handler.command = ['اختفاء']
 handler.register = true
 
 export default handler
