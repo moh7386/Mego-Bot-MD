@@ -9,6 +9,6 @@ let handler = async (m, {conn, text}) => {
   conn.reply(m.chat, `*⏤͟͟͞͞🚨 تم الغاء حظر هذا المستخدم بنجاح*`, m)}
 handler.help = ["unbanuser"]
 handler.tags = ["owner"]
-handler.command = /^بان_فك$/i
+handler.command = /^بانفك$/i
 handler.rowner = true
 export default handler
