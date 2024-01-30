@@ -7,7 +7,7 @@ let quranSurahHandler = async (m, { conn }) => {
     let surahInput = m.text.split(' ')[1];
 
     if (!surahInput) {
-      throw new Error(`يرجى تحديد رقم السورة\n\n    *${usedPrefix + command}* 1`);
+      throw new Error(`يرجى تحديد رقم السورة\n\n  مثال سوره 1`);
     }
     let surahListRes = await fetch('https://quran-endpoint.vercel.app/quran');
     let surahList = await surahListRes.json();
