@@ -43,7 +43,7 @@ let quranSurahHandler = async (m, { conn }) => {
 النوع: ${json.data.type.ar}\n
 عدد الآيات: ${json.data.ayahCount}\n
 🔮 *التوضيح (عربي):*\n
-${translatedTafsirar.text}`;
+${translatedTafsirArabic.text}`;
 
     m.reply(quranSurah);
 
