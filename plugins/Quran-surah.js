@@ -1,12 +1,13 @@
 import fetch from 'node-fetch';
-import translate from '@vitalets/google-translate-api';
+import { translate } from '@vitalets/google-translate-api';
 
-let quranSurahHandler = async (m, { conn, usedPrefix, command }) => {
+let quranSurahHandler = async (m, { conn }) => {
   try {
+    // Extract the surah number or name from the command text.
     let surahInput = m.text.split(' ')[1];
 
     if (!surahInput) {
-      throw new Error(`يرجى تحديداً رقم السورة\n\n    *${usedPrefix + command}* 1`);
+      throw new Error(`Please specify the surah number or name`);
     }
 
     let surahListRes = await fetch('https://quran-endpoint.vercel.app/quran');
@@ -19,43 +20,52 @@ let quranSurahHandler = async (m, { conn, usedPrefix, command }) => {
     );
 
     if (!surahData) {
-      throw new Error(`تعذر العثور على سورة برقم أو اسم "${surahInput}"`);
+      throw new Error(`Couldn't find surah with number or name "${surahInput}"`);
     }
 
     let res = await fetch(`https://quran-endpoint.vercel.app/quran/${surahData.number}`);
     
     if (!res.ok) {
       let error = await res.json(); 
-      throw new Error(`فشل طلب واجهة برمجة التطبيقات بالحالة ${res.status} والرسالة ${error.message}`);
+      throw new Error(`API request failed with status ${res.status} and message ${error.message}`);
     }
 
     let json = await res.json();
 
+    // Translate tafsir from Bahasa Indonesia to Urdu
+    let translatedTafsirUrdu = await translate(json.data.tafsir.id, { to: 'ur', autoCorrect: true });
 
-    // Translate tafsir from Bahasa Indonesia to AR
-    let translatedTafsirar = await translate(json.data.tafsir.id, { to: 'ar', autoCorrect: true });
+    // Translate tafsir from Bahasa Indonesia to English
+    let translatedTafsirEnglish = await translate(json.data.tafsir.id, { to: 'en', autoCorrect: true });
 
     let quranSurah = `
-🕌 *القرآن: الكتاب المقدس*\n
-📜 *سورة ${json.data.number}: ${json.data.asma.ar.long}*\n
-النوع: ${json.data.type.ar}\n
-عدد الآيات: ${json.data.ayahCount}\n
-🔮 *التوضيح (عربي):*\n
-${translatedTafsirar.text}`;
+🕌 *Quran: The Holy Book*\n
+📜 *Surah ${json.data.number}: ${json.data.asma.ar.long} (${json.data.asma.en.long})*\n
+Type: ${json.data.type.en}\n
+Number of verses: ${json.data.ayahCount}\n
+🔮 *Explanation (Urdu):*\n
+${translatedTafsirUrdu.text}\n
+🔮 *Explanation (English):*\n
+${translatedTafsirEnglish.text}`;
 
     m.reply(quranSurah);
 
     if (json.data.recitation.full) {
-      conn.sendFile(m.chat, json.data.recitation.full, 'quran.mp3', null, m, true, { type: 'audioMessage', ptt: true });
+      conn.sendFile(m.chat, json.data.recitation.full, 'recitation.mp3', null, m, true, { type: 'audioMessage', ptt: true });
     }
   } catch (error) {
     console.error(error);
-    m.reply(`خطأ: ${error.message}`);
+    m.reply(`Error: ${error.message}`);
   }
 };
 
 quranSurahHandler.help = ['quran [surah_number|surah_name]'];
 quranSurahHandler.tags = ['quran', 'surah'];
-quranSurahHandler.command = ['quran', 'surah','سوره']
+quranSurahHandler.command = ['سوره', 'surah']
 
 export default quranSurahHandler;
+
+  
+  
+  
+  
