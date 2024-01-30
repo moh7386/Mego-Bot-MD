@@ -1,4 +1,4 @@
-import gtts from 'node-gtts'
+import gtts from 'node-gatta'
 import { readFileSync, unlinkSync } from 'fs'
 import { join } from 'path'
 
@@ -26,7 +26,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 }
 handler.help = ['tts <lang> <task>']
 handler.tags = ['tools']
-handler.command = ['انطق'] 
+handler.command = ['tts' , 'انطق'] 
 
 export default handler
 
