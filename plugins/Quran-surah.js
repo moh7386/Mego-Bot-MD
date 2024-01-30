@@ -48,7 +48,7 @@ ${translatedTafsirArabic.text}`;
     m.reply(quranSurah);
 
     if (json.data.recitation.full) {
-      conn.sendFile(m.chat, json.data.recitation.full, 'recitation.mp3', null, m, true, { type: 'audioMessage', ptt: true });
+      conn.sendFile(m.chat, json.data.recitation.full, 'quran.mp3', null, m, true, { type: 'audioMessage', ptt: true });
     }
   } catch (error) {
     console.error(error);
