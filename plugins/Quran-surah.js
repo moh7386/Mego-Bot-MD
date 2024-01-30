@@ -31,7 +31,7 @@ let quranSurahHandler = async (m, { conn }) => {
 
     let json = await res.json();
 
-    // Translate tafsir from Bahasa Indonesia to Urdu
+    // Translate tafsir from Bahasa Indonesia to Arabic
     let translatedTafsirUrdu = await translate(json.data.tafsir.id, { to: 'ar', autoCorrect: true });
 
     // Translate tafsir from Bahasa Indonesia to English
