@@ -39,12 +39,12 @@ const handler = async (m, { conn, text }) => {
     conn.sendFile(m.chat, 'no-bg.png', '', caption, m);
   } catch (e) {
     console.error(e);
-    m.reply('Sorry, an error occurred while processing the image, maybe check your api key.');
+    m.reply('الرجاء الرد ع صوره لتفريغها.');
   }
 };
 
 handler.help = ['removebg'];
 handler.tags = ['tools'];
-handler.command = /^rmbg|removebg$/i;
+handler.command = /^rmbg|تفريغ$/i;
 export default handler;
 
