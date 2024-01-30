@@ -1,17 +1,23 @@
 import { toAudio } from '../lib/converter.js'
 
-let handler = async (m, { conn, usedPrefix, command }) => {
-    let q = m.quoted ? m.quoted : m
-   /* let mime = (m.quoted ? m.quoted : m.msg).mimetype || ''
-    if (!/video|audio/.test(mime)) throw `✳️ Reply to the video or voice note you want to convert to mp3 with the command :\n\n*${usedPrefix + command}*`*/
-    let media = await q.download?.()
-    if (!media) throw '❎ Failed to download media'
-    let audio = await toAudio(media, 'mp4')
-    if (!audio.data) throw '❎ Error converting'
-    conn.sendFile(m.chat, audio.data, 'audio.mp3', '', m, null, { mimetype: 'audio/mp4' })
+var handler = async (m, { conn, usedPrefix, command }) => {
+
+let q = m.quoted ? m.quoted : m
+let mime = (m.quoted ? m.quoted : m.msg).mimetype || ''
+if (!/video|audio/.test(mime)) throw `*⚠️ رد ع فيديو لتحويله لصوت*`
+let media = await q.download?.()
+if (!media && !/video/.test(mime)) throw '*⚠️ OCURRIÓ UN ERROR, VUELVA A INTENTARLO*'
+if (!media && !/audio/.test(mime)) throw '*⚠️ OCURRIÓ UN ERROR, VUELVA A INTENTARLO*'
+let audio = await toAudio(media, 'mp4')
+if (!audio.data && !/audio/.test(mime)) throw '*⚠️ OCURRIÓ UN ERROR, VUELVA A INTENTARLO*'
+if (!audio.data && !/video/.test(mime)) throw '*⚠️ OCURRIÓ UN ERROR, VUELVA A INTENTARLO*'
+conn.sendFile(m.chat, audio.data, 'error.mp3', '', m, null, { mimetype: 'audio/mp4' })
+
 }
 handler.help = ['tomp3']
-handler.tags = ['fun']
-handler.command = /^to(mp3|a(udio)?)$/i
+handler.tags = ['transformador']
+handler.command = /^to(mp3|a(udio)?)|لصوت$/i
+
+handler.limit = true
 
 export default handler
