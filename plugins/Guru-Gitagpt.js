@@ -1,32 +1,26 @@
-import fetch from 'node-fetch';
+import fetch from 'node-fetch'
 
-let gitagptHandler = async (m, { text, usedPrefix, command }) => {
-  if (!text && !(m.quoted && m.quoted.text)) {
-    throw `Please provide some text or quote a message to get a response. Keep in mind that GitaGPT is still in the testing phase, so it may generate inaccurate responses at times.`;
-  }
+var handler = async (m, { text,  usedPrefix, command }) => {
 
-  if (!text && m.quoted && m.quoted.text) {
-    text = m.quoted.text;
-  }
+if (!text) throw `ادخل نص!`
 
-  try {
-    conn.sendPresenceUpdate('composing', m.chat);
-    const prompt = encodeURIComponent(text);
-    const endpoint = `https://ultimetron.guruapi.tech/gita?prompt=${prompt}`;
+try {
 
-    const response = await fetch(endpoint);
-    const data = await response.json();
-    const result = data.completion; 
+await m.reply(wait)
+var apii = await fetch(`https://aemt.me/bard?text=${text}`)
+var res = await apii.json()
+await m.reply(res.result)
 
-    m.reply(result);
-  } catch (error) {
-    console.error('Error:', error);
-    throw `*ERROR*`;
-  }
-};
-gitagptHandler.help = ['gitagpt']
-gitagptHandler.tags = ['AI']
-gitagptHandler.command = ['gitagpt'];
-gitagptHandler.diamond = false;
+} catch (error) {
+console.error(error)
+throw 'OCURRIÓ UN ERROR'
+}
 
-export default gitagptHandler;
+}
+handler.command = ['بارد']
+handler.help = ['bard']
+handler.tags = ['herramientas']
+
+handler.premium = false
+
+export default handler
