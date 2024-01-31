@@ -48,7 +48,7 @@ const handler = async (_0x5313f4, {
                     "content": "تم صنع الملف بواسطه ميججؤؤ."
                 }, ..._0xdae1f4]
             };
-            const _0x2a2698 = await _0x53def7("https://api.openai.com/v1/chat/completions", {
+            const _0x2a2698 = await _0x53def7("https://api.ibeng.tech/api/info/openai?text=${text}&apikey=tamvan", {
                 "method": "POST",
                 "headers": _0x4eb28c,
                 "body": JSON.stringify(_0x37b96f)
@@ -143,7 +143,7 @@ const handler = async (_0x5313f4, {
                                 } catch {
                                     try {
                                         _0x290ff3.sendPresenceUpdate("composing", _0x5313f4.chat);
-                                        const _0x9a6256 = await _0x53def7("https://api.akuari.my.id/ai/gpt?chat=" + _0x24524e);
+                                        const _0x9a6256 = await _0x53def7("https://api.lolhuman.xyz/api/openai-turbo?apikey=${lolkeysapi}&text=${text" + _0x24524e);
                                         const _0x58d514 = await _0x9a6256.json();
                                         if (_0x58d514.respon == "error" || _0x58d514.respon == '' || !_0x58d514.respon) {
                                             return XD;
@@ -156,7 +156,7 @@ const handler = async (_0x5313f4, {
                                     } catch {
                                         try {
                                             _0x290ff3.sendPresenceUpdate("composing", _0x5313f4.chat);
-                                            const _0x286169 = await _0x53def7("https://api.akuari.my.id/ai/gbard?chat=" + _0x24524e);
+                                            const _0x286169 = await _0x53def7("https://api.amosayomide05.cf/gpt/?question=${text}&string_id=${m.sender" + _0x24524e);
                                             const _0x307fd0 = await _0x286169.json();
                                             if (_0x307fd0.respon == "error" || _0x307fd0.respon == '' || !_0x307fd0.respon) {
                                                 return XD;
