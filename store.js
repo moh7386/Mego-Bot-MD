@@ -20,30 +20,30 @@ global.rosas = fs.readFileSync('./storage/imagenes/rosas.jpg')
 global.refran = fs.readFileSync('./storage/imagenes/refran.jpg')
 global.linksjpg = fs.readFileSync('./storage/imagenes/Links.jpg')
 
-var img = 'https://telegra.ph/file/e59f3edc315f507402cd2.jpg'; var img1 = 'https://telegra.ph/file/e59f3edc315f507402cd2.jpg'; var img2 = 'https://telegra.ph/file/923496bc59defa3f0542c.jpg'; var img3 = 'https://telegra.ph/file/562e70316f30a9437ab16.jpg'; var img4 = 'https://telegra.ph/file/562e70316f30a9437ab16.jpg'; var img5 = 'https://telegra.ph/file/be4508ee551860ecc202d.jpg'
-var img6 = 'https://telegra.ph/file/066e5c8832970e93ff312.jpg'; var img7 = 'https://telegra.ph/file/be4508ee551860ecc202d.jpg'; var img8 = 'https://telegra.ph/file/562e70316f30a9437ab16.jpg'; var img9 = 'https://telegra.ph/file/923496bc59defa3f0542c.jpg'; var img10 = 'https://telegra.ph/file/be4508ee551860ecc202d.jpg'
+var img = 'https://telegra.ph/file/d837e687c894ff494b8d0.jpg'; var img1 = 'https://telegra.ph/file/0cdc7553a40170768bb62.jpg'; var img2 = 'https://telegra.ph/file/f65120cc170ec0bd17954.jpg'; var img3 = 'https://telegra.ph/file/cee466f95093295d0e813.jpg'; var img4 = 'https://telegra.ph/file/ee93c98e87acf5d9209df.jpg'; var img5 = 'https://telegra.ph/file/27f4c77f58c19efefb4f6.jpg'
+var img6 = 'https://telegra.ph/file/e69365c893e373d9b9b2a.jpg'; var img7 = 'https://telegra.ph/file/74c4b176f5cdc4961ee3f.jpg'; var img8 = 'https://telegra.ph/file/57205e403964eff285ee6.jpg'; var img9 = 'https://telegra.ph/file/44356ed9419c4e87ed9f3.jpg'; var img10 = 'https://telegra.ph/file/27f4c77f58c19efefb4f6.jpg'
 
 global.ImgAll = [img, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10]
 
 //Enlaces
-global.yt = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle'
-global.ig = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle'
-global.md = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle'
-global.paypal = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle'
-global.git = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle'
-global.nn = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle' //Grupo ofc
-global.nnn = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle' //Curiosity global
-global.nnnn = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle' //colaboración multi bots
-global.nnnnn = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle' //Colaboración CuriosityBot - NovaBot 
-global.nnnnnn = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle' //enlace curiosity
-global.channel = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle'
-global.email = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle'
-global.channel2 = 'https://chat.whatsapp.com/D52Z0t97QfTFFjFHDi2Xle'
+global.yt = 'https://www.youtube.com/@Azami_YT'
+global.ig = 'https://instagram.com/azami_dev'
+global.md = 'https://github.com/AzamiJs/CuriosityBot-MD'
+global.paypal = 'https://paypal.me/Azami19'
+global.git = 'https://github.com/AzamiJs'
+global.nn = 'https://chat.whatsapp.com/LCAUbkf5kUz7jSxO6FADMU' //Grupo ofc
+global.nnn = 'https://chat.whatsapp.com/J1R402WH1N0Hdl3S0NDEYu' //Curiosity global
+global.nnnn = 'https://chat.whatsapp.com/KLpYFsitkgzJ15YQxZrBqO' //colaboración multi bots
+global.nnnnn = 'https://chat.whatsapp.com/E9qJfvlLjENKAxnhII9rao' //Colaboración CuriosityBot - NovaBot 
+global.nnnnnn = 'https://chat.whatsapp.com/KlRcEfl8snBEEOA0JXzw5A' //enlace curiosity
+global.channel = 'https://whatsapp.com/channel/0029VaB4w2ZFHWpwgyEe3w2k'
+global.email = 'thecuriositybot@gmail.com'
+global.channel2 = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A'
 global.linkSity = [yt, ig, md, paypal, git, channel, channel2]
 
 //Raíz
 global.raiz = './'
-global.aniD = 'mego md/'
+global.aniD = 'sessions/'
 global.dirP = raiz//+aniD
 global.authFile = join(__dirname, `sessions/`)
 global.authFileRespald = join(__dirname, `sesionRespaldo/`)
