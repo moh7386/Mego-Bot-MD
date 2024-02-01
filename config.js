@@ -25,6 +25,7 @@ global.vs = 'V2 • 1.0.5'
 global.library = 'Baileys'
 global.baileys = '@whiskeysockets/baileys'
 global.lenguaje = 'Español'
+global.KMA = '╰━━━〔 *🛡️ 1.7.9* 〕━━━━━⬣'
 global.menudi = ['⛶','❏','⫹⫺']
 global.dev = '© MEGO_BOT'
 global.devnum = '+201012531172'
