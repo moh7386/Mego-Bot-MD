@@ -14,7 +14,7 @@ if (!text) return conn.reply(m.chat, `*🎌 ادخل الطلب للرد علي�
 try {
 conn.sendPresenceUpdate('composing', m.chat)
 
-// Traducir de indonesio a español
+// Traducir de indonesio a Arabic
 const translation = await translate(text, { from: 'id', to: 'ar' })
 const indonesianText = translation.text
 let syms = `Eres un asistente y tu nombre es CuriosityBot-MD, el nombre de tu dueño es Azami`
