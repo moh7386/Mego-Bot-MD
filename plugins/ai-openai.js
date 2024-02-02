@@ -9,7 +9,7 @@ const openaiii = new OpenAIApi(configuration)
 var handler = async (m, { conn, text, usedPrefix, command }) => {
 
 if (usedPrefix == 'a' || usedPrefix == 'A') return
-if (!text) return conn.reply(m.chat, `*🎌 ادخل الطلب للرد عليك*\n\nمثال: !ميجو هات معلومعات عن الانمي\n\nميجو  اكتب كود Js`, m, fake)
+if (!text) return conn.reply(m.chat, `*🎌 ادخل الطلب للرد عليك*\n\nمثال: !ميجو هات معلومعات عن الانمي`, m, fake)
 
 try {
 conn.sendPresenceUpdate('composing', m.chat)
