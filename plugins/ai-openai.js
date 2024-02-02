@@ -24,5 +24,5 @@ let hasill = await tioress.json()
 m.reply(`${hasill.result}`.trim())   
 } catch {    
 }}}}
-handler.command = ['openai', 'chatgpt', 'ia', 'robot']
+handler.command = ['openai', 'بوت', 'ia', 'robot']
 export default handler
