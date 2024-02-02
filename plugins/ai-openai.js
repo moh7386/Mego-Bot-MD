@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import translate from '@vitalets/google-translate-api'
 import { Configuration, OpenAIApi } from 'openai'
-m.react('🗣️')
+
 const configuration = new Configuration({ organization: global.openai_org_id, apiKey: global.openai_key })
 const openaiii = new OpenAIApi(configuration)
 
