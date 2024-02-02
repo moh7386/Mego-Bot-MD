@@ -15,7 +15,7 @@ try {
 conn.sendPresenceUpdate('composing', m.chat)
 
 // Traducir de indonesio a Arabic
-const translation = await translate(text, { from: 'ar', to: 'ar' })
+const translation = await translate(text, { 'ar' })
 const indonesianText = translation.text
 let syms = `مطوري هو ميججؤؤ`
 let res = await openaiii.ChatGpt(indonesianText, syms)
