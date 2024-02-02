@@ -2,20 +2,20 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import translate from '@vitalets/google-translate-api'
 import { Configuration, OpenAIApi } from 'openai'
-
+m.react('🗣️')
 const configuration = new Configuration({ organization: global.openai_org_id, apiKey: global.openai_key })
 const openaiii = new OpenAIApi(configuration)
 
 var handler = async (m, { conn, text, usedPrefix, command }) => {
 
 if (usedPrefix == 'a' || usedPrefix == 'A') return
-if (!text) return conn.reply(m.chat, `*🎌 Ingrese una petición*\n\nEjemplo: !ia Pasos para crear una página`, m, fake)
+if (!text) return conn.reply(m.chat, `*🎌 ادخل الطلب للرد عليك*\n\nمثال: !ميجو هات معلومعات عن الانمي\n\nميجو  اكتب كود Js`, m, fake)
 
 try {
 conn.sendPresenceUpdate('composing', m.chat)
 
 // Traducir de indonesio a español
-const translation = await translate(text, { from: 'id', to: 'es' })
+const translation = await translate(text, { from: 'id', to: 'ar' })
 const indonesianText = translation.text
 let syms = `Eres un asistente y tu nombre es CuriosityBot-MD, el nombre de tu dueño es Azami`
 let res = await openaiii.ChatGpt(indonesianText, syms)
@@ -34,13 +34,13 @@ let hasill = await tioress.json()
 conn.reply(m.chat, `${hasill.result}`, m, fake, )
 } catch (err) {
 console.error(err)
-conn.reply(m.chat, '🚩 *Error al procesar la solicitud*', m, fake, )
+conn.reply(m.chat, '🚩 *خطأ*', m, fake, )
 }
 }}
 
 }
 handler.help = ['ia']
 handler.tags = ['ai']
-handler.command = ['openai', 'chatgpt', 'ia', 'robot']
+handler.command = ['ميجو', 'chatgpt', 'ia', 'بوت']
 
 export default handler
