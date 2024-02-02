@@ -9,13 +9,13 @@ const openaiii = new OpenAIApi(configuration)
 var handler = async (m, { conn, text, usedPrefix, command }) => {
 
 if (usedPrefix == 'a' || usedPrefix == 'A') return
-if (!text) return conn.reply(m.chat, `*🎌 ادخل الطلب للرد عليك*\n\nمثال: .ميجو هات معلومعات عن الانمي`, m, fake)
+if (!text) return conn.reply(m.chat, `*🎌 ادخل الطلب للرد عليك*\n\nمثال: !ميجو هات معلومعات عن الانمي`, m, fake)
 
 try {
 conn.sendPresenceUpdate('composing', m.chat)
 
 // Traducir de indonesio a Arabic
-const translation = await translate(text, { 'ar' })
+const translation = await translate(text, { from: 'en', to: 'ar' })
 const indonesianText = translation.text
 let syms = `مطوري هو ميججؤؤ`
 let res = await openaiii.ChatGpt(indonesianText, syms)
@@ -29,7 +29,7 @@ let resu2 = await ia2.json()
 m.reply(resu2.result.trim())
 } catch (err) {
 try {
-let tioress = await fetch(`https://api.lolhuman.xyz/api/openai-turbo?apikey=${lolkeysapi}&text=${text}`)
+let tioress = await fetch(`https://api.lolhuman.xyz/api/openai-turbo?apikey=GataDios&text=${text}`)
 let hasill = await tioress.json()
 conn.reply(m.chat, `${hasill.result}`, m, fake, )
 } catch (err) {
