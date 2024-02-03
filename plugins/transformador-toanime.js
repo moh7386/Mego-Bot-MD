@@ -6,7 +6,7 @@ const q = m.quoted ? m.quoted : m
 const mime = (q.msg || q).mimetype || q.mediaType || ''
 if (!/image/g.test(mime)) throw '*⚠️ قم بالرد أو ضع علامة على الصورة*'
  
-m.reply('*🚀 انتظر بيتم التحويل لكرتون *') 
+m.reply('*🚀 انتظر بيتم التحويل لكرتون*') 
 const data = await q.download?.()
 const image = await uploadImage(data)
 try {
