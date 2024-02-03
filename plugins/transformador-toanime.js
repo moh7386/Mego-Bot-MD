@@ -4,9 +4,9 @@ var handler = async (m, {conn, text, args, usedPrefix, command}) => {
 
 const q = m.quoted ? m.quoted : m
 const mime = (q.msg || q).mimetype || q.mediaType || ''
-if (!/image/g.test(mime)) throw '*⚠️ قم بالرد أو ضع علامة على الصورة*'
+if (!/image/g.test(mime)) throw '*⚠️ ويت الصوره يلي بتحولها*'
  
-m.reply('*🚀 انتظر بيتم التحويل لكرتون*') 
+m.reply('*🚀 P R O C E S A N D O*') 
 const data = await q.download?.()
 const image = await uploadImage(data)
 try {
@@ -21,12 +21,12 @@ try {
 const anime3 = `https://api.caliph.biz.id/api/animeai?img=${image}&apikey=caliphkey`
 await conn.sendFile(m.chat, anime3, 'error.jpg', null, m)
 } catch (e) {
-throw '*⚠️ خطأ، حاول مرة أخرى*'}}}
+throw '*⚠️ ERROR*'}}}
          
 }
 handler.help = ['toanime']
 handler.tags = ['transformador']
-handler.command = /^(لكرتون|لانمي)$/i
+handler.command = /^(لانمي|لكرتون|toanime)$/i
 
 handler.limit = true
  
