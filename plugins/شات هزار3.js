@@ -28,7 +28,7 @@ let handler = m => m;
      ]; 
 }else if (/^تست/i.test(m.text)) { 
      responses = [ 
-       '*شغال متقلقش*',  
+       '*انا شغال ما تقلق*',  
 
      ]; 
    }else if (/^المطور$/i.test(m.text)) { 
